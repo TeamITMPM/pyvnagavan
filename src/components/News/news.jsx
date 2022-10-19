@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./news.module.css";
 
-export default function news() {
+export default function News() {
   return (
     <div className = {styles.news}>
 
