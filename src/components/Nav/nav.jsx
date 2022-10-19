@@ -6,7 +6,7 @@ export default function nav() {
 
     <div className = {styles.nav}>
 
-        <img src="" alt="logo" />
+        <img className = {styles.navIMG} src={require('../../db/img/7cfa27f3-0a3d-469a-b9a5-5451534bccc8.png')} alt="logo" />
         <p className = {styles.categories}>Розливне пиво</p>
         <p className = {styles.categories}>Розливний сидр</p>
         <p className = {styles.categories}>Розливне вино</p>

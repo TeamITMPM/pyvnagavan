@@ -9,7 +9,7 @@ export default function news() {
       <div>
         
 
-       <img src="./new.png" alt="news" />
+       <img className = {styles.newsIMG} src={require('../../db/img/pyvnagavan.png')} alt="news" />
         
 
       </div>
