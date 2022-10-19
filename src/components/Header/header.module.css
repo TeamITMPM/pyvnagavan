@@ -1,0 +1,22 @@
+
+.header{
+   display: flex;
+   justify-content: space-between;
+   background-color: grey;
+   /* position: absolute; */
+   width: 98%;
+   object-fit: cover;
+  padding: 8px;
+}
+button {
+    background-color: gray;
+}
+
+.themeSelector{
+    width: 20px;
+}
+
+.IMG {
+    width: 40px;
+    height: 40px;
+   }
