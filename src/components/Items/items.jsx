@@ -15,6 +15,7 @@ export default function Items(  {items} ) {
            <h2  >{name}</h2>
            <img className={styles.itemsIMG}src={require('../../db/img/7cfa27f3-0a3d-469a-b9a5-5451534bccc8.png')} alt="name" />
            <p>Ціна за 1 літр {price} грн</p>
+           <button type='button'>Заказать </button>
          </div>
         
         )

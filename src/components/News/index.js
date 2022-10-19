@@ -1,1 +1,1 @@
-export {default} from "./News.jsx";
+export { default } from "./News.jsx";
