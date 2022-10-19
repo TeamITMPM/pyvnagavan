@@ -1,4 +1,10 @@
 .items{
     padding: 120px;
     background-color: rgb(170, 172, 151);
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+    /* justify-content: center; */
 }
+

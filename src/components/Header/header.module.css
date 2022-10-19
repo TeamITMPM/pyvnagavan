@@ -7,6 +7,10 @@
    width: 98%;
    object-fit: cover;
   padding: 8px;
+
+  /* position: fixed;
+  top: 0;
+  left: 0; */
 }
 button {
     background-color: gray;

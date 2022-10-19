@@ -1,0 +1,40 @@
+[
+    {
+        "name": "Beer",
+        "id": "1",
+        "photo": "../img/7cfa27f3-0a3d-469a-b9a5-5451534bccc8.png",
+        "discription": "какой - то текст",
+        "price": "70",
+        "volume": "1",
+        "categories" : "beer"
+    },
+    {
+        "name": "Beer_IPA",
+        "id": "2",
+        "photo": "../img/7cfa27f3-0a3d-469a-b9a5-5451534bccc8.png",
+        "discription": "какой - то текст",
+        "price": "75",
+        "volume": "1" ,
+        "categories" : "beer"
+    },
+    {
+        "name": "Beer_APA",
+        "id": "3",
+        "photo": "../img/7cfa27f3-0a3d-469a-b9a5-5451534bccc8.png",
+        "discription": "какой - то текст",
+        "price": "65",
+        "volume": "1" ,
+        "categories" : "beer"
+    },
+    {
+        "name": "Sidre ",
+        "id": "4",
+        "photo": "../img/7cfa27f3-0a3d-469a-b9a5-5451534bccc8.png",
+        "discription": "какой - то текст",
+        "price": "65",
+        "volume": "1" ,
+        "categories" : "sidre"
+    }
+
+
+]
