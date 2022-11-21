@@ -5,14 +5,14 @@ export default function footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.menu}>
-        <p>Пивна Гавань</p>
-        <p>Меню</p>
-        <p>Заклади</p>
+        <p className={styles.item}>Пивна Гавань</p>
+        <p className={styles.item}>Меню</p>
+        <p className={styles.item}>Заклади</p>
 
       </div>
       <div>
-        <h3>Додаток</h3>
-        
+        <p className={styles.item}> Додаток</p>   
+           
       </div>
 
 

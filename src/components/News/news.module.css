@@ -1,7 +1,23 @@
 .news{
-    background-color: aliceblue;
-    padding: 120px;
+    background: linear-gradient(
+    0deg,
+    rgb(20, 20, 20) 30%,
+    rgba(202, 75, 75, 1) 100%
+  ); 
+    padding: 7.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newsDiv{
+    background-color: aliceblue; height: 31.25rem;
+    width: 50rem;
+    border-radius: 3.125rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .newsIMG{
-    width: 200px;
+    width: 12.5rem;
 }
