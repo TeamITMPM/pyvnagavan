@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = `http://localhost:5000/api/item`;
+const URL = process.env.REACT_APP_API_URL + `api/item`;
 
 function fetchItemsFromDB() {
   return axios(URL).then((response) => response);
