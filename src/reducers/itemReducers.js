@@ -26,7 +26,7 @@ import {
   PRODUCT_TOP_FAIL,
 } from "../constans/itemConstans";
 
-export const itemListReducer = (state = { products: [] }, action) => {
+export const itemListReducer = (state = { items: [] }, action) => {
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return { loading: true, product: [] };

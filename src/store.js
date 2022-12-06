@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import { itemListReducer } from "./reducers/itemReducers";
 
 let rootReducerc = combineReducers({
-  item: itemListReducer,
+  itemState: itemListReducer,
 });
 
 let store = createStore(
