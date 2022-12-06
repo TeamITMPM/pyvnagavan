@@ -7,27 +7,29 @@ import fetchItemsFromDB from "../services/services";
 
 export default function Shop() {
   //   console.log(items);
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    fetchItems();
-  }, []);
+  // const [items, setItems] = useState([]);
+  // useEffect(() => {
+  //   fetchItems();
+  // }, []);
 
-  let fetchItems = () => {
-    fetchItemsFromDB()
-      .then((items) => setItems(items.data.rows))
+  // let fetchItems = () => {
+  //   fetchItemsFromDB()
+  //     .then((items) => setItems(items.data.rows))
 
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
-  console.log("items ", items);
+  // console.log("items ", items);
 
   return (
     <>
       <Nav />
       <News />
-      <Items items={items} />
+      <Items
+      //  items={items}
+      />
     </>
   );
 }

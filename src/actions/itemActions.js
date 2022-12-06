@@ -21,7 +21,7 @@ import {
   PRODUCT_TOP_REQUEST,
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
-} from "../constants/productConstants.js";
+} from "../constans/itemConstans";
 // const URL = process.env.REACT_APP_API_URL + `api/item`;
 
 export const listItems = () => async (dispatch) => {

@@ -1,5 +1,14 @@
 import { createStore } from "redux";
+import { combineReducers } from "redux";
+import { itemListReducer } from "./reducers/itemReducers";
 
-let store = createStore((value = 0, action) => {});
+let rootReducerc = combineReducers({
+  item: itemListReducer,
+});
+
+let store = createStore(
+  rootReducerc,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;

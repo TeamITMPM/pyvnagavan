@@ -1,3 +1,4 @@
+import { combineReducers } from "redux";
 import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -23,7 +24,7 @@ import {
   PRODUCT_TOP_REQUEST,
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
-} from "../constants/productConstants.js";
+} from "../constans/itemConstans";
 
 export const itemListReducer = (state = { products: [] }, action) => {
   switch (action.type) {
@@ -42,3 +43,7 @@ export const itemListReducer = (state = { products: [] }, action) => {
       return state;
   }
 };
+
+export default combineReducers({
+  itemListReducer,
+});
