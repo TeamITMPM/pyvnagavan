@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { connect } from "react-redux";
+import { listItems } from "../actions/itemActions";
 import Nav from "../components/Nav";
 import News from "../components/News";
 import Items from "../components/Items";
 
-import fetchItemsFromDB from "../services/services";
+// import fetchItemsFromDB from "../services/services";
 
-export default function Shop() {
+function Shop(items) {
   //   console.log(items);
   // const [items, setItems] = useState([]);
   // useEffect(() => {
@@ -23,6 +26,13 @@ export default function Shop() {
 
   // console.log("items ", items);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log("вызов ф-ции");
+    dispatch(listItems());
+    // listItems();
+  }, []);
+  // console.log(items);
   return (
     <>
       <Nav />
@@ -33,3 +43,15 @@ export default function Shop() {
     </>
   );
 }
+
+let mapStateToProps = (state) => {
+  // console.log(state);
+  return {
+    items: state.itemState.items,
+  };
+};
+let mapDispatchToProps = {
+  listItems,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Shop);

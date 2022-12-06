@@ -27,15 +27,16 @@ import {
 } from "../constans/itemConstans";
 
 export const itemListReducer = (state = { items: [] }, action) => {
+  console.log(action.payload);
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return { loading: true, product: [] };
     case PRODUCT_LIST_SUCCESS:
       return {
         loading: false,
-        products: action.payload.products,
-        pages: action.payload.pages,
-        page: action.payload.page,
+        // products: action.payload.products,
+        // pages: action.payload.pages,
+        // page: action.payload.page,
       };
     case PRODUCT_LIST_FAIL:
       return { loading: false, error: action.payload };
@@ -45,5 +46,5 @@ export const itemListReducer = (state = { items: [] }, action) => {
 };
 
 export default combineReducers({
-  itemListReducer,
+  items: itemListReducer,
 });
