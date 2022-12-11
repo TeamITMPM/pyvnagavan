@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux/es/exports";
+// import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux";
+
 import { connect } from "react-redux";
 import { listItems } from "../../actions/itemActions";
 
 import styles from "./items.module.css";
 
-const Items = (items) => {
-  console.log(items);
+const Items = () => {
   const dispatch = useDispatch();
+  const productList = useSelector((state) => state.itemState);
+  console.log(productList);
   useEffect(() => {
     dispatch(listItems());
     // listItems();
@@ -48,7 +51,7 @@ const Items = (items) => {
 };
 
 let mapStateToProps = (state) => {
-  console.log("SSS", state);
+  // console.log("SSS", state);
   return {
     items: state.itemState.items,
   };
