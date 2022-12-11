@@ -5,11 +5,12 @@ import { listItems } from "../actions/itemActions";
 import Nav from "../components/Nav";
 import News from "../components/News";
 import Items from "../components/Items";
-
 // import fetchItemsFromDB from "../services/services";
+// const { loading, error, products, page, pages } = productList;/
 
-function Shop(items) {
-  //   console.log(items);
+const Shop = (items) => {
+  // console.log("i", items);
+
   // const [items, setItems] = useState([]);
   // useEffect(() => {
   //   fetchItems();
@@ -26,32 +27,31 @@ function Shop(items) {
 
   // console.log("items ", items);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    console.log("вызов ф-ции");
-    dispatch(listItems());
-    // listItems();
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(listItems());
+  //   // listItems();
+  // }, []);
   // console.log(items);
+
   return (
     <>
       <Nav />
       <News />
-      <Items
-      //  items={items}
-      />
+      <Items />
     </>
   );
-}
-
-let mapStateToProps = (state) => {
-  // console.log(state);
-  return {
-    items: state.itemState.items,
-  };
-};
-let mapDispatchToProps = {
-  listItems,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Shop);
+// let mapStateToProps = (state) => {
+//   console.log("SSS", state);
+//   return {
+//     items: state.itemState.items,
+//   };
+// };
+// let mapDispatchToProps = {
+//   listItems,
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Shop);
+export default Shop;

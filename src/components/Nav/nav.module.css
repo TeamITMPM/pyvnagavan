@@ -21,9 +21,9 @@
   color: rgb(0, 0, 0);
   font-weight: 80;
   font-size: 1rem;
-  background-color: rgb(255, 215, 0);
+  background-color: red;
   text-transform: uppercase;
-  letter-spacing: 0.10rem;
+  letter-spacing: 0.1rem;
   transition: all 0.3s;
   overflow: hidden;
   z-index: 1;
@@ -44,7 +44,7 @@
   font-size: 1rem;
   background-color: rgb(19, 17, 17);
   text-transform: uppercase;
-  letter-spacing: 0.10rem;
+  letter-spacing: 0.1rem;
   transition: all 0.3s;
   overflow: hidden;
   z-index: 1;

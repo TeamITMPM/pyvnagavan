@@ -25,7 +25,6 @@ import {
 // const URL = process.env.REACT_APP_API_URL + `api/item`;
 
 export const listItems = () => async (dispatch) => {
-  console.log("до запроса");
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     URL = process.env.REACT_APP_API_URL + `api/item`;
@@ -41,3 +40,22 @@ export const listItems = () => async (dispatch) => {
     });
   }
 };
+
+// export const listProductDetails = (id) => async (dispatch) => {
+//   try {
+//     dispatch({ type: PRODUCT_DETAILS_REQUEST });
+//     const { data } = await axios.get(`/api/products/${id}`);
+//     dispatch({
+//       type: PRODUCT_DETAILS_SUCCESS,
+//       payload: data,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: PRODUCT_DETAILS_FAIL,
+//       payload:
+//         error.response && error.response.data.message
+//           ? error.response.data.message
+//           : error.message,
+//     });
+//   }
+// };

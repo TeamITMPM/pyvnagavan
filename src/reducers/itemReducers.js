@@ -27,14 +27,14 @@ import {
 } from "../constans/itemConstans";
 
 export const itemListReducer = (state = { items: [] }, action) => {
-  console.log(action.payload);
+  // console.log(action.payload);
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return { loading: true, product: [] };
     case PRODUCT_LIST_SUCCESS:
       return {
         loading: false,
-        // products: action.payload.products,
+        products: action.payload.rows,
         // pages: action.payload.pages,
         // page: action.payload.page,
       };

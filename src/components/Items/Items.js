@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { connect } from "react-redux";
+import { listItems } from "../../actions/itemActions";
+
 import styles from "./items.module.css";
 
-export default function Items({ items }) {
+const Items = (items) => {
+  console.log(items);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(listItems());
+    // listItems();
+  }, []);
 
+  // console.log(items);
   return (
     // <div className={styles.products}>
     //   <div className={styles.items}>
@@ -34,4 +45,16 @@ export default function Items({ items }) {
 
     <h1>Items</h1>
   );
-}
+};
+
+let mapStateToProps = (state) => {
+  console.log("SSS", state);
+  return {
+    items: state.itemState.items,
+  };
+};
+let mapDispatchToProps = {
+  listItems,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Items);
