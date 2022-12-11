@@ -15,6 +15,7 @@ export default function App() {
       <Header />
 
       <Route path="/" component={Shop} exact />
+      {/* <Route path="/" component={Shop} exact /> */}
 
       <Footer />
     </Router>
