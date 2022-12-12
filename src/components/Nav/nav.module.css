@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/roboto');
 .nav {
   color: brown;
   display: grid;
@@ -15,13 +16,13 @@
 .categories {
   display: inline-block;
   padding: 0.313rem;
-  margin: 0rem;
-  border-radius: 2rem;
-  border: 0.313rem inset rgba(0, 87, 184);
+  margin: 0.2rem;
+  border: 0.13rem inset rgb(77, 94, 114);
+  border-radius: 13px;
   color: rgb(0, 0, 0);
-  font-weight: 80;
+  font-weight:600;
   font-size: 1rem;
-  background-color: red;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   transition: all 0.3s;
@@ -31,24 +32,29 @@
   width: 10rem;
   height: 3.75rem;
   left: 0rem;
+  background: rgb(255, 255, 255);
+}
+.categories:hover{
+  background: rgb(19, 17, 17);
+  color: rgb(255, 88, 88);
+  border: 0.153rem inset rgba(199, 199, 199, 0.425);
 }
 
 .shop {
   display: block;
   padding: 0.313rem;
   margin: 0rem;
-  border-radius: 2rem;
-  border: 0.313rem inset rgba(199, 199, 199, 0.425);
+  border: 0.153rem inset rgba(199, 199, 199, 0.425);
+  border-radius: 13px;
   color: rgb(255, 88, 88);
   font-weight: 80;
-  font-size: 1rem;
+  font-size: 1.4rem;
   background-color: rgb(19, 17, 17);
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   transition: all 0.3s;
   overflow: hidden;
   z-index: 1;
-
   width: 10rem;
   height: 3.75rem;
   right: 0rem;

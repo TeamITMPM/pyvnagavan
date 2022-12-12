@@ -67,10 +67,10 @@ export default function Header() {
 <div className={styles.space} />
 
 
-        <button type="button" id={styles.button}>
+        <button type="button" className={styles.button}>
           Вход
         </button>
-        <button type="button" id={styles.button}>
+        <button type="button" className={styles.button}>
           ЛК
         </button>
       </div>
