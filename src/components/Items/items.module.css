@@ -17,8 +17,10 @@
     width: 80%;
 }
 .itemsIMG{
-    width: 15.625rem;
+    width: 15rem;
+    height: 15rem;
     border: 0.188rem inset rgb(148, 148, 148);
+    overflow: hidden;
     border-radius: 0.938rem
 }
 
