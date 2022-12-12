@@ -10,11 +10,9 @@ import { SHOP_ROUTE } from "../utils/consts";
 import Header from "./Header";
 import Shop from "../pages/Shop";
 import Auth from "../pages/Auth";
-// import Nav from "./Nav";
-// import News from "./News";
-// import Items from "./Items";
+
 import Footer from "./Footer";
-// import itemsDB from "../db/item/item.json";
+
 import fetchItemsFromDB from "../services/services";
 
 export default function App() {
