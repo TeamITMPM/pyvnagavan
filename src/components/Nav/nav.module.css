@@ -1,4 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/roboto');
+@import url('https://fonts.cdnfonts.com/css/caudex');
+@import url('https://fonts.cdnfonts.com/css/diploma');
 .nav {
   color: brown;
   display: grid;
@@ -25,7 +27,7 @@
   color: rgb(0, 0, 0);
   font-weight:600;
   font-size: 1vw;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Diploma', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   transition: all 0.3s;
@@ -60,6 +62,7 @@
   width: 10vw;
   height: 3.75vw;
   right: 0rem;
+  font-family: "Caudex", sans-serif;
 }
 
 .navIMG {

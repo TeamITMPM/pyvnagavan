@@ -52,7 +52,7 @@ export default function Header() {
         />
         {/* <div className={styles.space} /> */}
         {/* Вход и ЛК */}
-        <button type="button" className={`${styles.button} ${styles.space}`}>
+        <button type="button" className={`${styles.button} ${styles.space}`} onClick={()=>{window.open('http://localhost:3000/login')}}>
           Вхід
         </button>
         <button type="button" className={styles.button}>

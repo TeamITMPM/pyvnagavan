@@ -8,6 +8,7 @@ import {
 import { authRoutes, publicRoutes } from "../routes";
 import { SHOP_ROUTE } from "../utils/consts";
 
+
 export default function App() {
   const isAuth = true;
 
