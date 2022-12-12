@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { listItems } from "../../actions/itemActions";
 
-import styles from "./items.module.css";
+import styles from "./Items.module.css";
 
 const Items = () => {
   const dispatch = useDispatch();
