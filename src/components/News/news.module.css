@@ -1,6 +1,6 @@
 .news{
-    /* background: linear-gradient(0deg,rgb(73, 73, 73) 30%,rgb(255, 255, 255) 100%);  */
-    background: linear-gradient(0deg,rgb(20, 20, 20) 30%,rgba(202, 75, 75, 1) 100%); 
+    /* background: linear-gradient(0deg,rgb(147, 179, 128) 30%,rgb(255, 241, 165) 100%);  */
+    /* background: linear-gradient(0deg,rgb(20, 20, 20) 30%,rgba(202, 75, 75, 1) 100%);  */
     padding: 7.5rem;
     display: flex;
     justify-content: center;

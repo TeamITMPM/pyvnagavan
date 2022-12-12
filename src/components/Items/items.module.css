@@ -1,8 +1,8 @@
 .products{
     display: flex;
     justify-content: center;
-    background: linear-gradient(180deg, rgb(20, 20, 20) 30%, rgba(202,75,75,1) 100%);    position: absolute;
-    /* background: linear-gradient(180deg, rgb(20, 20, 20) 30%, rgb(236, 139, 139) 100%);    position: absolute; */
+    /* background: linear-gradient(180deg, rgb(20, 20, 20) 30%, rgba(202,75,75,1) 100%);    position: absolute; */
+    /* background: linear-gradient(180deg, rgb(206, 181, 135) 30%, rgba(67, 167, 83, 0.726) 100%);    position: absolute; */
     width: 100%;
 }
 .items{
