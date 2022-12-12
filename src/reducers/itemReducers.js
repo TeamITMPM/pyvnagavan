@@ -24,7 +24,7 @@ import {
   PRODUCT_TOP_REQUEST,
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
-} from "../constans/itemConstans";
+} from "../constants/itemConstants";
 
 export const itemListReducer = (state = { items: [] }, action) => {
   // console.log(action.payload);

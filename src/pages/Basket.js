@@ -1,5 +1,8 @@
 import React from "react";
 
-export default function Basket() {
+const Basket = () => {
+  console.log("basket work");
   return <div>Basket</div>;
-}
+};
+
+export default Basket;
