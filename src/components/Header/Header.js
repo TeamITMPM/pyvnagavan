@@ -11,8 +11,10 @@ export default function Header() {
           src="https://freesvg.org/img/molumen_phone_icon.png"
           alt="pyvnagavan"
         />
-        <div className={styles.space}/>
-        <a href="" className={styles.number}>+380639356317</a>
+        <div className={styles.space} />
+        <a href="" className={styles.number}>
+          +380639356317
+        </a>
       </div>
 
       {/* Центральная часть хєдера */}
@@ -23,14 +25,6 @@ export default function Header() {
           alt="pyvnagavan"
         />
       </div>
-
-
-
-
-
-
-
-
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
         <img
@@ -44,18 +38,11 @@ export default function Header() {
           className={styles.icon}
           src="        https://cdn.iconscout.com/icon/free/png-256/moon-456-433595.png"
         />
-
-
-
-<div className={styles.space} />
-
-
-
-
+        <div className={styles.space} />
         <img
           className={styles.icon}
           src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/322/flag-ukraine_1f1fa-1f1e6.png"
-        />        
+        />
         <label className={styles.languageSelector}>
           <input type="checkbox" /> <div></div>
         </label>
@@ -63,12 +50,10 @@ export default function Header() {
           className={styles.icon}
           src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
         />
-
-<div className={styles.space} />
-
-
-        <button type="button" className={styles.button}>
-          Вход
+        {/* <div className={styles.space} /> */}
+        {/* Вход и ЛК */}
+        <button type="button" className={`${styles.button} ${styles.space}`}>
+          Вхід
         </button>
         <button type="button" className={styles.button}>
           ЛК
