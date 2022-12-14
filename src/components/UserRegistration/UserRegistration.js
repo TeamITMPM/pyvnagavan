@@ -1,8 +1,8 @@
 // import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
-import styles from "./AdminPanelAuthorization.module.css";
+import styles from "./UserRegistration.module.css";
 
-export default function AdminPanelAuthorization() {
+export default function UserRegistration() {
   let now = new Date(),
     date18 = new Date(Number(now) - 1000 * 60 * 60 * 24 * 365.25 * 18)
       .toJSON()

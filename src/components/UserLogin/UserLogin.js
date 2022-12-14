@@ -1,13 +1,18 @@
 // import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
+
 import styles from "./AdminPanelLogin.module.css";
 
+import styles from "./UserLogin.module.css"
+
 console.log(styles);
-export default function AdminPanelLogIn() {
+export default function UserLogin() {
   return (
     <div className={styles.modal}>
       <button className={styles.button1}>
         <p className={styles.p1}>Увійти</p>
+      <button className={styles.button1} autoFocus>
+          <p className={styles.p1}>Увійти</p>
       </button>
       <button className={styles.button2}>
         <p className={styles.p1}>Зареєструватись</p>
@@ -38,4 +43,4 @@ export default function AdminPanelLogIn() {
       </form>
     </div>
   );
-}
+};
