@@ -21,7 +21,7 @@ export default function Header() {
       <div className={styles.headerMiddle}>
         <img
           className={styles.pyvnagavan}
-          src={require("../../db/img/pyvnagavan.png")}
+          src={require("./img/pyvnagavan.png")}
           alt="pyvnagavan"
         />
       </div>
@@ -50,7 +50,6 @@ export default function Header() {
           className={styles.icon}
           src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
         />
-        {/* <FontAwesomeIcon icon="fa-solid fa-basket-shopping" /> */}
         {/* <div className={styles.space} /> */}
         {/* Вход и ЛК */}
         <button type="button" className={`${styles.button} ${styles.space}`} onClick={()=>{window.open('http://localhost:3000/login')}}>

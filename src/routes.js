@@ -7,9 +7,9 @@ import {
   REGISTRATION_ROUTE,
   SHOP_ROUTE,
 } from "./utils/consts";
-import Basket from "./pages/Basket";
+import Basket from "./pages/Basket/Basket";
 import Shop from "./pages/Shop";
-import Auth from "./pages/Auth";
+import Auth from "./pages/Auth/Auth";
 import ItemPage from "./pages/ItemPage";
 
 export const authRoutes = [
