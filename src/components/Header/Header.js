@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -24,7 +25,6 @@ export default function Header() {
           src={require("../../db/img/pyvnagavan.png")}
           alt="pyvnagavan"
         />
-        
       </div>
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
@@ -53,14 +53,20 @@ export default function Header() {
         />
         {/* <div className={styles.space} /> */}
         {/* Вход и ЛК */}
-        <button type="button" className={`${styles.button} ${styles.space}`} onClick={()=>{window.open('http://localhost:3000/login')}}>
-          Вхід
+
+        <button
+          type="button"
+          className={`${styles.button} ${styles.space}`}
+          // onClick={() => {
+          //   window.open("http://localhost:3000/login");
+          // }}
+        >
+          <Link to="/signup">Вхід</Link>
         </button>
+
         <button type="button" className={styles.button}>
           ЛК
         </button>
-
-        
       </div>
     </div>
   );
