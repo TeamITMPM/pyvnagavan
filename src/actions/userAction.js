@@ -47,9 +47,9 @@ export const login = (email, password) => async (dispatch) => {
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
-      payload: data,
+      payload: data.token,
     });
-    console.log(data);
+
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
@@ -68,6 +68,7 @@ export const logout = () => (dispatch) => {
 };
 
 export const register = (name, email, password) => async (dispatch) => {
+  URL = process.env.REACT_APP_API_URL + `api/user/signup`;
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
     const config = {
