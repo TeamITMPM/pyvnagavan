@@ -1,0 +1,1 @@
+export const ORDER_LIST_MY_RESET = "ORDER_LIST_MY_RESET";

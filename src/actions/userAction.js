@@ -28,6 +28,7 @@ import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
+  console.log("login work");
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
     const config = {
@@ -36,20 +37,25 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
     URL = process.env.REACT_APP_API_URL + `api/user/login`;
-    const { data } = await axios.post(URL, { email, password }, config);
+    const { data } = await axios.post(
+      URL,
+      {
+        email: email,
+        password: password,
+      },
+      config
+    );
+
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-
+    console.log(data);
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error,
     });
   }
 };

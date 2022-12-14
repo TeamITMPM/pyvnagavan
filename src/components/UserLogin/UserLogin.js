@@ -1,9 +1,17 @@
 import React from "react";
-import {Link} from "react-router-dom"
+// import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { login } from "../../actions/userAction";
 import styles from "./UserLogin.module.css";
+// console.log(login);
 
-console.log(styles);
 export default function UserLogin() {
+  const dispatch = useDispatch();
+  const loginClick = async (evt) => {
+    evt.preventDefault();
+    dispatch(login(evt.target[0].value, evt.target[1].value));
+  };
   return (
     <div className={styles.modal}>
       <Link to="/login">
@@ -16,7 +24,7 @@ export default function UserLogin() {
           <p className={styles.p1}>Зареєструватись</p>
         </button>
       </Link>
-      <form className={styles.form} action="">
+      <form className={styles.form} action="" onSubmit={loginClick}>
         <div className={styles.FormRegistration}>
           <div className={styles.labelTable}>
             <label htmlFor="mail">
@@ -37,7 +45,10 @@ export default function UserLogin() {
           </div>
         </div>
         <div>
-          <input className={styles.buttonFinish} type="submit" />
+          <button className={styles.buttonFinish} type="submit">
+            {" "}
+            Відправити
+          </button>
         </div>
       </form>
     </div>
