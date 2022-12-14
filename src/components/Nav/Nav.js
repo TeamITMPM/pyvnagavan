@@ -1,5 +1,5 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
 
 export default function Nav() {
@@ -12,9 +12,15 @@ export default function Nav() {
       <button className={styles.categories}>Сети</button>
       <button className={styles.categories}>Банка</button>
       <button className={styles.categories}>Б/А</button>
-      <Link to="/basket">
-      <button className={styles.basket}>Кошик <img src = {require("./img/basket-shopping-solid.png")} className={styles.basketImg}/> </button>
+      <Link to="/basket" style={{ textDecoration: "none" }}>
+        <button className={styles.basket}>
+          Кошик{" "}
+          <img
+            src={require("./img/basket-shopping-solid.png")}
+            className={styles.basketImg}
+          />{" "}
+        </button>
       </Link>
     </div>
-  )
+  );
 }
