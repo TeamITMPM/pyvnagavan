@@ -6,8 +6,11 @@ export default function Header() {
     <div className={styles.header}>
       {/* Левая часть хєдера */}
       <div className={styles.headerLeft}>
-        {/* <svg src ={require("./img/phone-solid.svg") width={100}}/> */}
-   
+        <i
+          // className={styles.IMG}
+          src={require("./img/phone-solid.svg")}
+          alt="pyvnagavan"
+        />
         <div className={styles.space} />
         <a href="" className={styles.number}>
           +380639356317
