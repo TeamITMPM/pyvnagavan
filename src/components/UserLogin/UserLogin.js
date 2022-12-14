@@ -1,19 +1,21 @@
 import React from "react";
-
-
-
-import styles from "./UserLogin.module.css"
+import {Link} from "react-router-dom"
+import styles from "./UserLogin.module.css";
 
 console.log(styles);
 export default function UserLogin() {
   return (
     <div className={styles.modal}>
-      <button className={styles.button1} autoFocus>
+      <Link to="/login">
+        <button className={styles.button1} autoFocus>
           <p className={styles.p1}>Увійти</p>
-      </button>
-      <button className={styles.button2}>
-        <p className={styles.p1}>Зареєструватись</p>
-      </button>
+        </button>
+      </Link>
+      <Link to="/signup">
+        <button className={styles.button2}>
+          <p className={styles.p1}>Зареєструватись</p>
+        </button>
+      </Link>
       <form className={styles.form} action="">
         <div className={styles.FormRegistration}>
           <div className={styles.labelTable}>
@@ -40,4 +42,4 @@ export default function UserLogin() {
       </form>
     </div>
   );
-};
+}

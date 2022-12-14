@@ -1,5 +1,6 @@
 // import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./UserRegistration.module.css";
 
 export default function UserRegistration() {
@@ -10,12 +11,16 @@ export default function UserRegistration() {
 
   return (
     <div className={styles.modal}>
-      <button className={styles.button1}>
-        <h1 className={styles.h1}>Увійти</h1>
-      </button>
-      <button className={styles.button2} autoFocus>
-        <h1 className={styles.h1}>Зареєструватись</h1>
-      </button>
+      <Link to="/login">
+        <button className={styles.button1}>
+          <h1 className={styles.h1}>Увійти</h1>
+        </button>
+      </Link>
+      <Link to="/signup">
+        <button className={styles.button2} autoFocus>
+          <h1 className={styles.h1}>Зареєструватись</h1>
+        </button>
+      </Link>
       <form className={styles.form} action="">
         <div className={styles.FormRegistration}>
           <div className={styles.labelTable}>
