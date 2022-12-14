@@ -179,8 +179,10 @@ a:active {
 }
 
 .pyvnagavan {
-  height: 15vw;
+  height: 3vw;
   max-height:4vw;
 }
 
-
+.pyvnagavan:hover{
+ height: 15vw;
+}

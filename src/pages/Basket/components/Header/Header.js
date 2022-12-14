@@ -6,8 +6,11 @@ export default function Header() {
     <div className={styles.header}>
       {/* Левая часть хєдера */}
       <div className={styles.headerLeft}>
-        {/* <svg src ={require("./img/phone-solid.svg") width={100}}/> */}
-   
+        <img
+          className={styles.IMG}
+          src="https://freesvg.org/img/molumen_phone_icon.png"
+          alt="pyvnagavan"
+        />
         <div className={styles.space} />
         <a href="" className={styles.number}>
           +380639356317
@@ -18,7 +21,7 @@ export default function Header() {
       <div className={styles.headerMiddle}>
         <img
           className={styles.pyvnagavan}
-          src={require("../../db/img/pyvnagavan.png")}
+          src={require("./img/pyvnagavan.png")}
           alt="pyvnagavan"
         />
       </div>
