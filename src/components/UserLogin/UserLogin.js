@@ -1,7 +1,6 @@
-// import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 
-import styles from "./AdminPanelLogin.module.css";
+
 
 import styles from "./UserLogin.module.css"
 
@@ -11,6 +10,7 @@ export default function UserLogin() {
     <div className={styles.modal}>
       <button className={styles.button1}>
         <p className={styles.p1}>Увійти</p>
+        </button>
       <button className={styles.button1} autoFocus>
           <p className={styles.p1}>Увійти</p>
       </button>
