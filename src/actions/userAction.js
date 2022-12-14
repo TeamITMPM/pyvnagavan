@@ -28,7 +28,6 @@ import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
-  console.log("login work");
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
     const config = {
