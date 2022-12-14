@@ -8,9 +8,6 @@ console.log(styles);
 export default function UserLogin() {
   return (
     <div className={styles.modal}>
-      <button className={styles.button1}>
-        <p className={styles.p1}>Увійти</p>
-        </button>
       <button className={styles.button1} autoFocus>
           <p className={styles.p1}>Увійти</p>
       </button>
