@@ -6,11 +6,8 @@ export default function Header() {
     <div className={styles.header}>
       {/* Левая часть хєдера */}
       <div className={styles.headerLeft}>
-        <img
-          className={styles.IMG}
-          src="https://freesvg.org/img/molumen_phone_icon.png"
-          alt="pyvnagavan"
-        />
+        {/* <svg src ={require("./img/phone-solid.svg") width={100}}/> */}
+   
         <div className={styles.space} />
         <a href="" className={styles.number}>
           +380639356317
@@ -50,7 +47,6 @@ export default function Header() {
           className={styles.icon}
           src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
         />
-        {/* <FontAwesomeIcon icon="fa-solid fa-basket-shopping" /> */}
         {/* <div className={styles.space} /> */}
         {/* Вход и ЛК */}
         <button type="button" className={`${styles.button} ${styles.space}`} onClick={()=>{window.open('http://localhost:3000/login')}}>
