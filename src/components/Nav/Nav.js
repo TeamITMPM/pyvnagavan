@@ -11,7 +11,7 @@ export default function Nav() {
       <button className={styles.categories}>Сети</button>
       <button className={styles.categories}>Банка</button>
       <button className={styles.categories}>Б/А</button>
-      <button className={styles.shop}>Shop</button>
+      <button className={styles.basket}>Кошик <img src = {require("./img/basket-shopping-solid.png")} className={styles.basketImg}/> </button>
       
     </div>
   )

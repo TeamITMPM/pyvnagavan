@@ -6,9 +6,9 @@ export default function Header() {
     <div className={styles.header}>
       {/* Левая часть хєдера */}
       <div className={styles.headerLeft}>
-        <i
-          // className={styles.IMG}
-          src={require("./img/phone-solid.svg")}
+        <img
+          className={styles.IMG}
+          src={require("./img/phone.png")}
           alt="pyvnagavan"
         />
         <div className={styles.space} />
@@ -24,6 +24,7 @@ export default function Header() {
           src={require("../../db/img/pyvnagavan.png")}
           alt="pyvnagavan"
         />
+        
       </div>
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
@@ -58,6 +59,8 @@ export default function Header() {
         <button type="button" className={styles.button}>
           ЛК
         </button>
+
+        
       </div>
     </div>
   );

@@ -44,7 +44,7 @@
   width: 100%;
 }
 
-.shop {
+.basket {
   display: block;
   padding: 1vw;
   margin: 0.2vw;
@@ -63,6 +63,10 @@
   height: 3.75vw;
   right: 0rem;
   font-family: "Caudex", sans-serif;
+}
+
+.basketImg{
+width: 1vw;
 }
 
 .navIMG {
