@@ -9,7 +9,8 @@ import {
 } from "./utils/consts";
 import Basket from "./pages/Basket/Basket";
 import Shop from "./pages/Shop";
-import Auth from "./pages/Auth";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import ItemPage from "./pages/ItemPage";
 
 export const authRoutes = [
@@ -30,11 +31,11 @@ export const publicRoutes = [
   },
   {
     path: LOGIN_ROUTE,
-    Component: Auth,
+    Component: Login,
   },
   {
     path: REGISTRATION_ROUTE,
-    Component: Auth,
+    Component: SignUp,
   },
   {
     path: ITEM_ROUTE + "/:id",

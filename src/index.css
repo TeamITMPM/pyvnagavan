@@ -7,17 +7,10 @@ body {
   padding: 0rem;
   width: 100%;
   font-family: "Caudex", sans-serif;
-<<<<<<< HEAD
+
   /* background: url("./img/27388538457_7596baae5f_k.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   backdrop-filter: blur(7px) brightness(0.9) contrast(70%);
-  background-size: cover; */
-=======
-  background: url("./img/27388538457_7596baae5f_k.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  backdrop-filter: blur(7px) brightness(0.9) contrast(70%);
-  background-size: cover;
->>>>>>> 988af36fdb1413e39b3dda95aa18e15d7496d641
+  background-size: cover;  */
 }
