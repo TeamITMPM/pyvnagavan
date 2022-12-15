@@ -111,6 +111,8 @@ a:active {
   width: 3vw;
   background: #000000;
   border-radius: 1.5vw;
+  cursor: pointer;
+
 }
 .themeSelector input {
   position: absolute; 
@@ -125,6 +127,8 @@ a:active {
   -webkit-transition: all 300ms;
   -moz-transition: all 300ms;
   transition: all 300ms;
+  cursor: pointer;
+
 }
 
 .themeSelector input:checked + div {
@@ -138,6 +142,8 @@ a:active {
   width: 3vw;
   background: #000000;
   border-radius: 1.5vw;
+  cursor: pointer;
+
 }
 .languageSelector input {
   position: absolute;
@@ -152,6 +158,8 @@ a:active {
   -webkit-transition: all 300ms;
   -moz-transition: all 300ms;
   transition: all 300ms;
+  cursor: pointer;
+
 }
 
 .languageSelector input:checked + div {

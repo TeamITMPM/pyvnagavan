@@ -19,7 +19,7 @@ export default function UserLogin() {
   return (
     <div className={styles.modal}>
       <Link to="/login">
-        <button className={styles.button1} autoFocus>
+        <button className={styles.button1} >
           <p className={styles.p1}>Увійти</p>
         </button>
       </Link>

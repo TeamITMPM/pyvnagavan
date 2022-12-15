@@ -1,0 +1,16 @@
+
+.selector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    border-radius: 5px;
+    font-size: 2vw;
+    margin: 1vw;
+    cursor: pointer;
+  }
+  .input:focus {
+    background-color: rgba(153, 199, 159, 0.288);
+  }

@@ -33,9 +33,11 @@ export default function Delivery() {
             />
           </label>
         </div>
+
+        
         <div className={styles.block}>
           <label className={styles.label}>
-            Адреса:{" "}
+            Доставка:{" "}
             <input
               type="text"
               name="street-address"
@@ -79,6 +81,8 @@ export default function Delivery() {
             />
           </label>
         </div>
+
+
         <div className={styles.block}>
           <label className={styles.label}>
             Час:{" "}
@@ -102,6 +106,8 @@ export default function Delivery() {
             </label>
           </label>
         </div>
+
+
         <div className={styles.block}>
           <label className={styles.label}>
             Оплата:{" "}
@@ -119,11 +125,9 @@ export default function Delivery() {
             />
             <label className={styles.label}>
               Без решти
-              <input
-                type="checkbox"
-                name="no-change"
-                className={styles.checkbox}
-              />
+              <div className={styles.checkbox}>
+                <input type="checkbox" name="no-change" /><div></div>
+              </div>
             </label>
             <select name="payment" className={styles.input}>
               <option value="card">Оплата карткою онлайн</option>
