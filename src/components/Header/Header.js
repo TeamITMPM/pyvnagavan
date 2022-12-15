@@ -19,23 +19,18 @@ export default function Header() {
       </div>
 
       {/* Центральная часть хєдера */}
+      <Link to="/">
+        <div className={styles.headerMiddle}>
+          <img
+            className={styles.pyvnagavan}
+            src={require("../../db/img/pyvnagavan.png")}
+            alt="pyvnagavan"
+          />
+        </div>
+      </Link>
 
-      <div className={styles.headerMiddle}>
-        <img
-          className={styles.pyvnagavan}
-          src={require("../../db/img/pyvnagavan.png")}
-          alt="pyvnagavan"
-        />
-      </div>
 
-      <div className={styles.headerMiddle}>
-        <img
-          className={styles.pyvnagavan}
-          src={require("../../db/img/pyvnagavan.png")}
-          alt="pyvnagavan"
-        />
-      </div>
-
+      
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
         <img
