@@ -16,6 +16,10 @@ const Items = () => {
     dispatch(listItems());
   }, []);
 
+  const addToBasket = (id) => {
+    console.log(id);
+  };
+
   return (
     <div className={styles.products}>
       <div className={styles.items}>
@@ -37,7 +41,13 @@ const Items = () => {
                 <p>Стара ціна за літр {oldPrice}</p>
                 <p>Ціна за 1 літр {price} грн</p>
                 <p>Рейтинг {rating}</p>
-                <button type="button" className={styles.button}>
+                <button
+                  onClick={() => {
+                    addToBasket(id);
+                  }}
+                  type="button"
+                  className={styles.button}
+                >
                   Заказать{" "}
                 </button>
               </div>

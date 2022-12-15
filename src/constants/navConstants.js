@@ -1,0 +1,3 @@
+export const NAV_LIST_REQUEST = "NAV_LIST_REQUEST";
+export const NAV_LIST_SUCCESS = "NAV_LIST_SUCCESS";
+export const NAV_LIST_FAIL = "NAV_LIST_FAIL";
