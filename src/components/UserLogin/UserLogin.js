@@ -8,6 +8,10 @@ import styles from "./UserLogin.module.css";
 
 export default function UserLogin() {
   const dispatch = useDispatch();
+
+  const userInfo = useSelector((state) => state);
+  const { token } = userInfo;
+
   const loginClick = async (evt) => {
     evt.preventDefault();
     dispatch(login(evt.target[0].value, evt.target[1].value));
@@ -54,3 +58,12 @@ export default function UserLogin() {
     </div>
   );
 }
+
+// let mapStateToProps = (state) => {
+//   return {
+//     items: state.itemState.items,
+//   };
+// };
+// let mapDispatchToProps = {
+//   listItems,
+// };

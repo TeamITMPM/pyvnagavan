@@ -1,5 +1,8 @@
 // import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../actions/userAction";
+
 import { Link } from "react-router-dom";
 import styles from "./UserRegistration.module.css";
 
@@ -8,6 +11,16 @@ export default function UserRegistration() {
     date18 = new Date(Number(now) - 1000 * 60 * 60 * 24 * 365.25 * 18)
       .toJSON()
       .slice(0, 10);
+
+  const dispatch = useDispatch();
+
+  const userInfo = useSelector((state) => state.itemState);
+  const { token } = userInfo;
+
+  const signUpClick = (evt) => {
+    evt.preventDefault();
+    dispatch(register(evt.target[0].value, evt.target[1].value));
+  };
 
   return (
     <div className={styles.modal}>
@@ -21,7 +34,7 @@ export default function UserRegistration() {
           <h1 className={styles.h1}>Зареєструватись</h1>
         </button>
       </Link>
-      <form className={styles.form} action="">
+      <form className={styles.form} action="" onSubmit={signUpClick}>
         <div className={styles.FormRegistration}>
           <div className={styles.labelTable}>
             <label htmlFor="textSurname">
@@ -70,8 +83,7 @@ export default function UserRegistration() {
               className={styles.inputText}
               id="5"
               type="date"
-              value="2004-09-1"
-              max={date18}
+              // value="2004-09-1"
             />
             {/* //дату на 18 лет до текущей
             // max="2004-02-01" */}
@@ -101,12 +113,16 @@ export default function UserRegistration() {
             <input
               className={styles.inputConfirmPassword}
               type="password"
-              id="7"
+              id="8"
             />
           </div>
         </div>
         <div>
-          <input className={styles.buttonFinish} type="submit" />
+          {/* <input className={styles.buttonFinish} type="submit" /> */}
+          <button className={styles.buttonFinish} type="submit">
+            {" "}
+            Відправити
+          </button>
         </div>
       </form>
     </div>

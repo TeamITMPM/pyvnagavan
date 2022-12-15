@@ -45,6 +45,6 @@ export const itemListReducer = (state = { items: [] }, action) => {
   }
 };
 
-export default combineReducers({
-  items: itemListReducer,
-});
+// export default combineReducers({
+//   items: itemListReducer,
+// });
