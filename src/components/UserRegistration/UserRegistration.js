@@ -19,7 +19,18 @@ export default function UserRegistration() {
 
   const signUpClick = (evt) => {
     evt.preventDefault();
-    dispatch(register(evt.target[0].value, evt.target[1].value));
+    // console.log(evt.target[0].value);
+
+    let data = {};
+    // for (let i = 0; i <= 6; i++) {
+    //   data = [...evt.target[i].value];
+    // }
+
+    for (let i = 0; i <= 6; i++) {
+      data[evt.target[i].name] = evt.target[i].value;
+    }
+    // console.log(data);
+    dispatch(register(data));
   };
 
   return (
@@ -37,23 +48,33 @@ export default function UserRegistration() {
       <form className={styles.form} action="" onSubmit={signUpClick}>
         <div className={styles.FormRegistration}>
           <div className={styles.labelTable}>
-            <label htmlFor="textSurname">
+            <label htmlFor="surname">
               <h2 className={styles.h2}>Фамілія</h2>
             </label>
           </div>
           <div className={styles.inputTable}>
-            <input className={styles.inputText} id="1" type="text" />
+            <input
+              className={styles.inputText}
+              id="1"
+              type="text"
+              name="secondName"
+            />
           </div>
           <div className={styles.labelTable}>
-            <label htmlFor="textName">
+            <label htmlFor="name">
               <h2 className={styles.h2}>Ім'я</h2>
             </label>
           </div>
           <div className={styles.inputTable}>
-            <input className={styles.inputText} id="2" type="text" />
+            <input
+              className={styles.inputText}
+              id="2"
+              type="text"
+              name="firstName"
+            />
           </div>
           <div className={styles.labelTable}>
-            <label htmlFor="numTel">
+            <label htmlFor="phone">
               <h2 className={styles.h2}>Телефон</h2>
             </label>
           </div>
@@ -63,6 +84,7 @@ export default function UserRegistration() {
               id="3"
               type="tel"
               pattern="[+]{1}\[3]{1}\[8]{1}\[(]{1}\[0-9]{3}\[)]{1}\[0-9]{3}-[0-9]{2}-[0-9]{2}"
+              name="phone"
             />
           </div>
           <div className={styles.labelTable}>
@@ -71,7 +93,12 @@ export default function UserRegistration() {
             </label>
           </div>
           <div className={styles.inputTable}>
-            <input className={styles.inputText} id="4" type="email" />
+            <input
+              className={styles.inputText}
+              id="4"
+              type="email"
+              name="email"
+            />
           </div>
           <div className={styles.labelTable}>
             <label htmlFor="date">
@@ -84,17 +111,24 @@ export default function UserRegistration() {
               id="5"
               type="date"
               // value="2004-09-1"
+              name="dateOfBirthsday"
             />
             {/* //дату на 18 лет до текущей
             // max="2004-02-01" */}
           </div>
           <div className={styles.labelTable}>
-            <label htmlFor="favoritebeer">
+            <label htmlFor="favouriteBeer">
               <h2 className={styles.h2}>Улюблене пиво</h2>
             </label>
           </div>
           <div className={styles.inputTable}>
-            <input className={styles.inputText} id="6" rows="1" type="chose" />
+            <input
+              className={styles.inputText}
+              id="6"
+              rows="1"
+              type="chose"
+              name="favouriteBeer"
+            />
           </div>
           <div className={styles.labelTable}>
             <label htmlFor="password">
@@ -102,7 +136,12 @@ export default function UserRegistration() {
             </label>
           </div>
           <div className={styles.inputTable}>
-            <input className={styles.inputText} type="password" id="7" />
+            <input
+              className={styles.inputText}
+              type="password"
+              id="7"
+              name="password"
+            />
           </div>
           <div className={styles.labelTable}>
             <label htmlFor="confirmpassword">
