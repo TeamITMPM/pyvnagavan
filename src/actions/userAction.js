@@ -28,6 +28,7 @@ import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
+  console.log(email, password);
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
     const config = {
@@ -67,8 +68,9 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_LIST_RESET });
 };
 
-export const register = (name, email, password) => async (dispatch) => {
-  URL = process.env.REACT_APP_API_URL + `api/user/signup`;
+export const register = (userData) => async (dispatch) => {
+  console.log(userData);
+  URL = process.env.REACT_APP_API_URL + `api/user/registration`;
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
     const config = {
@@ -77,11 +79,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(
-      "/api/users",
-      { name, email, password },
-      config
-    );
+    const { data } = await axios.post(URL, userData, config);
     dispatch({
       type: USER_REGISTER_SUCCESS,
       payload: data,
@@ -97,10 +95,7 @@ export const register = (name, email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_REGISTER_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error,
     });
   }
 };
