@@ -1,31 +1,37 @@
 .topFooter {
-    position: sticky;
-    background-color: blue;
-    bottom: 0%;
-    height: 40px;
+  position: sticky;
+  background-color: rgb(0, 0, 0);
+  bottom: 0px;
+  height: 40px;
+  color: white;
 }
-.Footer{
-    background-color: aqua;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    position: grid;
-    display: flex;
-    padding: 0px;
-    margin: 0px;
-    height: 100px;
-    width: 100%;
-margin: 0px;
-    font-size: 15px;
+.Footer {
+  background-color: rgb(53, 53, 53);
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: grid;
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  height: auto;
+  width: 100%;
+  margin: 0px;
+  font-size: 15px;
+  color: white;
 }
-.NameOfTable{
-    display: inline-block;
-    top: 0px;
-    
+.NameOfTable {
+  display: inline-block;
+  top: 0px;
 }
 .img {
-    height: 15px;
-    width: 15px;
-    background: none;
-    display: fixed;
+  height: 15px;
+  width: 15px;
+  background: none;
+  display: fixed;
 }
+
+li {
+    margin: 1rem;
+}
+
