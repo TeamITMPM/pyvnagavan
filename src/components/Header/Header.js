@@ -19,6 +19,7 @@ export default function Header() {
       </div>
 
       {/* Центральная часть хєдера */}
+
       <div className={styles.headerMiddle}>
         <img
           className={styles.pyvnagavan}
@@ -26,6 +27,7 @@ export default function Header() {
           alt="pyvnagavan"
         />
       </div>
+
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
         <img
