@@ -7,7 +7,7 @@ import {
   REGISTRATION_ROUTE,
   SHOP_ROUTE,
 } from "./utils/consts";
-import Basket from "./pages/Basket/Basket";
+import Basket from "./pages/Basket";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";

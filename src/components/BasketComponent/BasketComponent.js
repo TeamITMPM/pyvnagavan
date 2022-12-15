@@ -3,9 +3,9 @@ import Delivery from "./Delivery/Delivery";
 import CarryOut from "./CarryOut/CarryOut";
 
 
-import styles from "./Form.module.css";
+import styles from "./BasketComponent.module.css";
 
-export default function Form() {
+export default function BasketComponent() {
   return (
     <div>
       <button> Доставка </button>

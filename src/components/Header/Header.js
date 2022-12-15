@@ -28,6 +28,14 @@ export default function Header() {
         />
       </div>
 
+      <div className={styles.headerMiddle}>
+        <img
+          className={styles.pyvnagavan}
+          src={require("../../db/img/pyvnagavan.png")}
+          alt="pyvnagavan"
+        />
+      </div>
+
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
         <img

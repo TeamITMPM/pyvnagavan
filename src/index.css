@@ -7,6 +7,11 @@ body {
   padding: 0rem;
   width: 100%;
   font-family: "Caudex", sans-serif;
+background-color: rgb(147, 179, 128);
+/* Dark theme */
+/* background-color: rgb(44, 44, 44); */
+
+
 
   /* background: url("./img/27388538457_7596baae5f_k.jpg");
   background-repeat: no-repeat;
@@ -14,5 +19,3 @@ body {
   backdrop-filter: blur(7px) brightness(0.9) contrast(70%); */
 }
 
-/* .background{
-    background-image: url("./img/27388538457_7596baae5f_k.jpg");*/

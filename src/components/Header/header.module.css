@@ -14,7 +14,7 @@
   object-fit: cover;
   height: 5vw;
   background: linear-gradient(0deg,rgb(147, 179, 128) 30%,rgb(255, 241, 165) 100%); 
- 
+  box-shadow: 10px 5px 5px rgb(0, 0, 0);
  
 }
 
