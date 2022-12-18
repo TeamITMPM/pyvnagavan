@@ -41,6 +41,10 @@ const Items = () => {
                 <p>Стара ціна за літр {oldPrice}</p>
                 <p>Ціна за 1 літр {price} грн</p>
                 <p>Рейтинг {rating}</p>
+                <div className={styles.counter}>
+                  <input type="number" min="0.5" max="100" step="0.5" />
+                </div>
+
                 <button
                   onClick={() => {
                     addToBasket(id);

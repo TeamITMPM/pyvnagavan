@@ -21,7 +21,7 @@ const Nav = () => {
       {types &&
         types.map(({ name, id }) => {
           return (
-            <button id={id} className={styles.categories}>
+            <button id={id} key={id} className={styles.categories}>
               {name}
             </button>
           );
