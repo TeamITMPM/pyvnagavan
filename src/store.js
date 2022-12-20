@@ -4,11 +4,13 @@ import { userLoginReducer } from "./reducers/userReducers";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { navListReducer } from "./reducers/navReducers";
+import { basketReducer } from "./reducers/basketReducer";
 
 let rootReducer = combineReducers({
   itemState: itemListReducer,
   userInfo: userLoginReducer,
   navState: navListReducer,
+  // basketState: basketReducer,
 });
 
 const initialState = {

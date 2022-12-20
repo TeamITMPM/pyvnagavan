@@ -15,9 +15,14 @@ const Items = () => {
   useEffect(() => {
     dispatch(listItems());
   }, []);
+  let quantity;
 
   const addToBasket = (id) => {
     console.log(id);
+  };
+  const changeLiters = (evt) => {
+    console.log(evt.target.value);
+    console.log(evt.target.id);
   };
 
   return (
@@ -42,7 +47,15 @@ const Items = () => {
                 <p>Ціна за 1 літр {price} грн</p>
                 <p>Рейтинг {rating}</p>
                 <div className={styles.counter}>
-                  <input type="number" min="0.5" max="100" step="0.5" />
+                  <input
+                    id={id}
+                    type="number"
+                    min="0.5"
+                    max="100"
+                    step="0.5"
+                    value={quantity}
+                    onChange={changeLiters}
+                  />
                 </div>
 
                 <button
@@ -52,7 +65,7 @@ const Items = () => {
                   type="button"
                   className={styles.button}
                 >
-                  Заказать{" "}
+                  Додати в кошик{" "}
                 </button>
               </div>
             );

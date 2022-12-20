@@ -9,7 +9,6 @@ const Nav = () => {
   const dispatch = useDispatch();
   const navList = useSelector((state) => state.navState);
   const { loading, types } = navList;
-  console.log(types);
 
   useEffect(() => {
     dispatch(typeList());
