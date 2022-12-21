@@ -9,6 +9,7 @@ const SignUp = () => {
     <div>
       <Header />
       <UserRegistration />
+      <Footer />
     </div>
   );
 };

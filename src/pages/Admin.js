@@ -1,5 +1,11 @@
 import React from "react";
+import AdminPanel from "../components/AdminPanel";
 
 export default function Admin() {
-  return <div>Admin</div>;
+  return (
+    <>
+      <AdminPanel />
+      <div> AAAAAAAA</div>
+    </>
+  );
 }

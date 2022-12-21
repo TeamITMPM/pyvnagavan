@@ -29,8 +29,6 @@ export default function Header() {
         </div>
       </Link>
 
-
-      
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
         <img
@@ -71,10 +69,11 @@ export default function Header() {
             Вхід
           </button>
         </Link>
-
-        <button type="button" className={styles.button}>
-          ЛК
-        </button>
+        <Link to="/user">
+          <button type="button" className={styles.button}>
+            Особистий кабінет
+          </button>
+        </Link>
       </div>
     </div>
   );

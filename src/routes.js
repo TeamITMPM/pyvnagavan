@@ -6,12 +6,14 @@ import {
   LOGIN_ROUTE,
   REGISTRATION_ROUTE,
   SHOP_ROUTE,
+  USER_ROUTE,
 } from "./utils/consts";
 import Basket from "./pages/Basket";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import ItemPage from "./pages/ItemPage";
+import User from "./pages/User";
 
 export const authRoutes = [
   {
@@ -21,6 +23,11 @@ export const authRoutes = [
   {
     path: BASKET_ROUTE,
     Component: Basket,
+  },
+
+  {
+    path: USER_ROUTE,
+    Component: User,
   },
 ];
 

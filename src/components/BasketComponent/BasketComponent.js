@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Delivery from "./Delivery/Delivery";
 import CarryOut from "./CarryOut/CarryOut";
-
+import BeerInBasket from "./BeerInBasket";
 import styles from "./BasketComponent.module.css";
 
 export default function BasketComponent() {
@@ -31,10 +31,9 @@ export default function BasketComponent() {
           Забрати самому{" "}
         </button>
       </div>
-
       {OnDalivery && <Delivery />}
-
       {OnCarryOut && <CarryOut />}
+      <BeerInBasket />
     </div>
   );
 }
