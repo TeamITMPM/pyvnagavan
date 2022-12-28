@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect  , useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,18 +12,36 @@ const Items = () => {
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
 
+  const [setBeer, onSetBeer] = useState({});
+
   useEffect(() => {
     dispatch(listItems());
   }, []);
-  let quantity;
+  
 
   const addToBasket = (id) => {
     console.log(id);
   };
   const changeLiters = (evt) => {
-    console.log(evt.target.value);
-    console.log(evt.target.id);
+    onSetBeer({
+      //  itemId : evt.target.id ,
+      //  quantity :evt.target.value
+      ...setBeer ,
+       [evt.target.id] : evt.target.value 
+    }
+      
+      
+    
+    )
+    // console.log(evt.target.value);
+    // console.log(evt.target.id);
+    console.log(setBeer)
+    
   };
+  products && products.map(({ name, id, price, oldPrice, rating, img }) => {
+    console.log(id)
+  })
+// console.log(products)
 
   return (
     <div className={styles.products}>
@@ -53,7 +71,7 @@ const Items = () => {
                     min="0.5"
                     max="100"
                     step="0.5"
-                    value={quantity}
+                    // value={quantity}
                     onChange={changeLiters}
                   />
                 </div>

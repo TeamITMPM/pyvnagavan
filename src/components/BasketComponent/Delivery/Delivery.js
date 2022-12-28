@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./Delivery.module.css";
-console.log(styles.tglFlat);
+
 
 export default function Delivery() {
   return (
