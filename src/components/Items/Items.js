@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { listItems } from "../../actions/itemActions";
 
 import styles from "./Items.module.css";
+import { addToBasket } from "../../actions/orderActions";
+console.log(addToBasket)
 
 const Items = () => {
   const dispatch = useDispatch();
@@ -19,29 +21,25 @@ const Items = () => {
   }, []);
   
 
-  const addToBasket = (id) => {
-    console.log(id);
+  const onAddToBasket = (id) => {
+    addToBasket(id)
+    dispatch(addToBasket(id));
+    
   };
   const changeLiters = (evt) => {
+   
     onSetBeer({
-      //  itemId : evt.target.id ,
-      //  quantity :evt.target.value
+    
       ...setBeer ,
        [evt.target.id] : evt.target.value 
     }
       
-      
-    
     )
-    // console.log(evt.target.value);
-    // console.log(evt.target.id);
-    console.log(setBeer)
+  
     
   };
-  products && products.map(({ name, id, price, oldPrice, rating, img }) => {
-    console.log(id)
-  })
-// console.log(products)
+
+
 
   return (
     <div className={styles.products}>
@@ -78,7 +76,7 @@ const Items = () => {
 
                 <button
                   onClick={() => {
-                    addToBasket(id);
+                    onAddToBasket(id);
                   }}
                   type="button"
                   className={styles.button}

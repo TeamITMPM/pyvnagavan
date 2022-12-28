@@ -20,6 +20,48 @@ import {
 } from "../constants/orderConstants";
 import axios from "axios";
 
+export const addToBasket = (itemId) => async (dispatch, getState) => {
+ 
+    // try {
+    //   dispatch({ type: ORDER_CREATE_REQUEST });
+  
+      const {
+        userInfo
+      } = localStorage.getItem();
+      await console.log(userInfo)
+      // const config = {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${userInfo}`,
+      //   },
+      // };
+      // console.log(config)
+    //   const { data } = await axios.post(`/api/orders`, order, config);
+    //   dispatch({
+    //     type: ORDER_CREATE_SUCCESS,
+    //     payload: data,
+    //   });
+    // } catch (error) {
+    //   dispatch({
+    //     type: ORDER_CREATE_FAIL,
+    //     payload:
+    //       error.response && error.response.data.message
+    //         ? error.response.data.message
+    //         : error.message,
+    //   });
+    // }
+  };
+
+
+
+
+
+
+
+
+
+
+
 // export const createOrder = (order) => async (dispatch, getState) => {
 //   try {
 //     dispatch({ type: ORDER_CREATE_REQUEST });
