@@ -7,14 +7,16 @@ import { listItems } from "../../actions/itemActions";
 
 import styles from "./Items.module.css";
 import { addToBasket } from "../../actions/orderActions";
-console.log(addToBasket)
+
 
 const Items = () => {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
 
-  const [setBeer, onSetBeer] = useState({});
+  const [setBeer, onSetBeer] = useState()
+
+ 
 
   useEffect(() => {
     dispatch(listItems());
@@ -22,8 +24,8 @@ const Items = () => {
   
 
   const onAddToBasket = (id) => {
-    addToBasket(id)
-    dispatch(addToBasket(id));
+    
+    dispatch(addToBasket(id , setBeer));
     
   };
   const changeLiters = (evt) => {

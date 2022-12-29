@@ -1,3 +1,5 @@
+import jwt_decode from "jwt-decode";
+
 import {
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
@@ -48,7 +50,7 @@ export const login = (email, password) => async (dispatch) => {
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
-      payload: data.token,
+      payload: jwt_decode(data.token),
     });
 
     localStorage.setItem("userInfo", JSON.stringify(data));

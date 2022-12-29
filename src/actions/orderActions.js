@@ -1,3 +1,4 @@
+import jwt_decode from "jwt-decode";
 import {
   ORDER_CREATE_REQUEST,
   ORDER_CREATE_SUCCESS,
@@ -20,36 +21,39 @@ import {
 } from "../constants/orderConstants";
 import axios from "axios";
 
-export const addToBasket = (itemId) => async (dispatch, getState) => {
+export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
  
-    // try {
-    //   dispatch({ type: ORDER_CREATE_REQUEST });
+    try {
+      dispatch({ type: ORDER_CREATE_REQUEST });
   
-      const {
-        userInfo
-      } = localStorage.getItem();
-      await console.log(userInfo)
-      // const config = {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Authorization: `Bearer ${userInfo}`,
-      //   },
-      // };
-      // console.log(config)
-    //   const { data } = await axios.post(`/api/orders`, order, config);
-    //   dispatch({
-    //     type: ORDER_CREATE_SUCCESS,
-    //     payload: data,
-    //   });
-    // } catch (error) {
-    //   dispatch({
-    //     type: ORDER_CREATE_FAIL,
-    //     payload:
-    //       error.response && error.response.data.message
-    //         ? error.response.data.message
-    //         : error.message,
-    //   });
-    // }
+   const order = {
+    "itemId" : itemId,
+    "quantity" : setBeer[itemId]
+   }
+        const token = JSON.parse(localStorage.getItem("userInfo")).token
+     
+      
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      let basketId = jwt_decode(JSON.parse(localStorage.getItem("userInfo")).token).id
+      
+      URL = process.env.REACT_APP_API_URL + `api/basket/item/${basketId}`;
+      const { data } = await axios.post(URL, JSON.stringify(order), config);
+      dispatch({
+        type: ORDER_CREATE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: ORDER_CREATE_FAIL,
+        payload:error
+      });
+    }
   };
 
 
