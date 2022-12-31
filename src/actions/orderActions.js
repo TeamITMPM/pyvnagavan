@@ -30,7 +30,7 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
     "itemId" : itemId,
     "quantity" : setBeer[itemId]
    }
-        const token = JSON.parse(localStorage.getItem("userInfo")).token
+        const {token} = JSON.parse(localStorage.getItem("userInfo"))
      
       
 
@@ -40,9 +40,11 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
           Authorization: `Bearer ${token}`,
         },
       };
-      let basketId = jwt_decode(JSON.parse(localStorage.getItem("userInfo")).token).id
+
+      let {id} = jwt_decode(token)
+     
       
-      URL = process.env.REACT_APP_API_URL + `api/basket/item/${basketId}`;
+      URL = process.env.REACT_APP_API_URL + `api/basket/item/${id}`;
       const { data } = await axios.post(URL, JSON.stringify(order), config);
       dispatch({
         type: ORDER_CREATE_SUCCESS,
