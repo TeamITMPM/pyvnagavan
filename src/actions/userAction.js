@@ -31,13 +31,14 @@ import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
   // console.log(email, password);
+
+  dispatch({ type: USER_LOGIN_REQUEST });
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
   try {
-    dispatch({ type: USER_LOGIN_REQUEST });
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
     URL = process.env.REACT_APP_API_URL + `api/user/login`;
     const { data } = await axios.post(
       URL,
@@ -57,7 +58,7 @@ export const login = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
-      payload: error,
+      payload: { ...error },
     });
   }
 };

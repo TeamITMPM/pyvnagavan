@@ -3,23 +3,25 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../../actions/userAction";
+import { connect } from "react-redux";
 import styles from "./UserLogin.module.css";
 // console.log(login);
-
-export default function UserLogin() {
+function UserLogin() {
   const dispatch = useDispatch();
 
-  const userInfo = useSelector((state) => state);
-  const { token } = userInfo;
+  const { userInfo } = useSelector((state) => state);
+  const { token, error } = userInfo;
 
   const loginClick = async (evt) => {
     evt.preventDefault();
     dispatch(login(evt.target[0].value, evt.target[1].value));
+    console.log(error);
   };
+
   return (
     <div className={styles.modal}>
       <Link to="/login">
-        <button className={styles.button1} >
+        <button className={styles.button1}>
           <p className={styles.p1}>Увійти</p>
         </button>
       </Link>
@@ -53,17 +55,20 @@ export default function UserLogin() {
             {" "}
             Відправити
           </button>
+          {error && <h1>{error.payload.response.data.message}</h1>}
         </div>
       </form>
     </div>
   );
 }
 
-// let mapStateToProps = (state) => {
-//   return {
-//     items: state.itemState.items,
-//   };
-// };
-// let mapDispatchToProps = {
-//   listItems,
-// };
+let mapStateToProps = (state) => {
+  return {
+    userInfo: state.userInfo,
+  };
+};
+let mapDispatchToProps = {
+  login,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserLogin);
