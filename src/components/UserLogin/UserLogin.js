@@ -1,21 +1,26 @@
 import React from "react";
-// import axios from "axios";
+
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { login } from "../../actions/userAction";
 import { connect } from "react-redux";
 import styles from "./UserLogin.module.css";
-// console.log(login);
+import { SHOP_ROUTE } from "../../utils/consts";
+
 function UserLogin() {
   const dispatch = useDispatch();
 
   const { userInfo } = useSelector((state) => state);
   const { token, error } = userInfo;
+  const history = useHistory();
 
   const loginClick = async (evt) => {
     evt.preventDefault();
     dispatch(login(evt.target[0].value, evt.target[1].value));
-    console.log(error);
+
+    if (token) {
+      history.push(SHOP_ROUTE);
+    }
   };
 
   return (

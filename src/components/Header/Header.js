@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
+  const dispatch = useDispatch();
+
+  const { userInfo } = useSelector((state) => state);
+  const { token, error } = userInfo;
+
   return (
     <div className={styles.header}>
       {/* Левая часть хєдера */}
@@ -57,23 +63,25 @@ export default function Header() {
         {/* <div className={styles.space} /> */}
         {/* Вход и ЛК */}
 
-        <Link to="/login">
-          {" "}
-          <button
-            type="button"
-            className={`${styles.button} ${styles.space}`}
-            // onClick={() => {
-            //   window.open("http://localhost:3000/login");
-            // }}
-          >
-            Вхід
-          </button>
-        </Link>
-        <Link to="/user">
-          <button type="button" className={styles.button}>
-            Особистий кабінет
-          </button>
-        </Link>
+        {!token && (
+          <Link to="/login">
+            {" "}
+            <button
+              type="button"
+              className={`${styles.button} ${styles.space}`}
+            >
+              Вхід
+            </button>
+          </Link>
+        )}
+
+        {token && (
+          <Link to="/user">
+            <button type="button" className={styles.button}>
+              Особистий кабінет
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
