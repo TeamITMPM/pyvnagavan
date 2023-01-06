@@ -1,4 +1,4 @@
-import React, { useEffect  , useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -6,42 +6,28 @@ import { connect } from "react-redux";
 import { listItems } from "../../actions/itemActions";
 
 import styles from "./Items.module.css";
-import { addToBasket } from "../../actions/orderActions";
-
+import { addToBasket } from "../../actions/basketActions";
 
 const Items = () => {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
 
-  const [setBeer, onSetBeer] = useState()
-
- 
+  const [setBeer, onSetBeer] = useState();
 
   useEffect(() => {
     dispatch(listItems());
   }, []);
-  
 
   const onAddToBasket = (id) => {
-    
-    dispatch(addToBasket(id , setBeer));
-    
+    dispatch(addToBasket(id, setBeer));
   };
   const changeLiters = (evt) => {
-   
     onSetBeer({
-    
-      ...setBeer ,
-       [evt.target.id] : evt.target.value 
-    }
-      
-    )
-  
-    
+      ...setBeer,
+      [evt.target.id]: evt.target.value,
+    });
   };
-
-
 
   return (
     <div className={styles.products}>

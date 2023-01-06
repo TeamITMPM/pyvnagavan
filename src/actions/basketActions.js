@@ -1,76 +1,91 @@
 import jwt_decode from "jwt-decode";
 import {
-  ORDER_CREATE_REQUEST,
-  ORDER_CREATE_SUCCESS,
-  ORDER_CREATE_FAIL,
-  ORDER_DETAILS_REQUEST,
-  ORDER_DETAILS_SUCCESS,
-  ORDER_DETAILS_FAIL,
-  ORDER_PAY_REQUEST,
-  ORDER_PAY_SUCCESS,
-  ORDER_PAY_FAIL,
-  ORDER_LIST_MY_REQUEST,
-  ORDER_LIST_MY_FAIL,
-  ORDER_LIST_MY_SUCCESS,
-  ORDER_LIST_ALL_REQUEST,
-  ORDER_LIST_ALL_SUCCESS,
-  ORDER_LIST_ALL_FAIL,
-  ORDER_DELIVER_REQUEST,
-  ORDER_DELIVER_SUCCESS,
-  ORDER_DELIVER_FAIL,
-} from "../constants/orderConstants";
+  BASKET_CREATE_REQUEST,
+  BASKET_CREATE_SUCCESS,
+  BASKET_CREATE_FAIL,
+  BASKET_DETAILS_REQUEST,
+  BASKET_DETAILS_SUCCESS,
+  BASKET_DETAILS_FAIL,
+  BASKET_PAY_REQUEST,
+  BASKET_PAY_SUCCESS,
+  BASKET_PAY_FAIL,
+  BASKET_LIST_MY_REQUEST,
+  BASKET_LIST_MY_FAIL,
+  BASKET_LIST_MY_SUCCESS,
+  BASKET_LIST_ALL_REQUEST,
+  BASKET_LIST_ALL_SUCCESS,
+  BASKET_LIST_ALL_FAIL,
+  BASKET_DELIVER_REQUEST,
+  BASKET_DELIVER_SUCCESS,
+  BASKET_DELIVER_FAIL,
+} from "../constants/basketConstants";
 import axios from "axios";
 
-export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
- 
-    try {
-      dispatch({ type: ORDER_CREATE_REQUEST });
-  
-   const order = {
-    "itemId" : itemId,
-    "quantity" : setBeer[itemId]
-   }
-        const {token} = JSON.parse(localStorage.getItem("userInfo"))
-     
-      
+export const addToBasket = (itemId, setBeer) => async (dispatch) => {
+  const { token } = JSON.parse(localStorage.getItem("userInfo"));
+  try {
+    dispatch({ type: BASKET_CREATE_REQUEST });
 
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      };
+    const order = {
+      itemId: itemId,
+      quantity: setBeer[itemId],
+    };
 
-      let {id} = jwt_decode(token)
-     
-      
-      URL = process.env.REACT_APP_API_URL + `api/basket/item/${id}`;
-      const { data } = await axios.post(URL, JSON.stringify(order), config);
-      dispatch({
-        type: ORDER_CREATE_SUCCESS,
-        payload: data,
-      });
-    } catch (error) {
-      dispatch({
-        type: ORDER_CREATE_FAIL,
-        payload:error
-      });
-    }
-  };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
+    const { basketId } = jwt_decode(token);
 
+    URL = process.env.REACT_APP_API_URL + `api/basket/item/${basketId}`;
+    const { data } = await axios.post(URL, JSON.stringify(order), config);
+    dispatch({
+      type: BASKET_CREATE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BASKET_CREATE_FAIL,
+      payload: error,
+    });
+  }
+};
 
+export const listMyBasket = () => async (dispatch, getState) => {
+  const { token } = JSON.parse(localStorage.getItem("userInfo"));
+  const { basketId } = jwt_decode(token);
 
+  URL = process.env.REACT_APP_API_URL + `api/basket/item/${basketId}`;
 
+  try {
+    dispatch({ type: BASKET_LIST_MY_REQUEST });
 
-
-
-
-
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const { data } = await axios.get(URL, config);
+    dispatch({
+      type: BASKET_LIST_MY_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BASKET_LIST_MY_FAIL,
+      payload: error,
+    });
+  }
+  // console.log("Work");
+};
 
 // export const createOrder = (order) => async (dispatch, getState) => {
 //   try {
-//     dispatch({ type: ORDER_CREATE_REQUEST });
+//     dispatch({ type:BASKET_CREATE_REQUEST });
 
 //     const {
 //       userLogin: { userInfo },
@@ -82,14 +97,14 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 //       },
 //     };
 
-//     const { data } = await axios.post(`/api/orders`, order, config);
+//     const { data } = await axios.post(`/api/orders`,BASKET, config);
 //     dispatch({
-//       type: ORDER_CREATE_SUCCESS,
+//       type:BASKET_CREATE_SUCCESS,
 //       payload: data,
 //     });
 //   } catch (error) {
 //     dispatch({
-//       type: ORDER_CREATE_FAIL,
+//       type:BASKET_CREATE_FAIL,
 //       payload:
 //         error.response && error.response.data.message
 //           ? error.response.data.message
@@ -100,7 +115,7 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 
 //   export const getOrderDetails = (id) => async (dispatch, getState) => {
 //     try {
-//       dispatch({ type: ORDER_DETAILS_REQUEST });
+//       dispatch({ type:BASKET_DETAILS_REQUEST });
 
 //       const {
 //         userLogin: { userInfo },
@@ -114,12 +129,12 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 //       const { data } = await axios.get(`/api/orders/${id}`, config);
 
 //       dispatch({
-//         type: ORDER_DETAILS_SUCCESS,
+//         type:BASKET_DETAILS_SUCCESS,
 //         payload: data,
 //       });
 //     } catch (error) {
 //       dispatch({
-//         type: ORDER_DETAILS_FAIL,
+//         type:BASKET_DETAILS_FAIL,
 //         payload:
 //           error.response && error.response.data.message
 //             ? error.response.data.message
@@ -133,7 +148,7 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 //     getState
 //   ) => {
 //     try {
-//       dispatch({ type: ORDER_PAY_REQUEST });
+//       dispatch({ type:BASKET_PAY_REQUEST });
 
 //       const {
 //         userLogin: { userInfo },
@@ -152,12 +167,12 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 //       );
 
 //       dispatch({
-//         type: ORDER_PAY_SUCCESS,
+//         type:BASKET_PAY_SUCCESS,
 //         payload: data,
 //       });
 //     } catch (error) {
 //       dispatch({
-//         type: ORDER_PAY_FAIL,
+//         type:BASKET_PAY_FAIL,
 //         payload:
 //           error.response && error.response.data.message
 //             ? error.response.data.message
@@ -168,7 +183,7 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 
 //   export const listMyOrders = () => async (dispatch, getState) => {
 //     try {
-//       dispatch({ type: ORDER_LIST_MY_REQUEST });
+//       dispatch({ type:BASKET_LIST_MY_REQUEST });
 
 //       const {
 //         userLogin: { userInfo },
@@ -182,12 +197,12 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 //       const { data } = await axios.get(`/api/orders/myorders`, config);
 
 //       dispatch({
-//         type: ORDER_LIST_MY_SUCCESS,
+//         type:BASKET_LIST_MY_SUCCESS,
 //         payload: data,
 //       });
 //     } catch (error) {
 //       dispatch({
-//         type: ORDER_LIST_MY_FAIL,
+//         type:BASKET_LIST_MY_FAIL,
 //         payload:
 //           error.response && error.response.data.message
 //             ? error.response.data.message
@@ -198,7 +213,7 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 
 //   export const listAllOrders = () => async (dispatch, getState) => {
 //     try {
-//       dispatch({ type: ORDER_LIST_ALL_REQUEST });
+//       dispatch({ type:BASKET_LIST_ALL_REQUEST });
 
 //       const {
 //         userLogin: { userInfo },
@@ -212,12 +227,12 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 //       const { data } = await axios.get(`/api/orders`, config);
 
 //       dispatch({
-//         type: ORDER_LIST_ALL_SUCCESS,
+//         type:BASKET_LIST_ALL_SUCCESS,
 //         payload: data,
 //       });
 //     } catch (error) {
 //       dispatch({
-//         type: ORDER_LIST_ALL_FAIL,
+//         type:BASKET_LIST_ALL_FAIL,
 //         payload:
 //           error.response && error.response.data.message
 //             ? error.response.data.message
@@ -231,7 +246,7 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 //     getState
 //   ) => {
 //     try {
-//       dispatch({ type: ORDER_DELIVER_REQUEST });
+//       dispatch({ type:BASKET_DELIVER_REQUEST });
 
 //       const {
 //         userLogin: { userInfo },
@@ -249,12 +264,12 @@ export const addToBasket = (itemId , setBeer ) => async (dispatch) => {
 //       );
 
 //       dispatch({
-//         type: ORDER_DELIVER_SUCCESS,
+//         type:BASKET_DELIVER_SUCCESS,
 //         payload: data,
 //       });
 //     } catch (error) {
 //       dispatch({
-//         type: ORDER_DELIVER_FAIL,
+//         type:BASKET_DELIVER_FAIL,
 //         payload:
 //           error.response && error.response.data.message
 //             ? error.response.data.message
