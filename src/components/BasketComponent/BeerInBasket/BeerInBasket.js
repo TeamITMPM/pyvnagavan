@@ -12,17 +12,12 @@ export default function BeerInBasket() {
   const { itemInBasket } = productListInBasket;
   const [finalBasketItem, setFinalBasketItem] = useState([]);
 
-  // console.log(itemInBasket);
-  // console.log(products);
-
   useEffect(() => {
     dispatch(listMyBasket());
   }, []);
   useEffect(() => {
-    // dispatch(listMyBasket());
     if (itemInBasket && products) {
-      console.log("itemInBasket", itemInBasket);
-      const test = itemInBasket.map((cartItem) => {
+      const final = itemInBasket.map((cartItem) => {
         const product = products.find((item) => {
           return item.id === cartItem.itemId;
         });
@@ -34,35 +29,36 @@ export default function BeerInBasket() {
         }
         return cartItem;
       });
-      setFinalBasketItem(test);
+      setFinalBasketItem(final);
     }
-    // console.log("test ", test);
   }, [itemInBasket, products]);
 
-  console.log("finalBasketItem>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", finalBasketItem);
+  console.log("finalBasketItem>>>>>", finalBasketItem);
+  // const {} =
 
   return (
     <>
       <div className={styles.products}>
         <div className={styles.items}>
-          {products &&
-            products.map(({ name, id, price, oldPrice, rating, img }) => {
+          {finalBasketItem &&
+            finalBasketItem.map(({ metaData, quantity }) => {
               return (
-                <div className={styles.item} key={id}>
-                  <h2>{name}</h2>
+                <div className={styles.item} key={metaData.id}>
+                  <h2>{metaData.name}</h2>
                   <img
                     className={styles.itemsIMG}
                     // src={require("../../db/img/7cfa27f3-0a3d-469a-b9a5-5451534bccc8.png")}
                     src={
-                      img
-                        ? require(`../../../../../back_pyvnagavan/static/${img}`)
+                      metaData.img
+                        ? require(`../../../../../back_pyvnagavan/static/${metaData.img}`)
                         : "https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg"
                     }
-                    alt={name}
+                    alt={metaData.name}
                   />
-                  <p>Стара ціна за літр {oldPrice}</p>
-                  <p>Ціна за 1 літр {price} грн</p>
-                  <p>Рейтинг {rating}</p>
+
+                  <p>Ціна за 1 літр {metaData.price} грн</p>
+                  <p>Кількість {quantity} </p>
+
                   {/* <div className={styles.counter}>
                   <input
                   id={id}
@@ -90,34 +86,6 @@ export default function BeerInBasket() {
           {loading && <h1> Завантажується пивко ... </h1>}
         </div>
       </div>
-
-      <div>
-        {itemInBasket &&
-          itemInBasket.map(
-            ({ id, quantity, itemId, basketId, createdAt, updatedAt }) => {
-              return (
-                <ul>
-                  <li key={id}>{itemId}</li>
-                  <li>Кількість {quantity}</li>
-                </ul>
-              );
-            }
-          )}
-      </div>
     </>
   );
-
-  // return (
-  //   <div>
-  //     {itemInBasket &&
-  //       itemInBasket.map(
-  //         ({ id, quantity, itemId, basketId, createdAt, updatedAt }) => {
-  //           products.filter(
-  //             ({ name, id, price, oldPrice, rating, img }) => id === itemId
-  //           );
-  //           return <p>{name}</p>;
-  //         }
-  //       )}
-  //   </div>
-  // );
 }
