@@ -1,0 +1,32 @@
+.item {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  width: fit-content;
+  
+}
+
+.img{
+    width: 10rem;
+}
+
+
+.header {
+    width: 100%;
+text-align: center;
+} 
+
+.text {
+  width: 100%;
+}
+
+.items{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1rem;
+    grid-auto-rows: max-content;
+    justify-content: center;
+    align-items: center;
+  }
+  

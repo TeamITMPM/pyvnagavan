@@ -6,7 +6,7 @@ import styles from "./Delivery.module.css";
 export default function Delivery() {
   return (
     <div>
-      <form>
+      <form className={styles.container}>
         <div className={styles.block}>
           <label className={styles.label}>
             Контактні дані:{" "}

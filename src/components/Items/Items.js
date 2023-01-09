@@ -50,17 +50,21 @@ const Items = () => {
                 <p>Стара ціна за літр {oldPrice}</p>
                 <p>Ціна за 1 літр {price} грн</p>
                 <p>Рейтинг {rating}</p>
-                <div className={styles.counter}>
+                <label >
                   <input
+                    className={styles.counter}
                     id={id}
                     type="number"
                     min="0.5"
-                    max="100"
+                    max="20"
                     step="0.5"
                     // value={quantity}
                     onChange={changeLiters}
-                  />
-                </div>
+                    defaultValue={1}
+                  />{" "}
+                  
+                  літрів
+                </label>
 
                 <button
                   onClick={() => {
@@ -84,7 +88,7 @@ const Items = () => {
 
 let mapStateToProps = (state) => {
   return {
-    items: state.itemState.items,
+    items: state.itemState.items, 
   };
 };
 let mapDispatchToProps = {

@@ -1,16 +1,42 @@
-
-.selector{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.input {
+  border-radius: 5px;
+  font-size: 2rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+.input:focus {
+  background-color: rgba(153, 199, 159, 0.288);
 }
 
-.input {
-    border-radius: 5px;
-    font-size: 2vw;
-    margin: 1vw;
-    cursor: pointer;
-  }
-  .input:focus {
-    background-color: rgba(153, 199, 159, 0.288);
-  }
+.selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text{
+  font-size: 2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  border: 3px inset rgb(48, 48, 48);
+  padding: 0.3rem;
+  margin: 2rem;
+}
+
+.container{
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.delivery{
+  flex-basis:60%;
+}
+
+.basket {
+  flex-basis:40%;
+}
+
+.beerInBasket{
+
+}
