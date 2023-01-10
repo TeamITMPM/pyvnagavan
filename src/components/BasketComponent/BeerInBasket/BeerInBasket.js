@@ -39,7 +39,8 @@ export default function BeerInBasket() {
       {finalBasketItem &&
         finalBasketItem.map(({ metaData, quantity }) => {
           const { id, img, name, price } = metaData;
-
+          
+          console.log("metadata >>>>>", metaData);
           return (
             <div key={id} className={styles.item}>
               <img

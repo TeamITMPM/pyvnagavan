@@ -8,7 +8,7 @@ export default function CarryOut() {
       <form>
         <div className={styles.block}>
           <label className={styles.label}>
-            Контактні дані
+            Контактні дані:
             <input
               type="text"
               name="name"
@@ -45,7 +45,7 @@ export default function CarryOut() {
         <div className={styles.block}>
           <label className={styles.label}>
             {" "}
-            Час
+            Час:
             <input
               type="date"
               name="date"
@@ -70,7 +70,7 @@ export default function CarryOut() {
 
         <div className={styles.block}>
           <label className={styles.label}>
-            Оплата
+            Оплата:
             <input
               type="text"
               name="discount"
