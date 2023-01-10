@@ -7,9 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 export default function User() {
   // const dispatch = useDispatch();
 
-  const { userInfo } = useSelector((state) => state);
-  const { token, error } = userInfo;
-  const { payload } = token;
+  const { payload } = useSelector((state) => state.userInfo.token);
+  // В state.userInfo так же хранится error 
+
+  const {
+    firstName,
+    secondName,
+    dateOfBirthsday,
+    email,
+    phone,
+    favouriteBeer,
+    id,
+  } = payload;
 
   return (
     <>
@@ -19,13 +28,13 @@ export default function User() {
         <h1>Інформація про користувача</h1>
         {payload && (
           <ul>
-            <li> Імя {payload.firstName} </li>
-            <li> Фамілія {payload.secondName} </li>
-            <li> Дата народження {payload.dateOfBirthsday} </li>
-            <li> Електронна адреса {payload.email} </li>
-            <li> Номер телефону {payload.phone} </li>
-            <li> Улюблене пиво {payload.favouriteBeer} </li>
-            <li> ID {payload.id} </li>
+            <li> Імя {firstName} </li>
+            <li> Фамілія {secondName} </li>
+            <li> Дата народження {dateOfBirthsday} </li>
+            <li> Електронна адреса {email} </li>
+            <li> Номер телефону {phone} </li>
+            <li> Улюблене пиво {favouriteBeer} </li>
+            <li> ID {id} </li>
           </ul>
         )}
       </div>
@@ -34,35 +43,38 @@ export default function User() {
         <table>
           <tr>
             <td>Імя</td>
-            <td>{payload.firstName} </td>
+            <td>{firstName} </td>
           </tr>
           <tr>
             <td>Фамілія</td>
-            <td>{payload.secondName}</td>
+            <td>{secondName}</td>
           </tr>
           <tr>
             <td>Дата народження </td>
-            <td>{payload.dateOfBirthsday} </td>
+            <td>{dateOfBirthsday} </td>
           </tr>
           <tr>
             <td>Електронна адреса </td>
-            <td>{payload.email} </td>
+            <td>{email} </td>
           </tr>
           <tr>
             <td>Номер телефону </td>
-            <td>{payload.phone}</td>
+            <td>{phone}</td>
           </tr>
           <tr>
             <td>Улюблене пиво</td>
-            <td>{payload.favouriteBeer}</td>
+            <td>{favouriteBeer}</td>
           </tr>
           <tr>
             <td>ID </td>
-            <td>{payload.id}</td>
+            <td>{id}</td>
           </tr>
         </table>
       </div>
-      <Footer />
+      <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
+        {/* Что бы закрепить оба футера внизу */}
+        <Footer />
+      </div>
     </>
   );
 }

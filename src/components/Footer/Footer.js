@@ -8,8 +8,7 @@ export default function Footer() {
         <li>я есть грут</li>
         <li>asd</li>
       </footer>
-      <footer>
-        <div className={styles.Footer}>
+      <footer className={styles.Footer}>
           <div className={styles.NameOfTable}>
             Меню
             <ul>
@@ -71,7 +70,6 @@ export default function Footer() {
               <li>made in china</li>
             </ul>
           </div>
-        </div>
       </footer>
     </div>
   );

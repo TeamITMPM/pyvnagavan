@@ -6,11 +6,15 @@ import Footer from "../components/Footer";
 
 const Login = () => {
   return (
-    <div>
+    <>
       <Header />
       <UserLogin />
-      <Footer />
-    </div>
+
+      <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
+        {/* Что бы закрепить оба футера внизу */}
+        <Footer />
+      </div>
+    </>
   );
 };
 

@@ -12,7 +12,6 @@ const Items = () => {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
-
   const [setBeer, onSetBeer] = useState();
 
   useEffect(() => {
@@ -22,10 +21,11 @@ const Items = () => {
   const onAddToBasket = (id) => {
     dispatch(addToBasket(id, setBeer));
   };
-  const changeLiters = (evt) => {
+  const changeLiters = (event) => {
+    const {id, value} = event.target
     onSetBeer({
       ...setBeer,
-      [evt.target.id]: evt.target.value,
+      [id]: value,
     });
   };
 
@@ -39,7 +39,6 @@ const Items = () => {
                 <h2>{name}</h2>
                 <img
                   className={styles.itemsIMG}
-                  // src={require("../../db/img/7cfa27f3-0a3d-469a-b9a5-5451534bccc8.png")}
                   src={
                     img
                       ? require(`../../../../back_pyvnagavan/static/${img}`)
@@ -50,7 +49,7 @@ const Items = () => {
                 <p>Стара ціна за літр {oldPrice}</p>
                 <p>Ціна за 1 літр {price} грн</p>
                 <p>Рейтинг {rating}</p>
-                <label >
+                <label>
                   <input
                     className={styles.counter}
                     id={id}
@@ -62,7 +61,6 @@ const Items = () => {
                     onChange={changeLiters}
                     defaultValue={1}
                   />{" "}
-                  
                   літрів
                 </label>
 
@@ -88,7 +86,7 @@ const Items = () => {
 
 let mapStateToProps = (state) => {
   return {
-    items: state.itemState.items, 
+    items: state.itemState.items,
   };
 };
 let mapDispatchToProps = {

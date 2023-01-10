@@ -6,11 +6,14 @@ import Footer from "../components/Footer";
 
 const SignUp = () => {
   return (
-    <div>
+    <>
       <Header />
       <UserRegistration />
-      <Footer />
-    </div>
+      <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
+        {/* Что бы закрепить оба футера внизу */}
+        <Footer />
+      </div>
+    </>
   );
 };
 

@@ -6,17 +6,9 @@ import Total from "./Total";
 import styles from "./BasketComponent.module.css";
 
 export default function BasketComponent() {
-  const [OnDalivery, setOnDalivery] = useState(true);
-  const [OnCarryOut, setOnCarryOut] = useState(false);
-
-  let onDeliveryTabClick = () => {
-    setOnDalivery(true);
-    setOnCarryOut(false);
-  };
-
-  let onCarryOutTabClick = () => {
-    setOnCarryOut(true);
-    setOnDalivery(false);
+  const [delivery, setDelivery] = useState(true);
+  const handleDelivery = () => {
+    delivery === true ? setDelivery(false) : setDelivery(true);
   };
 
   return (
@@ -25,17 +17,16 @@ export default function BasketComponent() {
         <div className={styles.delivery}>
           <div className={styles.selector}>
             {" "}
-            <button className={styles.input} onClick={onDeliveryTabClick} autoFocus>
+            <button className={styles.input} onClick={handleDelivery} autoFocus>
               {" "}
               Доставка{" "}
             </button>
-            <button className={styles.input} onClick={onCarryOutTabClick}>
+            <button className={styles.input} onClick={handleDelivery}>
               {" "}
               Забрати самому{" "}
             </button>
           </div>
-          {OnDalivery && <Delivery />}
-          {OnCarryOut && <CarryOut />}
+          {delivery ? <Delivery /> : <CarryOut />}
         </div>
         <div className={styles.basket}>
           <p className={styles.text}>Кошик</p>

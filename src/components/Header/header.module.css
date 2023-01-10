@@ -65,7 +65,8 @@ a:active {
 
 .headerRight {
   display: flex;
-  justify-content: right;
+  justify-content: center;
+  gap: 0.2vw;
   align-items: center;
 }
 
@@ -87,7 +88,6 @@ a:active {
   -webkit-user-select: none;
   touch-action: manipulation;
   height: 2vw;
-  border-radius: 8px;
 }
 
 .button:active {

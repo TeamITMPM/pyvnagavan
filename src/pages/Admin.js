@@ -6,6 +6,7 @@ export default function Admin() {
     <>
       <AdminPanel />
       <div> AAAAAAAA</div>
+      
     </>
   );
 }

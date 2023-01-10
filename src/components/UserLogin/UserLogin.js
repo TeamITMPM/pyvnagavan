@@ -9,18 +9,20 @@ import { SHOP_ROUTE } from "../../utils/consts";
 
 function UserLogin() {
   const dispatch = useDispatch();
-
-  const { userInfo } = useSelector((state) => state);
-  const { token, error } = userInfo;
+  const { userInfo:{token, error} } = useSelector((state) => state);
   const history = useHistory();
 
-  const loginClick = async (evt) => {
-    evt.preventDefault();
-    dispatch(login(evt.target[0].value, evt.target[1].value));
+  const loginClick = async (event) => {
+    const EMAIL = event.target[0].value,
+      PASSWORD = event.target[1].value;
+
+    event.preventDefault();
+    dispatch(login(EMAIL, PASSWORD));
 
     if (token) {
-      history.push(SHOP_ROUTE);
+       history.push(SHOP_ROUTE);      
     }
+    
   };
 
   return (

@@ -6,8 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Header() {
   const dispatch = useDispatch();
 
-  const { userInfo } = useSelector((state) => state);
-  const { token, error } = userInfo;
+  const {
+    userInfo: { token, error },
+  } = useSelector((state) => state);
 
   return (
     <div className={styles.header}>
@@ -61,27 +62,14 @@ export default function Header() {
           src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
         />
         {/* <div className={styles.space} /> */}
+
         {/* Вход и ЛК */}
 
-        {!token && (
-          <Link to="/login">
-            {" "}
-            <button
-              type="button"
-              className={`${styles.button} ${styles.space}`}
-            >
-              Вхід
-            </button>
-          </Link>
-        )}
-
-        {token && (
-          <Link to="/user">
-            <button type="button" className={styles.button}>
-              Особистий кабінет
-            </button>
-          </Link>
-        )}
+        <Link to={token ? `/user` : "/login"}>
+          <button type="button" className={`${styles.button} ${styles.space}`}>
+            {token ? "Особистий кабінет" : "Вхід"}
+          </button>
+        </Link>
       </div>
     </div>
   );
