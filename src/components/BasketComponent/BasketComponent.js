@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+
 import Delivery from "./Delivery/Delivery";
 import CarryOut from "./CarryOut/CarryOut";
 import BeerInBasket from "./BeerInBasket";
+import BuyAlso from "./BuyAlso";
 import Total from "./Total";
+
 import styles from "./BasketComponent.module.css";
 
 export default function BasketComponent() {
@@ -17,17 +20,23 @@ export default function BasketComponent() {
         <div className={styles.delivery}>
           <div className={styles.selector}>
             {" "}
-           <h2 className={styles.h2}> {delivery?"Заповніть анкету для доставки замовлення":"Заповніть анкету аби забрати самому"} АБО:</h2>
-            <button className={styles.input} onClick={handleDelivery} >
-              {delivery?"Забрати самому":"Замовити доставку"}         
+            <h2 className={styles.h2}>
+              {" "}
+              {delivery
+                ? "Заповніть анкету для доставки замовлення"
+                : "Заповніть анкету аби забрати самому"}{" "}
+              АБО:
+            </h2>
+            <button className={styles.input} onClick={handleDelivery}>
+              {delivery ? "Забрати самому" : "Замовити доставку"}
             </button>
-            
           </div>
           {delivery ? <Delivery /> : <CarryOut />}
         </div>
         <div className={styles.basket}>
           <p className={styles.text}>Кошик</p>
-          <BeerInBasket  />
+          <BeerInBasket />
+          <BuyAlso />
           <Total />
         </div>
       </div>
