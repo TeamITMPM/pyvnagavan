@@ -3,7 +3,7 @@ import { itemListReducer } from "./reducers/itemReducers";
 import { userLoginReducer } from "./reducers/userReducers";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { navListReducer } from "./reducers/navReducers";
+import { navListReducer, setCategoryReducer } from "./reducers/navReducers";
 import {
   basketCreateReducer,
   basketListMyReducer,
@@ -13,6 +13,8 @@ let rootReducer = combineReducers({
   itemState: itemListReducer,
   userInfo: userLoginReducer,
   navState: navListReducer,
+  navCurrentCategoryState: setCategoryReducer,
+  // navState: setCategoryReducer,
   basketState: basketCreateReducer,
   basketState: basketListMyReducer,
 });

@@ -44,7 +44,3 @@ export const itemListReducer = (state = { items: [] }, action) => {
       return state;
   }
 };
-
-// export default combineReducers({
-//   items: itemListReducer,
-// });

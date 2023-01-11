@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { typeList } from "../../actions/navActions";
 import styles from "./Nav.module.css";
+import { setCategory } from "../../actions/navActions";
 
-const Nav = () => {
+export default function Nav() {
   const dispatch = useDispatch();
   const navList = useSelector((state) => state.navState);
   const { loading, types } = navList;
@@ -14,13 +15,24 @@ const Nav = () => {
     dispatch(typeList());
   }, []);
 
+  const navClick = (name) => {
+    dispatch(setCategory(name));
+  };
+
   return (
     <div className={styles.nav}>
       {loading && <p> Завантажується навігація </p>}
       {types &&
         types.map(({ name, id }) => {
           return (
-            <button id={id} key={id} className={styles.categories}>
+            <button
+              onClick={() => {
+                navClick(name);
+              }}
+              id={id}
+              key={id}
+              className={styles.categories}
+            >
               {name}
             </button>
           );
@@ -37,15 +49,4 @@ const Nav = () => {
       </Link>
     </div>
   );
-};
-
-let mapStateToProps = (state) => {
-  return {
-    // items: state.itemState.items,
-  };
-};
-let mapDispatchToProps = {
-  // listItems,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+}

@@ -3,6 +3,9 @@ import {
   NAV_LIST_REQUEST,
   NAV_LIST_SUCCESS,
   NAV_LIST_FAIL,
+  NAV_CATEGORY_REQUEST,
+  NAV_CATEGORY_SUCCESS,
+  NAV_CATEGORY_FAIL,
 } from "../constants/navConstants";
 
 export const typeList = () => async (dispatch) => {
@@ -17,6 +20,21 @@ export const typeList = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: NAV_LIST_FAIL,
+      payload: error,
+    });
+  }
+};
+
+export const setCategory = (name) => async (dispatch) => {
+  // console.log("action ", name);
+  try {
+    dispatch({
+      type: NAV_CATEGORY_SUCCESS,
+      payload: name,
+    });
+  } catch (error) {
+    dispatch({
+      type: NAV_CATEGORY_FAIL,
       payload: error,
     });
   }
