@@ -7,11 +7,10 @@ body {
   padding: 0rem;
   width: 100%;
   font-family: "Caudex", sans-serif;
-background-color: rgb(182, 212, 200);
-/* Dark theme */
-/* background-color: rgb(44, 44, 44); */
-
-
+  background-color: rgb(182, 212, 200);
+  /* background-color: rgb(49, 49, 49); */
+  /* Dark theme */
+  /* background-color: rgb(44, 44, 44); */
 
   /* background: url("./img/27388538457_7596baae5f_k.jpg");
   background-repeat: no-repeat;

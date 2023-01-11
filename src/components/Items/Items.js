@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import { connect } from "react-redux";
-import { listItems } from "../../actions/itemActions";
 
-import styles from "./Items.module.css";
+import { listItems } from "../../actions/itemActions";
 import { addToBasket } from "../../actions/basketActions";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import styles from "./Items.module.css";
 
 const Items = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,21 @@ const Items = () => {
   }, []);
 
   const onAddToBasket = (id) => {
+    toast.success('Товар додано до кошику!', {
+      position: "top-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+    console.log(toast);
     dispatch(addToBasket(id, setBeer));
   };
   const changeLiters = (event) => {
-    const {id, value} = event.target
+    const { id, value } = event.target;
     onSetBeer({
       ...setBeer,
       [id]: value,
@@ -73,6 +85,18 @@ const Items = () => {
                 >
                   Додати в кошик{" "}
                 </button>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                />
               </div>
             );
           })}
