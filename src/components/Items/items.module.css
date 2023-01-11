@@ -52,6 +52,16 @@
 }
 .button:hover {
   cursor: pointer;
+  animation-name: toGray;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;}
+
+@keyframes toGray{
+  0% {  background-color: rgb(19, 17, 17);
+  }
+  100%{
+    background-color: rgb(54, 54, 54);
+  }
 }
 
 

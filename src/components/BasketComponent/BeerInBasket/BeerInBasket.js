@@ -6,42 +6,19 @@ import styles from "./BeerInBasket.module.css";
 export default function BeerInBasket() {
   const dispatch = useDispatch();
   const { basketState } = useSelector((state) => state);
-  console.log(basketState);
-  const items = basketState.itemInBasket;
-  // const totalPrice = useSelector((state) => state.basketState.items[1]);
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
 
-  // const [finalBasketItem, setFinalBasketItem] = useState([]);
   useEffect(() => {
     dispatch(listMyBasket());
   }, []);
 
-  // useEffect(() => {}, [items]);
-
-  // useEffect(() => {
-  //   if (items && products) {
-  //     const final = items.map((cartItem) => {
-  //       const product = products.find(({ id }) => {
-  //         return id === cartItem.itemId;
-  //       });
-  //       if (product) {
-  //         return {
-  //           ...cartItem,
-  //           metaData: product,
-  //         };
-  //       }
-  //       return cartItem;
-  //     });
-  //     setFinalBasketItem(final);
-  //   }
-  // }, [items, products]);
-
   if (!basketState.loading && basketState.itemInBasket) {
+    const items = basketState.itemInBasket[0];
     return (
-      <div className={styles.items}>
-        {items[0] &&
-          items[0].map(({ product, dataValues }) => {
+      <div className={styles.grid}>
+        {items &&
+          items.map(({ product, dataValues }) => {
             const { id, img, name, price } = product;
             const { quantity } = dataValues;
 
@@ -64,6 +41,7 @@ export default function BeerInBasket() {
                   <b>Кількість:</b> {quantity} літрів
                 </p>
                 <p className={styles.text}> </p>
+                <button className={styles.button}>Видалити</button>
               </div>
             );
           })}

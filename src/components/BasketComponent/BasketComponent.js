@@ -7,7 +7,7 @@ import styles from "./BasketComponent.module.css";
 
 export default function BasketComponent() {
   const [delivery, setDelivery] = useState(true);
-  const handleDelivery = () => {
+  const handleDelivery = (e) => {
     delivery === true ? setDelivery(false) : setDelivery(true);
   };
 
@@ -17,20 +17,17 @@ export default function BasketComponent() {
         <div className={styles.delivery}>
           <div className={styles.selector}>
             {" "}
-            <button className={styles.input} onClick={handleDelivery} autoFocus>
-              {" "}
-              Доставка{" "}
+           <h2 className={styles.h2}> {delivery?"Заповніть анкету для доставки замовлення":"Заповніть анкету аби забрати самому"} АБО:</h2>
+            <button className={styles.input} onClick={handleDelivery} >
+              {delivery?"Забрати самому":"Замовити доставку"}         
             </button>
-            <button className={styles.input} onClick={handleDelivery}>
-              {" "}
-              Забрати самому{" "}
-            </button>
+            
           </div>
           {delivery ? <Delivery /> : <CarryOut />}
         </div>
         <div className={styles.basket}>
           <p className={styles.text}>Кошик</p>
-          <BeerInBasket className={styles.beerInBasket} />
+          <BeerInBasket  />
           <Total />
         </div>
       </div>

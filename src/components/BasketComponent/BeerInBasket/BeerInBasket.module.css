@@ -19,11 +19,39 @@
   width: 100%;
 }
 
-.items {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
   gap: 1rem;
   grid-auto-rows: max-content;
-  justify-content: center;
   align-items: center;
+  justify-items: center;
+ 
+}
+.button{
+  width: 100%;
+  border-radius: 15px;
+  border: 1px inset rgb(116, 116, 116);
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  height: 2rem;
+  
+}
+.button:hover{
+  cursor: pointer;
+  background-color: rgb(255, 196, 196);
+  animation-name: toRed;
+  animation-duration: 0.5s;
+}
+.button:active{
+  font-size: 1rem;
+  background-color: rgb(235, 235, 235);
+}
+
+
+@keyframes toRed {
+  0%{background-color: rgb(255, 255, 255)}
+  100% {  background-color: rgb(255, 196, 196);
+  }
 }

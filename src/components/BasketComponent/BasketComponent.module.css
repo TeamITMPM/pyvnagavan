@@ -1,17 +1,46 @@
 .input {
   border-radius: 5px;
-  font-size: 2rem;
+  border: 0px;
+  font-size: 1rem;
   margin: 1rem;
+  padding: 0.5rem;
   cursor: pointer;
+  height: 2.5rem;
+  width: 12rem;
+  font-weight: 600;
 }
-.input:focus {
-  background-color: rgba(153, 199, 159, 0.288);
+.input:hover {
+  background-color: rgba(199, 230, 203, 0.288);
+  border: 2px inset rgb(87, 87, 87);
+  animation-name: toGreen;
+  animation-duration: 0.2s;
+}
+
+@keyframes toGreen {
+  0% {
+    background-color: rgb(255, 255, 255);
+  }
+  100% {
+    background-color: rgba(199, 230, 203, 0.288);
+  }
+}
+.input:active {
+  font-size: 0.8rem;
+  background-color: rgb(235, 235, 235);
 }
 
 .selector {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.h2 {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+  margin: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
 }
 
 .text {
@@ -35,7 +64,4 @@
 
 .basket {
   flex-basis: 40%;
-}
-
-.beerInBasket {
 }
