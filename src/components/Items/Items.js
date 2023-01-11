@@ -19,9 +19,10 @@ const Items = () => {
     dispatch(listItems());
   }, []);
 
+
   const onAddToBasket = (id) => {
-    toast.success('Товар додано до кошику!', {
-      position: "top-right",
+    toast.success("Товар додано до кошику!", {
+      position: "bottom-right",
       autoClose: 2500,
       hideProgressBar: false,
       closeOnClick: true,
@@ -29,7 +30,7 @@ const Items = () => {
       draggable: true,
       progress: undefined,
       theme: "dark",
-      });
+    });
     console.log(toast);
     dispatch(addToBasket(id, setBeer));
   };
@@ -71,7 +72,7 @@ const Items = () => {
                     step="0.5"
                     // value={quantity}
                     onChange={changeLiters}
-                    defaultValue={1}
+                    defaultValue={0}
                   />{" "}
                   літрів
                 </label>
@@ -86,7 +87,7 @@ const Items = () => {
                   Додати в кошик{" "}
                 </button>
                 <ToastContainer
-                  position="top-right"
+                  position="bottom-right"
                   autoClose={5000}
                   hideProgressBar={false}
                   newestOnTop={false}
