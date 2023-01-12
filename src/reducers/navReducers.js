@@ -8,8 +8,6 @@ import {
 } from "../constants/navConstants";
 
 export const navListReducer = (state = { types: [], category: {} }, action) => {
-  console.log("reducer ", action.payload);
-
   switch (action.type) {
     case NAV_LIST_REQUEST:
       return { loading: true, types: [] };

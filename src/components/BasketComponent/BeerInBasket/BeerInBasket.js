@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listMyBasket } from "../../../actions/basketActions";
+import { listMyBasket, deleteFromBasket } from "../../../actions/basketActions";
+
 import styles from "./BeerInBasket.module.css";
 
 export default function BeerInBasket() {
@@ -12,6 +13,10 @@ export default function BeerInBasket() {
   useEffect(() => {
     dispatch(listMyBasket());
   }, []);
+  const removeItem = (id) => {
+    // console.log(id);
+    dispatch(deleteFromBasket(id));
+  };
 
   if (!basketState.loading && basketState.itemInBasket) {
     const items = basketState.itemInBasket[0];
@@ -41,7 +46,14 @@ export default function BeerInBasket() {
                   <b>Кількість:</b> {quantity} літрів
                 </p>
                 <p className={styles.text}> </p>
-                <button className={styles.button}>Видалити</button>
+                <button
+                  onClick={() => {
+                    removeItem(dataValues.id);
+                  }}
+                  className={styles.button}
+                >
+                  Видалити
+                </button>
               </div>
             );
           })}
