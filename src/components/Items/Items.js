@@ -15,6 +15,9 @@ const Items = () => {
   const { products, loading } = productList;
   const [setBeer, onSetBeer] = useState();
 
+  const {category} = useSelector((state) => state.navState);
+// console.log("productList >>>>> " ,productList);
+console.log("category >>>>> " ,category);
   useEffect(() => {
     dispatch(listItems());
   }, []);
@@ -31,7 +34,6 @@ const Items = () => {
       progress: undefined,
       theme: "dark",
     });
-    console.log(toast);
     dispatch(addToBasket(id, setBeer));
   };
   const changeLiters = (event) => {
