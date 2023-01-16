@@ -3,6 +3,9 @@ import {
   BASKET_CREATE_REQUEST,
   BASKET_CREATE_SUCCESS,
   BASKET_CREATE_FAIL,
+  BASKET_DELETE_REQUEST,
+  BASKET_DELETE_SUCCESS,
+  BASKET_DELETE_FAIL,
   BASKET_DETAILS_REQUEST,
   BASKET_DETAILS_SUCCESS,
   BASKET_DETAILS_FAIL,
@@ -83,6 +86,31 @@ export const listMyBasket = () => async (dispatch, getState) => {
     });
   }
   // console.log("Work");
+};
+
+export const deleteFromBasket = (id) => async (dispatch) => {
+  console.log("rowInDBId>>>>>>>>", id);
+  const { token } = JSON.parse(localStorage.getItem("userInfo"));
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    URL = process.env.REACT_APP_API_URL + `api/basket/item/${id}`;
+    const { data } = await axios.delete(URL, config);
+    dispatch({
+      type: BASKET_DELETE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BASKET_DELETE_FAIL,
+      payload: error,
+    });
+  }
 };
 
 // export const createOrder = (order) => async (dispatch, getState) => {
