@@ -18,10 +18,15 @@ export default function Nav() {
 
   const navClick = (typeId) => {
     dispatch(setCategory(typeId));
+    document.getElementById("products").scrollIntoView({
+      behavior:"smooth",
+      block:    "start",
+      inline:    "start",
+    })
   };
 
     return (    
-      <div className={styles.nav}>
+      <div className={styles.nav} >
         {loading && <p> Завантажується навігація </p>}
         {types &&
           types.map(({ name, id }) => {
