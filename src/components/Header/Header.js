@@ -3,6 +3,12 @@ import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+
 export default function Header() {
   const dispatch = useDispatch();
 
@@ -14,10 +20,10 @@ export default function Header() {
     <div className={styles.header}>
       {/* Левая часть хєдера */}
       <div className={styles.headerLeft}>
-        <img
-          className={styles.IMG}
-          src={require("./img/phone.png")}
-          alt="pyvnagavan"
+        <FontAwesomeIcon
+          icon={faPhone}
+          color="black"
+          className={styles.phoneIcon}
         />
         <div className={styles.space} />
         <a href="" className={styles.number}>
@@ -38,17 +44,11 @@ export default function Header() {
 
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
-        <img
-          className={styles.icon}
-          src="https://cdn.iconscout.com/icon/free/png-256/sun-1767847-1502100.png"
-        />
+        <FontAwesomeIcon icon={faSun} color="black" className={styles.icon} />
         <label className={styles.themeSelector}>
           <input type="checkbox" /> <div></div>
         </label>
-        <img
-          className={styles.icon}
-          src="        https://cdn.iconscout.com/icon/free/png-256/moon-456-433595.png"
-        />
+        <FontAwesomeIcon icon={faMoon} color="black" className={styles.icon} />
         <div className={styles.space} />
         <img
           className={styles.icon}
@@ -67,9 +67,13 @@ export default function Header() {
 
         <Link to={token ? `/user` : "/login"}>
           <button type="button" className={`${styles.button} ${styles.space}`}>
-            {token ? "Особистий кабінет" : "Вхід"}
+            {token ? "Кабінет" : "Вхід"}
           </button>
         </Link>
+        {token && <div className={`${styles.button} ${styles.space}`}>
+          <FontAwesomeIcon icon={faRightFromBracket} />
+        </div>}
+        
       </div>
     </div>
   );

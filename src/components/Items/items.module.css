@@ -1,3 +1,7 @@
+@import url('https://fonts.cdnfonts.com/css/tinos');
+
+
+
 .products {
   display: flex;
   justify-content: center;
@@ -12,7 +16,7 @@
   gap: 1rem;
   grid-auto-rows: max-content;
   text-align: center;
-  font-family: cursive;
+  font-family: "Tinos", sans-serif;
   justify-items: center;
   width: 80%;
 }
@@ -28,6 +32,7 @@
   /* border: 0.313rem inset rgba(199, 199, 199, 0.425);*/
   border-radius: 0.625rem; 
   margin: 1.5rem;
+  padding:0.5rem;
   background: linear-gradient(
     0deg,
     rgba(200, 200, 200, 0.6) 0%,

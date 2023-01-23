@@ -18,6 +18,7 @@
     rgb(255, 241, 165) 100%
   );
   box-shadow: 10px 5px 5px rgb(0, 0, 0);
+  z-index: 999;
 }
 
 .headerLeft {
@@ -25,6 +26,10 @@
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
+}
+.phoneIcon {
+  font-size: 2vw;
+  margin-left: 2vw;
 }
 
 .number {
@@ -72,8 +77,8 @@ a:active {
 
 /* Кнопки ЛК и ВХОД */
 .button {
-  font-family: "Open Sans", sans-serif;
   font-size: 0.7vw;
+  padding: 0px;
   letter-spacing: 0.125rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -87,7 +92,8 @@ a:active {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  height: 2vw;
+  background-color: white;
+  font-weight:600;
 }
 
 .button:active {
@@ -176,8 +182,8 @@ a:active {
 .icon {
   margin-left: 0.313rem;
   margin-right: 0.313rem;
-  width: 2vw;
-  height: 2vw;
+  width: 1.8vw;
+  height: 1.8vw;
 }
 
 .pyvnagavan {

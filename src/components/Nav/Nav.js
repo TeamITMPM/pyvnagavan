@@ -2,9 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
+
 import { typeList } from "../../actions/navActions";
-import styles from "./Nav.module.css";
 import { setCategory } from "../../actions/navActions";
+
+import styles from "./Nav.module.css";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -46,11 +51,8 @@ export default function Nav() {
   
         <Link to="/basket" style={{ textDecoration: "none" }}>
           <button className={styles.basket}>
-            Кошик{" "}
-            <img
-              src={require("./img/basket-shopping-solid.png")}
-              className={styles.basketImg}
-            />{" "}
+            Кошик{" "} 
+            <FontAwesomeIcon icon={faBasketShopping} color="white"/>
           </button>
         </Link>
       </div> );

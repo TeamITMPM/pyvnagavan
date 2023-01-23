@@ -6,6 +6,7 @@ import { listItems } from "../../actions/itemActions";
 import { addToBasket } from "../../actions/basketActions";
 
 import { ToastContainer, toast } from "react-toastify";
+  
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Items.module.css";
 
@@ -16,9 +17,6 @@ const Items = () => {
   const [setBeer, onSetBeer] = useState();
 
   const { category } = useSelector((state) => state.navState);
-  // console.log("productList >>>>> " ,productList);
-  console.log("category >>>>> ", category);
-  console.log("products >>>>> ", products);
 
   useEffect(() => {
     dispatch(listItems());
@@ -37,6 +35,7 @@ const Items = () => {
     });
     dispatch(addToBasket(id, setBeer));
   };
+
   const changeLiters = (event) => {
     const { id, value } = event.target;
     onSetBeer({
@@ -44,6 +43,7 @@ const Items = () => {
       [id]: value,
     });
   };
+
   return (
     <div className={styles.products} id="products">
       <div className={styles.items}>
