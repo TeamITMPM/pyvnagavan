@@ -1,4 +1,3 @@
-import Admin from "./pages/Admin";
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
@@ -8,6 +7,7 @@ import {
   SHOP_ROUTE,
   USER_ROUTE,
 } from "./utils/consts";
+import Admin from "./pages/Admin";
 import Basket from "./pages/Basket";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";

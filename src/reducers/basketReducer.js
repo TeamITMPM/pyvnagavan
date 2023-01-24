@@ -2,6 +2,9 @@ import {
   BASKET_CREATE_REQUEST,
   BASKET_CREATE_SUCCESS,
   BASKET_CREATE_FAIL,
+  BASKET_DELETE_REQUEST,
+  BASKET_DELETE_SUCCESS,
+  BASKET_DELETE_FAIL,
   BASKET_DETAILS_REQUEST,
   BASKET_DETAILS_SUCCESS,
   BASKET_DETAILS_FAIL,
@@ -20,29 +23,8 @@ import {
   BASKET_DELIVER_FAIL,
 } from "../constants/basketConstants";
 
-export const basketCreateReducer = (state = {}, action) => {
-  switch (action.type) {
-    case BASKET_CREATE_REQUEST:
-      return {
-        loading: true,
-      };
-    case BASKET_CREATE_SUCCESS:
-      return {
-        loading: false,
-        success: true,
-        itemInBasket: action.payload,
-      };
-    case BASKET_CREATE_FAIL:
-      return {
-        loading: false,
-        error: action.paylod,
-      };
-    default:
-      return state;
-  }
-};
-
 export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
+  console.log("action_payload", action.payload);
   switch (action.type) {
     case BASKET_LIST_MY_REQUEST:
       return {
@@ -53,13 +35,33 @@ export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
         loading: false,
         itemInBasket: action.payload,
       };
+
     case BASKET_LIST_MY_FAIL:
       return {
         loading: false,
         error: action.paylod,
       };
-    case BASKET_LIST_MY_RESET:
-      return { itemInBasket: [] };
+
+    case BASKET_DELETE_REQUEST:
+      return {
+        loading: true,
+      };
+
+    case BASKET_DELETE_SUCCESS:
+      console.log("action_payload_DELETE_SUCCES", action.payload);
+      return {
+        loading: false,
+        itemInBasket: action.payload,
+      };
+
+    case BASKET_DELETE_FAIL:
+      return {
+        loading: false,
+        error: action.paylod,
+      };
+
+    // case BASKET_LIST_MY_RESET:
+    //   return { itemInBasket: [] };
     default:
       return state;
   }

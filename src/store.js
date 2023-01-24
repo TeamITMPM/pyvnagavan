@@ -4,16 +4,13 @@ import { itemListReducer } from "./reducers/itemReducers";
 import { userLoginReducer } from "./reducers/userReducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { navListReducer } from "./reducers/navReducers";
-import {
-  basketCreateReducer,
-  basketListMyReducer,
-} from "./reducers/basketReducer";
+import { basketListMyReducer } from "./reducers/basketReducer";
 
 let rootReducer = combineReducers({
   itemState: itemListReducer,
   userInfo: userLoginReducer,
   navState: navListReducer,
-  basketState: basketCreateReducer,
+
   basketState: basketListMyReducer,
 });
 
@@ -21,6 +18,7 @@ const initialState = {
   itemState: {},
   userInfo: {},
   navState: {},
+  basketState: {},
 };
 
 const middleware = [thunk];

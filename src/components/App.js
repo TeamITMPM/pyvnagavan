@@ -11,7 +11,6 @@ import { SHOP_ROUTE } from "../utils/consts";
 export default function App() {
   const isAuth = true;
 
-
   return (
     <Router>
       {isAuth &&

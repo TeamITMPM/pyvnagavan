@@ -6,7 +6,7 @@ import { listItems } from "../../actions/itemActions";
 import { addToBasket } from "../../actions/basketActions";
 
 import { ToastContainer, toast } from "react-toastify";
-  
+
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Items.module.css";
 

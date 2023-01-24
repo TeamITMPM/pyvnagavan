@@ -16,8 +16,6 @@ export default function Header() {
     userInfo: { token, error },
   } = useSelector((state) => state);
 
-  const { email } = token.payload;
-
   return (
     <div className={styles.header}>
       {/* Левая часть хєдера */}
@@ -63,7 +61,7 @@ export default function Header() {
           src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
         />
 
-        {token && <strong className={styles.p}>{email}</strong>}
+        {/* {token && <strong className={styles.p}>{email}</strong>} */}
 
         {/* Вход и ЛК */}
 

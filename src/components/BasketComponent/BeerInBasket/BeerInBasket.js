@@ -17,7 +17,6 @@ export default function BeerInBasket() {
     dispatch(listMyBasket());
   }, []);
   const removeItem = (id) => {
-    // console.log(id);
     dispatch(deleteFromBasket(id));
     toast.success("Товар видалено з кошику!", {
       position: "bottom-right",
@@ -28,52 +27,51 @@ export default function BeerInBasket() {
       draggable: true,
       progress: undefined,
       theme: "dark",
-    })
+    });
   };
 
   if (!basketState.loading && basketState.itemInBasket) {
     const items = basketState.itemInBasket[0];
     return (
       <>
-      <div className={styles.grid}>
-        {items &&
-          items.map(({ product, dataValues }) => {
-            const { id, img, name, price } = product;
-            const { quantity } = dataValues;
-            return (
-              <div key={id} className={styles.item}>
-                <img
-                  src={
-                    img
-                      ? require(`../../../../../back_pyvnagavan/static/${img}`)
-                      : "https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg"
-                  }
-                  className={styles.img}
-                />
-                <h2 className={styles.header}>{name}</h2>
+        <div className={styles.grid}>
+          {items &&
+            items.map(({ product, dataValues }) => {
+              const { id, img, name, price } = product;
+              const { quantity } = dataValues;
+              return (
+                <div key={id} className={styles.item}>
+                  <img
+                    src={
+                      img
+                        ? require(`../../../../../back_pyvnagavan/static/${img}`)
+                        : "https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg"
+                    }
+                    className={styles.img}
+                  />
+                  <h2 className={styles.header}>{name}</h2>
 
-                <p className={styles.text}>
-                  <b>Ціна за 1 літр:</b> {price} грн,
-                </p>
-                <p>
-                  <b>Кількість:</b> {quantity} літрів
-                </p>
-                <p className={styles.text}> </p>
-                <button
-                  onClick={() => {
-                    removeItem(dataValues.id);
-                  }}
-                  className={styles.button}
-                >
-                  Видалити
-                </button>
-              </div>
-
-            );
-          })}
-        {loading && <h1> Завантажується пивко ... </h1>}
-      </div>
-      <ToastContainer />
+                  <p className={styles.text}>
+                    <b>Ціна за 1 літр:</b> {price} грн,
+                  </p>
+                  <p>
+                    <b>Кількість:</b> {quantity} літрів
+                  </p>
+                  <p className={styles.text}> </p>
+                  <button
+                    onClick={() => {
+                      removeItem(dataValues.id);
+                    }}
+                    className={styles.button}
+                  >
+                    Видалити
+                  </button>
+                </div>
+              );
+            })}
+          {loading && <h1> Завантажується пивко ... </h1>}
+        </div>
+        <ToastContainer />
       </>
     );
   }

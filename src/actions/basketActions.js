@@ -25,8 +25,8 @@ import {
 import axios from "axios";
 
 export const addToBasket = (itemId, setBeer) => async (dispatch) => {
-  console.log("itemId", itemId);
-  console.log("setBeer", setBeer);
+  // console.log("itemId", itemId);
+  // console.log("setBeer", setBeer);
   const { token } = JSON.parse(localStorage.getItem("userInfo"));
   try {
     dispatch({ type: BASKET_CREATE_REQUEST });
@@ -85,22 +85,23 @@ export const listMyBasket = () => async (dispatch, getState) => {
       payload: error,
     });
   }
-  // console.log("Work");
 };
 
 export const deleteFromBasket = (id) => async (dispatch) => {
-  console.log("rowInDBId>>>>>>>>", id);
   const { token } = JSON.parse(localStorage.getItem("userInfo"));
+  const { basketId } = jwt_decode(token);
   try {
     const config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      data: { id: id },
     };
 
-    URL = process.env.REACT_APP_API_URL + `api/basket/item/${id}`;
+    URL = process.env.REACT_APP_API_URL + `api/basket/item/${basketId}`;
     const { data } = await axios.delete(URL, config);
+    console.log("DELETEATION>>>>>>", data);
     dispatch({
       type: BASKET_DELETE_SUCCESS,
       payload: data,
