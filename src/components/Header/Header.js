@@ -16,6 +16,8 @@ export default function Header() {
     userInfo: { token, error },
   } = useSelector((state) => state);
 
+  const { email } = token.payload;
+
   return (
     <div className={styles.header}>
       {/* Левая часть хєдера */}
@@ -25,10 +27,15 @@ export default function Header() {
           color="black"
           className={styles.phoneIcon}
         />
-        <div className={styles.space} />
         <a href="" className={styles.number}>
           +380639356317
         </a>
+        <div className={styles.space} />
+        <FontAwesomeIcon icon={faSun} color="black" className={styles.icon} />
+        <label className={styles.themeSelector}>
+          <input type="checkbox" /> <div></div>
+        </label>
+        <FontAwesomeIcon icon={faMoon} color="black" className={styles.icon} />
       </div>
 
       {/* Центральная часть хєдера */}
@@ -44,12 +51,6 @@ export default function Header() {
 
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
-        <FontAwesomeIcon icon={faSun} color="black" className={styles.icon} />
-        <label className={styles.themeSelector}>
-          <input type="checkbox" /> <div></div>
-        </label>
-        <FontAwesomeIcon icon={faMoon} color="black" className={styles.icon} />
-        <div className={styles.space} />
         <img
           className={styles.icon}
           src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/322/flag-ukraine_1f1fa-1f1e6.png"
@@ -61,7 +62,8 @@ export default function Header() {
           className={styles.icon}
           src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
         />
-        {/* <div className={styles.space} /> */}
+
+        {token && <strong className={styles.p}>{email}</strong>}
 
         {/* Вход и ЛК */}
 
@@ -70,10 +72,11 @@ export default function Header() {
             {token ? "Кабінет" : "Вхід"}
           </button>
         </Link>
-        {token && <div className={`${styles.button} ${styles.space}`}>
-          <FontAwesomeIcon icon={faRightFromBracket} />
-        </div>}
-        
+        {token && (
+          <div className={`${styles.button} ${styles.space}`}>
+            <FontAwesomeIcon icon={faRightFromBracket} />
+          </div>
+        )}
       </div>
     </div>
   );
