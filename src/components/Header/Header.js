@@ -20,6 +20,9 @@ export default function Header() {
     userInfo: { token, error },
   } = useSelector((state) => state);
 
+  if(token){
+    console.log(token);
+  }
   return (
     <div className={styles.header}>
       {/* Левая часть хєдера */}
@@ -38,6 +41,17 @@ export default function Header() {
           <input type="checkbox" /> <div></div>
         </label>
         <FontAwesomeIcon icon={faMoon} color="black" className={styles.icon} />
+        <img
+          className={styles.icon}
+          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/322/flag-ukraine_1f1fa-1f1e6.png"
+        />
+        <label className={styles.languageSelector}>
+          <input type="checkbox" /> <div></div>
+        </label>
+        <img
+          className={styles.icon}
+          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
+        />
       </div>
 
       {/* Центральная часть хєдера */}
@@ -53,20 +67,12 @@ export default function Header() {
 
       {/* Правая часть хєдера */}
       <div className={styles.headerRight}>
-        <img
-          className={styles.icon}
-          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/322/flag-ukraine_1f1fa-1f1e6.png"
-        />
-        <label className={styles.languageSelector}>
-          <input type="checkbox" /> <div></div>
-        </label>
-        <img
-          className={styles.icon}
-          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
-        />
+      
 
         {/* Вход и ЛК */}
 
+
+        {token && <span className={styles.email}>{token.payload.email}</span>}
         <Link to={token ? `/user` : "/login"}>
           <button type="button" className={`${styles.button} ${styles.space}`}>
             {token ? "Кабінет" : "Вхід"}
@@ -80,11 +86,12 @@ export default function Header() {
               onClick={() => {
                 dispatch(logout());
               }}
-            >
+              >
               <FontAwesomeIcon icon={faRightFromBracket} />
             </button>
           </Link>
         )}
+      <div className={styles.space} />
       </div>
     </div>
   );

@@ -21,13 +21,17 @@
   z-index: 999;
 }
 
-.p{
+.p .email{
   font-size: 1vw;
   color: #000;
   text-align: center;
   align-items: center;
 }
 
+.email{
+margin-left: 1vw;
+font-size: 1.1vw;
+}
 .headerLeft {
   display: flex;
   justify-content: flex-start;
@@ -77,7 +81,7 @@ a:active {
 
 .headerRight {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   vertical-align: middle;
   gap: 0.2vw;
@@ -120,8 +124,8 @@ a:active {
 
 .themeSelector {
   display: inline-block;
-  height: 1.5vw;
-  width: 3vw;
+  height: 1.4vw;
+  width: 2.8vw;
   background: #000000;
   border-radius: 1.5vw;
   cursor: pointer;
@@ -131,9 +135,9 @@ a:active {
   opacity: 0;
 }
 .themeSelector div {
-  height: 1.5vw;
-  width: 1.5vw;
-  border-radius: 1.5vw;
+  height: 1.4vw;
+  width: 1.4vw;
+  border-radius: 1vw;
   background: #fff;
   box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
   -webkit-transition: all 300ms;
@@ -143,14 +147,14 @@ a:active {
 }
 
 .themeSelector input:checked + div {
-  -webkit-transform: translate3d(1.5vw, 0, 0);
-  -moz-transform: translate3d(1.5vw, 0, 0);
-  transform: translate3d(1.5vw, 0, 0);
+  -webkit-transform: translate3d(1.4vw, 0, 0);
+  -moz-transform: translate3d(1.4vw, 0, 0);
+  transform: translate3d(1.4vw, 0, 0);
 }
 .languageSelector {
   display: inline-block;
-  height: 1.5vw;
-  width: 3vw;
+  height: 1.4vw;
+  width: 2.8vw;
   background: #000000;
   border-radius: 1.5vw;
   cursor: pointer;
@@ -160,9 +164,9 @@ a:active {
   opacity: 0;
 }
 .languageSelector div {
-  height: 1.5vw;
-  width: 1.5vw;
-  border-radius: 1.5vw;
+  height: 1.4vw;
+  width: 1.4vw;
+  border-radius: 1.4vw;
   background: #fff;
   box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
   -webkit-transition: all 300ms;
@@ -190,8 +194,8 @@ a:active {
 .icon {
   margin-left: 0.313rem;
   margin-right: 0.313rem;
-  width: 1.8vw;
-  height: 1.8vw;
+  width: 1.4vw;
+  height: 1.4vw;
 }
 
 .pyvnagavan {
