@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
@@ -9,8 +9,18 @@ import { SHOP_ROUTE } from "../../utils/consts";
 
 function UserLogin() {
   const dispatch = useDispatch();
-  const { userInfo:{token, error} } = useSelector((state) => state);
+
+  
+  const {
+    userInfo: { token, error },
+  } = useSelector((state) => state);
   const history = useHistory();
+  useEffect(()=>{
+    if(token){
+      history.push(SHOP_ROUTE);
+    }
+  
+  }) 
 
   const loginClick = async (event) => {
     const EMAIL = event.target[0].value,
@@ -19,10 +29,7 @@ function UserLogin() {
     event.preventDefault();
     dispatch(login(EMAIL, PASSWORD));
 
-    if (token) {
-       history.push(SHOP_ROUTE);      
-    }
-    
+  
   };
 
   return (
@@ -45,7 +52,7 @@ function UserLogin() {
             </label>
           </div>
           <div className={styles.inputTable}>
-            <input className={styles.inputText} id="4" type="email" />
+            <input className={styles.inputText} id="4" type="email" required />
           </div>
 
           <div className={styles.labelTable}>
@@ -54,7 +61,12 @@ function UserLogin() {
             </label>
           </div>
           <div className={styles.inputTable}>
-            <input className={styles.inputText} type="password" id="7" />
+            <input
+              className={styles.inputText}
+              type="password"
+              id="7"
+              required
+            />
           </div>
         </div>
         <div>
