@@ -1,26 +1,35 @@
 // import { type } from "@testing-library/user-event/dist/type";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/userAction";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "./UserRegistration.module.css";
+import { SHOP_ROUTE } from "../../utils/consts";
 
 export default function UserRegistration() {
-  let now = new Date(),
-    date18 = new Date(Number(now) - 1000 * 60 * 60 * 24 * 365.25 * 18)
-      .toJSON()
-      .slice(0, 10);
 
+  useEffect(()=>{
+    if(token){
+      history.push(SHOP_ROUTE)
+    }
+  })  
+  
   const dispatch = useDispatch();
-
-  const userInfo = useSelector((state) => state.itemState);
-  const { token } = userInfo;
-
+  const history = useHistory();
+  
+  const {
+    userInfo: { token, error },
+  } = useSelector((state) => state);
+  
   const signUpClick = (evt) => {
     evt.preventDefault();
     // console.log(evt.target[0].value);
-
+    
+    let now = new Date(),
+      date18 = new Date(Number(now) - 1000 * 60 * 60 * 24 * 365.25 * 18)
+        .toJSON()
+        .slice(0, 10);
     let data = {};
     // for (let i = 0; i <= 6; i++) {
     //   data = [...evt.target[i].value];
@@ -58,6 +67,7 @@ export default function UserRegistration() {
               id="1"
               type="text"
               name="secondName"
+              required
             />
           </div>
           <div className={styles.labelTable}>
@@ -71,6 +81,7 @@ export default function UserRegistration() {
               id="2"
               type="text"
               name="firstName"
+              required
             />
           </div>
           <div className={styles.labelTable}>
@@ -85,6 +96,7 @@ export default function UserRegistration() {
               type="tel"
               pattern="[+]{1}\[3]{1}\[8]{1}\[(]{1}\[0-9]{3}\[)]{1}\[0-9]{3}-[0-9]{2}-[0-9]{2}"
               name="phone"
+              required
             />
           </div>
           <div className={styles.labelTable}>
@@ -98,6 +110,7 @@ export default function UserRegistration() {
               id="4"
               type="email"
               name="email"
+              required
             />
           </div>
           <div className={styles.labelTable}>
@@ -112,6 +125,7 @@ export default function UserRegistration() {
               type="date"
               // value="2004-09-1"
               name="dateOfBirthsday"
+              required
             />
             {/* //дату на 18 лет до текущей
             // max="2004-02-01" */}
@@ -128,6 +142,7 @@ export default function UserRegistration() {
               rows="1"
               type="chose"
               name="favouriteBeer"
+              required
             />
           </div>
           <div className={styles.labelTable}>
@@ -141,6 +156,7 @@ export default function UserRegistration() {
               type="password"
               id="7"
               name="password"
+              required
             />
           </div>
           <div className={styles.labelTable}>
@@ -153,6 +169,7 @@ export default function UserRegistration() {
               className={styles.inputConfirmPassword}
               type="password"
               id="8"
+              required
             />
           </div>
         </div>

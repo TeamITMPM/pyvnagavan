@@ -8,19 +8,17 @@ import styles from "./UserLogin.module.css";
 import { SHOP_ROUTE } from "../../utils/consts";
 
 function UserLogin() {
-  const dispatch = useDispatch();
+  useEffect(() => {
+    if (token) {
+      history.push(SHOP_ROUTE);
+    }
+  });
 
-  
+  const dispatch = useDispatch();
+  const history = useHistory();
   const {
     userInfo: { token, error },
   } = useSelector((state) => state);
-  const history = useHistory();
-  useEffect(()=>{
-    if(token){
-      history.push(SHOP_ROUTE);
-    }
-  
-  }) 
 
   const loginClick = async (event) => {
     const EMAIL = event.target[0].value,
@@ -28,8 +26,6 @@ function UserLogin() {
 
     event.preventDefault();
     dispatch(login(EMAIL, PASSWORD));
-
-  
   };
 
   return (
