@@ -8,24 +8,22 @@ import styles from "./UserRegistration.module.css";
 import { SHOP_ROUTE } from "../../utils/consts";
 
 export default function UserRegistration() {
-
-  useEffect(()=>{
-    if(token){
-      history.push(SHOP_ROUTE)
+  useEffect(() => {
+    if (token) {
+      history.push(SHOP_ROUTE);
     }
-  })  
-  
+  });
+
   const dispatch = useDispatch();
   const history = useHistory();
-  
+
   const {
     userInfo: { token, error },
   } = useSelector((state) => state);
-  
+
   const signUpClick = (evt) => {
     evt.preventDefault();
-    // console.log(evt.target[0].value);
-    
+
     let now = new Date(),
       date18 = new Date(Number(now) - 1000 * 60 * 60 * 24 * 365.25 * 18)
         .toJSON()
@@ -38,7 +36,7 @@ export default function UserRegistration() {
     for (let i = 0; i <= 6; i++) {
       data[evt.target[i].name] = evt.target[i].value;
     }
-    // console.log(data);
+
     dispatch(register(data));
   };
 
@@ -46,7 +44,7 @@ export default function UserRegistration() {
     <div className={styles.modal}>
       <Link to="/login">
         <button className={styles.button1}>
-          <h1 className={styles.h1}>Увійти</h1>
+          <h1 className={styles.h1}>Вхід</h1>
         </button>
       </Link>
       <Link to="/signup">
@@ -58,7 +56,7 @@ export default function UserRegistration() {
         <div className={styles.FormRegistration}>
           <div className={styles.labelTable}>
             <label htmlFor="surname">
-              <h2 className={styles.h2}>Фамілія</h2>
+              <h2 className={styles.h2}>Прізвище</h2>
             </label>
           </div>
           <div className={styles.inputTable}>

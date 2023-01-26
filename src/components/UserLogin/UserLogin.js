@@ -32,7 +32,7 @@ function UserLogin() {
     <div className={styles.modal}>
       <Link to="/login">
         <button className={styles.button1}>
-          <p className={styles.p1}>Увійти</p>
+          <p className={styles.p1}>Вхід</p>
         </button>
       </Link>
       <Link to="/signup">
