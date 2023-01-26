@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../actions/userAction";
+
 import { cleareBasketState } from "../../actions/basketActions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,11 +19,6 @@ export default function Header() {
   const {
     userInfo: { token, error },
   } = useSelector((state) => state);
-
-  const logoutAndReload = () => {
-    dispatch(logout());
-    dispatch(cleareBasketState());
-  };
 
   return (
     <div className={styles.header}>
@@ -82,7 +78,7 @@ export default function Header() {
               type="button"
               className={styles.button}
               onClick={() => {
-                logoutAndReload();
+                dispatch(logout());
               }}
             >
               <FontAwesomeIcon icon={faRightFromBracket} />
