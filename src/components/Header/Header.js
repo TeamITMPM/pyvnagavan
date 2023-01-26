@@ -3,7 +3,8 @@ import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import {logout} from "../../actions/userAction"
+import { logout } from "../../actions/userAction";
+import { cleareBasketState } from "../../actions/basketActions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -19,9 +20,9 @@ export default function Header() {
   } = useSelector((state) => state);
 
   const logoutAndReload = () => {
-    dispatch(logout())
+    dispatch(logout());
+    dispatch(cleareBasketState());
   };
-
 
   return (
     <div className={styles.header}>
@@ -78,11 +79,11 @@ export default function Header() {
         {token && (
           <Link to="/">
             <button
-                type="button"
-                className={styles.button}
-                onClick={() => {
-                  logoutAndReload()
-                }}
+              type="button"
+              className={styles.button}
+              onClick={() => {
+                logoutAndReload();
+              }}
             >
               <FontAwesomeIcon icon={faRightFromBracket} />
             </button>

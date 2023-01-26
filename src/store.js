@@ -10,7 +10,6 @@ let rootReducer = combineReducers({
   itemState: itemListReducer,
   userInfo: userLoginReducer,
   navState: navListReducer,
-
   basketState: basketListMyReducer,
 });
 

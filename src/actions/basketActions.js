@@ -6,6 +6,8 @@ import {
   BASKET_DELETE_REQUEST,
   BASKET_DELETE_SUCCESS,
   BASKET_DELETE_FAIL,
+  CLEAR_BASKET_SUCCESS,
+  CLEAR_BASKET_FAIL,
   BASKET_DETAILS_REQUEST,
   BASKET_DETAILS_SUCCESS,
   BASKET_DETAILS_FAIL,
@@ -101,10 +103,24 @@ export const deleteFromBasket = (id) => async (dispatch) => {
 
     URL = process.env.REACT_APP_API_URL + `api/basket/item/${basketId}`;
     const { data } = await axios.delete(URL, config);
-    console.log("DELETEATION>>>>>>", data);
+
     dispatch({
       type: BASKET_DELETE_SUCCESS,
       payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BASKET_DELETE_FAIL,
+      payload: error,
+    });
+  }
+};
+
+export const cleareBasketState = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: BASKET_DELETE_SUCCESS,
+      payload: {},
     });
   } catch (error) {
     dispatch({
