@@ -10,7 +10,7 @@ export default function ShopPagination() {
   return (
     <div className={styles.paginationMenu}>
 
-      <Button>Завантажити більше півкапп</Button>
+      <Button variant="secondary" className={styles.button}>Завантажити більшe</Button>
     {/* <Pagination>
       <Pagination.First />
       <Pagination.Prev />

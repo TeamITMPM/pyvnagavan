@@ -1,5 +1,10 @@
-.paginationMenu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.paginationMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin: 2rem;
+  font-size: 1.3rem;
 }
