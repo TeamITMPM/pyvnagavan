@@ -1,12 +1,15 @@
 import React from "react";
 
-import Carousel from 'react-bootstrap/Carousel';
+import {Carousel} from 'react-bootstrap';
 
 import styles from "./News.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function News() {
+
+
+
   return (
     <div className={styles.news}>
       <div className={styles.newsDiv}>
