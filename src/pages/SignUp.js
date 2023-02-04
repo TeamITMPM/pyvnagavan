@@ -10,7 +10,7 @@ const SignUp = () => {
       <Header />
       <UserRegistration />
        {/* Что бы закрепить оба футера внизу */}
-       <div style={{bottom: "0", width: "100%", height:"35vw"}} />
+       <div style={{bottom: "0", width: "100%", height:"90vh"}} />
         <Footer />
 
     </>

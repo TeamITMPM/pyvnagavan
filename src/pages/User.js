@@ -12,7 +12,7 @@ export default function User() {
       <Header />
 
       <UserInfo />
-      <div style={{bottom: "0", width: "100%", height:"15vw"}} />
+      <div style={{bottom: "0", width: "100%", height:"35vh"}} />
 
       <Footer />
     </>
