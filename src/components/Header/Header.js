@@ -88,7 +88,7 @@ export default function Header() {
         {token && <span className={styles.email}>{token.payload.email}</span>}
         <Link to={token ? `/user` : "/login"}>
           <button type="button" className={`${styles.button} ${styles.space}`}>
-            {token ? "Кабінет" : "Вхід"}
+            {token ? "Кабінет" : "Вхід | Реєстрація"}
           </button>
         </Link>
         {token && (

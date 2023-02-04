@@ -4,8 +4,8 @@ import styles from "./CarryOut.module.css";
 
 export default function CarryOut() {
   return (
-    <div>
-      <form>
+
+      <div className={styles.container}>
         <div className={styles.block}>
           <label className={styles.label}>
             Контактні дані:
@@ -59,7 +59,6 @@ export default function CarryOut() {
               className={styles.input}
             />
             <label>
-              {" "}
               Якнайшвидше
               <div className={styles.checkbox}>
                 <input type="checkbox" name="asap" /> <div></div>
@@ -95,8 +94,7 @@ export default function CarryOut() {
             </select>
           </label>
         </div>
-        <input type="submit" className={styles.input}/>
-      </form>
-    </div>
+      </div>
+    
   );
 }

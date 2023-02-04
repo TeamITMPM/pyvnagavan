@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { listMyBasket, deleteFromBasket } from "../../../actions/basketActions";
+
 
 import { ToastContainer, toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
-import { listMyBasket, deleteFromBasket } from "../../../actions/basketActions";
 
 import styles from "./BeerInBasket.module.css";
 
@@ -12,6 +15,8 @@ export default function BeerInBasket() {
   const { basketState } = useSelector((state) => state);
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
+
+  const closeIcon = <FontAwesomeIcon icon={faClose}/>
 
   useEffect(() => {
     dispatch(listMyBasket());
@@ -66,7 +71,7 @@ export default function BeerInBasket() {
                     }}
                     className={styles.button}
                   >
-                    Видалити
+                    {closeIcon} Видалити 
                   </button>
                 </div>
               );

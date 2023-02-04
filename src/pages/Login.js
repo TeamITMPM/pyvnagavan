@@ -10,10 +10,11 @@ const Login = () => {
       <Header />
       <UserLogin />
 
-      <div style={{ position: "fixed", bottom: "0", width: "100%" }}>
         {/* Что бы закрепить оба футера внизу */}
+      <div style={{bottom: "0", width: "100%", height:"35vw"}} />
+      
         <Footer />
-      </div>
+      
     </>
   );
 };

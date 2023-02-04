@@ -48,6 +48,8 @@ const Items = () => {
   const toastContainer = <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
 
   return (
+    <>
+      <h2 className={styles.h2}>Асортимент</h2>
     <div className={styles.products} id="products">
       <div className={styles.items}>
         {products &&
@@ -63,8 +65,8 @@ const Items = () => {
                   <h2>{name}</h2>
                   {image}
                   <hr />
-                  <p>Стара ціна за літр {oldPrice}</p>
-                  <p>Ціна за 1 літр {price} грн</p>
+                  <p>Стара ціна за літр <span className = {styles.number}>{oldPrice}</span></p>
+                  <p>Ціна за <span className = {styles.number}>1</span> літр <span className = {styles.number}>{price}</span> грн</p>
                   <p>Рейтинг {rating}</p>
                   <label>
                     <input
@@ -90,16 +92,15 @@ const Items = () => {
                   >
                     Додати в кошик{" "}
                   </button>
-                 {toastContainer}
                 </div>
               );
             }
           })}
         {loading && <h1> Завантажується пивко ... </h1>}
       </div>
+      {toastContainer}
     </div>
-
-    // <h1>Items</h1>
+</>
   );
 };
 

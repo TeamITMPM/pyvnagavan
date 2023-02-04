@@ -16,6 +16,7 @@ const Shop = () => {
       <Header />
       <Nav />
       <News />
+      
       <Items />
       <Pagination />
       <Footer />

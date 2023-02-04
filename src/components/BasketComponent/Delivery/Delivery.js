@@ -5,8 +5,7 @@ import styles from "./Delivery.module.css";
 
 export default function Delivery() {
   return (
-    <div>
-      <form className={styles.container}>
+      <div className={styles.container}>
         <div className={styles.block}>
           <label className={styles.label}>
             Контактні дані:{" "}
@@ -134,8 +133,6 @@ export default function Delivery() {
             </select>
           </label>
         </div>
-        <input type="submit" className={styles.input} />
-      </form>
-    </div>
+      </div>
   );
 }

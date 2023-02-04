@@ -6,13 +6,20 @@ import BeerInBasket from "./BeerInBasket";
 import BuyAlso from "./BuyAlso";
 import Total from "./Total";
 
+import { Button } from "react-bootstrap";
+import { ButtonGroup } from "react-bootstrap";
+
 import styles from "./BasketComponent.module.css";
 
 export default function BasketComponent() {
   const [delivery, setDelivery] = useState(true);
-  const handleDelivery = (e) => {
-    delivery === true ? setDelivery(false) : setDelivery(true);
-  };
+  const 
+  switchToDelivery = () => {
+    setDelivery(true);
+  },
+  switchToCarryOut = () =>{
+    setDelivery(false);
+  }
 
   return (
     <>
@@ -20,24 +27,26 @@ export default function BasketComponent() {
         <div className={styles.delivery}>
           <div className={styles.selector}>
             {" "}
-            <h2 className={styles.h2}>
+            <h3 className={styles.text}>
               {" "}
-              {delivery
-                ? "Заповніть анкету для доставки замовлення"
-                : "Заповніть анкету аби забрати самому"}{" "}
-              АБО:
-            </h2>
-            <button className={styles.input} onClick={handleDelivery}>
-              {delivery ? "Забрати самому" : "Замовити доставку"}
-            </button>
+              <ButtonGroup size="lg" className={`"mb-2" ${styles.buttonGroup}`}>
+                <Button variant={delivery ? "success": "secondary"} onClick = {switchToDelivery}>Доставка</Button>
+                <Button variant={!delivery ? "success": "secondary"} onClick = {switchToCarryOut}>Забрати самому</Button>
+              </ButtonGroup>
+              
+            </h3>
+           
           </div>
-          {delivery ? <Delivery /> : <CarryOut />}
+          <form>
+            {" "}
+            {delivery ? <Delivery /> : <CarryOut />}
+            <Total />
+          </form>
         </div>
         <div className={styles.basket}>
           <p className={styles.text}>Кошик</p>
           <BeerInBasket />
-          <BuyAlso />
-          <Total />
+          {/* <BuyAlso /> */}
         </div>
       </div>
     </>

@@ -8,7 +8,17 @@
   width: fit-content;
 }
 .container{
-  display:flow-root
+  display:flow-root;
+  width: 95%;  
+  margin:auto;
+  background: linear-gradient(
+    0deg,
+    #369fa1 30%,
+    #1d6c76 100%
+  );
+  border-radius: 20px;
+  /* border: 5px inset #16191e; */
+  
 }
 
 .input {
@@ -27,6 +37,7 @@
 .label {
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
+  align-items: center;
   
 }
 

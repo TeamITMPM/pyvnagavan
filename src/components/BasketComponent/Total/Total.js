@@ -1,5 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { Button } from "react-bootstrap";
+
 import styles from "./Total.module.css"
 
 export default function Total() {
@@ -13,7 +17,8 @@ export default function Total() {
   return (
     <div className={styles.container}>
       <div>До сплати: {price}грн</div>
-      <button className={styles.button}>Перейти до сплати</button>
+      <Link to="/"> <Button variant="success" size ="lg"  value="Submit">Перейти до оплати</Button></Link>
+     
     </div>
   );}
   if (basketState.loading || !basketState.itemInBasket) {
