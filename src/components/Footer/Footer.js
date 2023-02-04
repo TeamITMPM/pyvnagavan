@@ -1,76 +1,74 @@
 import React from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faInstagram, faTelegram, faFacebook, faTwitter} from "@fortawesome/free-brands-svg-icons"
+
 import styles from "./Footer.module.css";
 
+
+
 export default function Footer() {
+
+  const
+  telegramIcon = <FontAwesomeIcon icon={faTelegram} />,
+  instagramIcon = <FontAwesomeIcon icon={faInstagram} />,
+  facebookIcon =  <FontAwesomeIcon icon={faFacebook} />,
+  twitterIcon=  <FontAwesomeIcon icon={faTwitter} />;
+  
   return (
     <div>
-      <footer className={styles.topFooter}>
-        <li>я есть грут</li>
-        <li>asd</li>
-      </footer>
-      <footer className={styles.Footer}>
-          <div className={styles.NameOfTable}>
-            Меню
-            <ul>
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+      <footer className={styles.siteFooter}>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About</h6>
+            <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
+              <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
+              <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
+              <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
+              <li><a href="http://scanfcode.com/category/android/">Android</a></li>
+              <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
             </ul>
           </div>
-          <div className={styles.NameOfTable}>
-            Додаток
-            <ul>
-              <li>
-                <button>
-                  <img
-                    className={styles.img}
-                    src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
-                    alt="APle"
-                  />
-                </button>
-              </li>
-              <li>
-                <button>
-                  <img
-                    className={styles.img}
-                    src="https://internetua.com/upload/tinymce/images2/%D0%90%D1%80%D1%82%D0%B5%D0%BC/29012017/irina_blok_android.jpg"
-                    alt="android"
-                  />
-                </button>
-              </li>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="http://scanfcode.com/about/">About Us</a></li>
+              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
             </ul>
           </div>
-          <div className={styles.NameOfTable}>
-            Контакти
-            <ul>
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+        </div>
+        <hr />
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by  
+         <a href="#"> Pyvnagavan</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul className={styles.socialIcons}>
+              <li><a class="facebook" href="#">{telegramIcon}</a></li>
+              <li><a class="twitter" href="#">{instagramIcon}</a></li>
+              <li><a class="dribbble" href="#">{twitterIcon}</a></li>
+              <li><a class="linkedin" href="#">{facebookIcon}</a></li>   
             </ul>
           </div>
-          <div className={styles.NameOfTable}>
-            Платіжна система
-            <ul>
-              <li>биткоин</li>
-              <li>єфир</li>
-              <li>кефир</li>
-            </ul>
-          </div>
-          <div>
-            Ми у соцмережах
-            <ul>
-              <li>inst</li>
-              <li>facebook</li>
-              <li>piska</li>
-              <li>cocok</li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <li>made in china</li>
-            </ul>
-          </div>
-      </footer>
+        </div>
+      </div>
+</footer>
     </div>
   );
 }

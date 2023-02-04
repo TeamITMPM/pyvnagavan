@@ -17,7 +17,9 @@ export default function BeerInBasket() {
     dispatch(listMyBasket());
   }, []);
   const removeItem = (id) => {
-    dispatch(deleteFromBasket(id));
+    console.log(id)
+    dispatch(
+      deleteFromBasket(id))
     toast.success("Товар видалено з кошику!", {
       position: "bottom-right",
       autoClose: 2500,
@@ -41,6 +43,7 @@ export default function BeerInBasket() {
               const { quantity } = dataValues;
               return (
                 <div key={id} className={styles.item}>
+                  <h3 className={styles.header}>{name}</h3>
                   <img
                     src={
                       img
@@ -49,8 +52,7 @@ export default function BeerInBasket() {
                     }
                     className={styles.img}
                   />
-                  <h2 className={styles.header}>{name}</h2>
-
+                  <hr />
                   <p className={styles.text}>
                     <b>Ціна за 1 літр:</b> {price} грн,
                   </p>

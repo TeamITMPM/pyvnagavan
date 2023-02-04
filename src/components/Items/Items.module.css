@@ -23,7 +23,7 @@
 .itemsIMG {
   width: 15rem;
   height: 15rem;
-  border: 0.188rem inset rgb(148, 148, 148);
+  /* border: 2px inset rgb(148, 148, 148); */
   overflow: hidden;
   border-radius: 0.938rem;
 }
@@ -47,8 +47,9 @@
   margin-bottom: 1.563rem;
   margin-top: 0.5rem;
   border-radius: 10px;
-  color: rgb(255, 88, 88);
-  font-weight: 8000;
+  border: 0px;
+  color: rgb(219, 0, 0);
+  font-weight: 800;
   background-color: rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
   font-size: 1rem;

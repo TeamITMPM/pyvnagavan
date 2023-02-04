@@ -21,37 +21,45 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   gap: 1rem;
   grid-auto-rows: max-content;
   align-items: center;
   justify-items: center;
- 
 }
-.button{
+.button {
   width: 100%;
   border-radius: 15px;
-  border: 1px inset rgb(116, 116, 116);
-  font-family:'Courier New', Courier, monospace;
+  /* border: 1px inset rgb(116, 116, 116); */
+  border: 0px;
+  font-family: "Courier New", Courier, monospace;
   font-size: 1.1rem;
   font-weight: 600;
   height: 2rem;
-  
+  background-color: rgba(255, 255, 255, 0.3);
 }
-.button:hover{
+.button:hover {
   cursor: pointer;
-  background-color: rgb(255, 196, 196);
+  color: rgb(99, 0, 0);
   animation-name: toRed;
   animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
-.button:active{
+.button:active {
   font-size: 1rem;
-  background-color: rgb(235, 235, 235);
+  background-color: rgba(0, 0, 0, 0);
 }
-
 
 @keyframes toRed {
-  0%{background-color: rgb(255, 255, 255)}
-  100% {  background-color: rgb(255, 196, 196);
+  0% {
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 2px inset rgb(255, 0, 0, 0);
+
   }
+  100% {
+    color: rgb(160, 0, 0);
+    background-color: rgba(255, 255, 255, 0.4);
+  border: 1px inset rgb(255, 0, 0, 1);
+}
 }

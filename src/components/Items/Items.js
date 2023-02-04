@@ -62,6 +62,7 @@ const Items = () => {
                 <div className={styles.item} key={id}>
                   <h2>{name}</h2>
                   {image}
+                  <hr />
                   <p>Стара ціна за літр {oldPrice}</p>
                   <p>Ціна за 1 літр {price} грн</p>
                   <p>Рейтинг {rating}</p>
