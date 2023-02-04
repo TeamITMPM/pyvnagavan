@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/diploma");
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700");
 
 .header {
   display: grid;
@@ -36,7 +36,7 @@ font-size: 1.1vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-radius: 10px;
+  
 }
 .phoneIcon {
   font-size: 2vw;
@@ -46,7 +46,7 @@ font-size: 1.1vw;
 .number {
   font-size: 1.5vw;
   font-style: italic;
-  font-family: "Diploma", sans-serif;
+  font-family: 'Lobster Two', cursive;
   color: black;
   font-weight: 100;
   padding: 1vw;

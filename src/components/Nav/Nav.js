@@ -16,6 +16,8 @@ export default function Nav() {
   const navList = useSelector((state) => state.navState);
   const { loading, types } = navList;
 
+  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" />
+
   useEffect(() => {
     dispatch(typeList());
   }, []);
@@ -28,6 +30,8 @@ export default function Nav() {
       inline: "start",
     });
   };
+
+
 
   return (
     <div className={styles.nav}>
@@ -50,7 +54,7 @@ export default function Nav() {
 
       <Link to="/basket" style={{ textDecoration: "none" }}>
         <button className={styles.basket}>
-          Кошик <FontAwesomeIcon icon={faBasketShopping} color="white" />
+          Кошик {basketIcon}
         </button>
       </Link>
     </div>

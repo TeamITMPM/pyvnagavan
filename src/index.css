@@ -1,15 +1,15 @@
-@import url("https://fonts.cdnfonts.com/css/roboto");
+/* @import url("https://fonts.cdnfonts.com/css/roboto");
 
 @import url("https://fonts.cdnfonts.com/css/caudex");
 
-@import url('https://fonts.cdnfonts.com/css/tinos');
+@import url('https://fonts.cdnfonts.com/css/tinos'); */
 
 
 body {
   margin: 0rem;
   padding: 0rem;
   width: 100%;
-  font-family: "Tinos", sans-serif;
+  /* font-family: "Tinos", sans-serif; */
   background-color: rgb(182, 212, 200);
   /* background-color: rgb(49, 49, 49); */
   /* Dark theme */

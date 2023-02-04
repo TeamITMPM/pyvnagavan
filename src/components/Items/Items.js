@@ -15,7 +15,6 @@ const Items = () => {
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
   const [setBeer, onSetBeer] = useState();
-
   const { category } = useSelector((state) => state.navState);
 
   useEffect(() => {
@@ -44,6 +43,10 @@ const Items = () => {
     });
   };
 
+
+
+  const toastContainer = <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
+
   return (
     <div className={styles.products} id="products">
       <div className={styles.items}>
@@ -54,18 +57,11 @@ const Items = () => {
               category === 9 ||
               category === undefined
             ) {
+              const image = <img className={styles.itemsIMG} src={img ? require(`../../../../back_pyvnagavan/static/${img}`) : "https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg"} alt={name}/>
               return (
                 <div className={styles.item} key={id}>
                   <h2>{name}</h2>
-                  <img
-                    className={styles.itemsIMG}
-                    src={
-                      img
-                        ? require(`../../../../back_pyvnagavan/static/${img}`)
-                        : "https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg"
-                    }
-                    alt={name}
-                  />
+                  {image}
                   <p>Стара ціна за літр {oldPrice}</p>
                   <p>Ціна за 1 літр {price} грн</p>
                   <p>Рейтинг {rating}</p>
@@ -93,18 +89,7 @@ const Items = () => {
                   >
                     Додати в кошик{" "}
                   </button>
-                  <ToastContainer
-                    position="bottom-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"
-                  />
+                 {toastContainer}
                 </div>
               );
             }
