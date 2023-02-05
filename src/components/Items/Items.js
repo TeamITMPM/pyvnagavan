@@ -35,7 +35,7 @@ const Items = () => {
       theme="light"
     />
   );
-  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" />;
+  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white"/>;
 
   useEffect(() => {
     dispatch(listItems());
