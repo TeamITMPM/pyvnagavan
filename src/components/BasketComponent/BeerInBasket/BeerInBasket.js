@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listMyBasket, deleteFromBasket } from "../../../actions/basketActions";
 
-
 import { ToastContainer, toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-
 
 import styles from "./BeerInBasket.module.css";
 
@@ -16,15 +14,13 @@ export default function BeerInBasket() {
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
 
-  const closeIcon = <FontAwesomeIcon icon={faClose}/>
+  const closeIcon = <FontAwesomeIcon icon={faClose} />;
 
   useEffect(() => {
     dispatch(listMyBasket());
   }, []);
   const removeItem = (id) => {
-    console.log(id)
-    dispatch(
-      deleteFromBasket(id))
+    dispatch(deleteFromBasket(id));
     toast.success("Товар видалено з кошику!", {
       position: "bottom-right",
       autoClose: 2500,
@@ -44,8 +40,9 @@ export default function BeerInBasket() {
         <div className={styles.grid}>
           {items &&
             items.map(({ product, dataValues }) => {
-              const { id, img, name, price } = product;
-              const { quantity } = dataValues;
+              const { img, name, price } = product;
+              const { id, quantity } = dataValues;
+              const total = price * quantity
               return (
                 <div key={id} className={styles.item}>
                   <h3 className={styles.header}>{name}</h3>
@@ -59,25 +56,25 @@ export default function BeerInBasket() {
                   />
                   <hr />
                   <p className={styles.text}>
-                    <b>Ціна за 1 літр:</b> {price} грн,
+                    <b className={styles.number}>{quantity}</b>л | <b className={styles.number}>{price}</b> грн/л,
                   </p>
-                  <p>
-                    <b>Кількість:</b> {quantity} літрів
+                  <p className={styles.text}>
+                   <b>Сума:</b> <u className={styles.number}>{total}</u> грн
                   </p>
-                  <p className={styles.text}> </p>
+                  
                   <button
                     onClick={() => {
                       removeItem(dataValues.id);
                     }}
                     className={styles.button}
                   >
-                    {closeIcon} Видалити 
+                    {closeIcon} Видалити
                   </button>
                 </div>
               );
             })}
-          {loading && <h1> Завантажується пивко ... </h1>}
         </div>
+        {loading && <h1> Завантажується пивко ... </h1>}
         <ToastContainer />
       </>
     );

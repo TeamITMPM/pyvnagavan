@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { ToastContainer, toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,10 +15,26 @@ import styles from "./Nav.module.css";
 export default function Nav() {
   const dispatch = useDispatch();
   const navList = useSelector((state) => state.navState);
+  const userInfo = useSelector((state) => state.userInfo);
   const { loading, types } = navList;
 
-  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" />
+  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" />;
+  const toastContainer = (
+    <ToastContainer
+      position="bottom-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+    />
+  );
 
+  
   useEffect(() => {
     dispatch(typeList());
   }, []);
@@ -31,9 +48,21 @@ export default function Nav() {
     });
   };
 
-
+  const errorClick = () => {
+    toast.error("Помилка! Для того щоб користуватися кошиком потрібно увійти", {
+      position: "bottom-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
 
   return (
+    <>
     <div className={styles.nav}>
       {loading && <p> Завантажується навігація </p>}
       {types &&
@@ -52,11 +81,15 @@ export default function Nav() {
           );
         })}
 
-      <Link to="/basket" style={{ textDecoration: "none" }}>
-        <button className={styles.basket}>
+      {userInfo.token ? (
+        <Link to="/basket" style={{ textDecoration: "none" }}>
+          <button className={styles.basket}>Кошик {basketIcon}</button>
+        </Link>
+      ) : (
+        <button className={styles.basket} onClick={errorClick}>
           Кошик {basketIcon}
         </button>
-      </Link>
-    </div>
+      )}
+    </div> {toastContainer}</>
   );
 }
