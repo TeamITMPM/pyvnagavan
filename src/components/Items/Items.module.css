@@ -74,6 +74,7 @@ border-top-right-radius: 15px;
 }
 .button {
   display: inline-block;
+  width:75%;
   padding: 0.45rem 1.25rem;
   margin-bottom: 1.563rem;
   margin-top: 0.5rem;

@@ -1,16 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch} from "react-redux";
+import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
+// import { SHOP_ROUTE } from "../utils/consts";
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
+
+import jwt_decode from "jwt-decode";
+
 import { authRoutes, publicRoutes } from "../routes";
-import { SHOP_ROUTE } from "../utils/consts";
-
 export default function App() {
-  const isAuth = true;
+  const isAuth = !!localStorage.userInfo;
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (isAuth) {
+      const data = jwt_decode(JSON.parse(localStorage.userInfo).token);
+      dispatch({
+        type: USER_LOGIN_SUCCESS,
+        payload: data,
+      });
+    }
+  }, []);
   return (
     <Router>
       {isAuth &&

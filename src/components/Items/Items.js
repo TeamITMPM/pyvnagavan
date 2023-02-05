@@ -6,6 +6,8 @@ import { listItems } from "../../actions/itemActions";
 import { addToBasket } from "../../actions/basketActions";
 
 import { ToastContainer, toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Items.module.css";
@@ -46,6 +48,7 @@ const Items = () => {
 
 
   const toastContainer = <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
+  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" />
 
   return (
     <>
@@ -90,7 +93,7 @@ const Items = () => {
                     type="button"
                     className={styles.button}
                   >
-                    Додати в кошик{" "}
+                    Додати {basketIcon}
                   </button>
                 </div>
               );
