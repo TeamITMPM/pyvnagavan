@@ -2,7 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700");
 
 .item {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #efeee9
+  ;
+  box-shadow: 2px 2px 4px #000000;
+
   border-radius: 20px;
   padding: 0.3rem;
   margin: 0.5rem;
@@ -37,7 +40,7 @@
   font-family: 'PT Serif', serif;
    width: 95%;  
   margin:auto;
-  background-color:#c8c6c9;
+  background-color:#62513f;
   border-radius: 20px;
   /* border: 1px inset #16191e; */
   margin-bottom: 2rem;
@@ -57,7 +60,7 @@
 }
 .button:hover {
   cursor: pointer;
-  color: rgb(99, 0, 0);
+  color: 0f0802;
   animation-name: toRed;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
@@ -69,13 +72,12 @@
 
 @keyframes toRed {
   0% {
-    color: rgb(0, 0, 0);
-    border: 2px inset rgb(255, 0, 0, 0);
+    color: #bd782d;
 
   }
   100% {
-    color: rgb(160, 0, 0);
-  border: 2px inset rgb(255, 0, 0, 1);
+    color: #bd782d;
+  background-color: #132b37;
 }
 }
 

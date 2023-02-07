@@ -1,6 +1,6 @@
 .siteFooter
 {
-  background-color:#26272b;
+  background-color:#132b37;
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
@@ -29,7 +29,7 @@
 }
 .siteFooter a:hover
 {
-  color:#3366cc;
+  color:#bd782d;
   text-decoration:none;
 }
 .footerLinks
@@ -47,7 +47,7 @@
 }
 .footerLinks a:active,.footerLinks a:focus,.footerLinks a:hover
 {
-  color:#3366cc;
+  color:#bd782d;
   text-decoration:none;
 }
 .footerLinks.inline li
@@ -144,11 +144,11 @@
 {
   background-color:#00aced
 }
-.socialIcons a.linkedin:hover
+.socialIcons a.telegram:hover
 {
-  background-color:#007bb6
+  background-color:#00aced
 }
-.socialIcons a.dribbble:hover
+.socialIcons a.instagram:hover
 {
   background-color:#ea4c89
 }

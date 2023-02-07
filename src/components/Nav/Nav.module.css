@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+
+
 .nav {
-  color: brown;
+  /* color: brown; */
+  box-shadow: 0px 0px 5px #0f0802 ;
+
   display: grid;
   justify-content: center;
   justify-items: center;
   align-items: center;
-  background: #16191e;
+  background-color: #0f0802 
+  ;
   object-fit: cover;
   grid-template-columns: repeat(auto-fit, minmax(7vw, 1fr));
   gap: 0.375rem;
@@ -22,9 +30,10 @@
   align-items: center;
   padding: 1vw;
   margin: 0.2vw;
-  border: 0.13rem inset rgb(77, 94, 114);
+  border: 0.13rem inset #62513f
+  ;
   border-radius: 0.5vw;
-  color: rgb(0, 0, 0);
+  color: #0f0802 ;
   font-weight: 600;
   font-size: 1vw;
   font-family: 'PT Serif', serif;
@@ -40,21 +49,23 @@
 
 }
 .categories:hover {
-  background: rgb(19, 17, 17);
-  color: rgb(255, 88, 88);
-  border: 0.153rem inset rgba(199, 199, 199, 0.425);
+  background: #0f0802  ;
+  color: #bd782d;
+  border: 0.153rem inset #bd782d;
   width: 11vw;
 }
 
 .basket {
-  color: rgb(255, 88, 88);
-  background-color: rgb(19, 17, 17);
+  color: #bd782d
+  ;
+  background-color:#0f0802 ;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1vw;
   margin: 0.2vw;
-  border: 0.13rem inset rgba(199, 199, 199, 0.425);
+  border: 0.13rem inset #62513f
+  ;
   border-radius: 0.5vw;
   font-weight: 600;
   font-size: 1vw;
@@ -69,9 +80,9 @@
   cursor: pointer;
 }
 .basket:hover {
-  background: rgb(19, 17, 17);
-  color: rgb(255, 88, 88);
-  border: 0.153rem inset rgb(255, 88, 88);
+  background: #0f0802 ;
+  color: #bd782d;
+  border: 0.153rem inset #bd782d;
   width: 11vw;
 }
 

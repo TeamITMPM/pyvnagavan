@@ -60,10 +60,10 @@ export default function Footer() {
 
           <div class="col-md-4 col-sm-6 col-xs-12">
             <ul className={styles.socialIcons}>
-              <li><a class="facebook" href="#">{telegramIcon}</a></li>
-              <li><a class="twitter" href="#">{instagramIcon}</a></li>
-              <li><a class="dribbble" href="#">{twitterIcon}</a></li>
-              <li><a class="linkedin" href="#">{facebookIcon}</a></li>   
+              <li><a class={styles.facebook} href="#">{facebookIcon}</a></li>
+              <li><a class={styles.twitter}  href="#">{twitterIcon}</a></li>
+              <li><a class={styles.instagram}  href="#">{instagramIcon}</a></li>
+              <li><a class={styles.telegram}href="#">{telegramIcon}</a></li>   
             </ul>
           </div>
         </div>

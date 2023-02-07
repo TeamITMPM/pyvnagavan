@@ -14,7 +14,7 @@
   font-weight: 600;
 }
 .input:hover {
-  background-color: rgba(199, 230, 203, 0.288);
+  background-color: #efeee9;
   border: 2px solid rgb(87, 87, 87);
   animation-name: toGreen;
   animation-duration: 0.2s;
@@ -59,7 +59,7 @@
   font-weight: 700;
   padding: 0.8rem;
   width: 60%;
-  background: #16191e;
+  background: #132b37;
   margin: auto;
   margin-top: 2rem;
 border-top-left-radius: 15px;

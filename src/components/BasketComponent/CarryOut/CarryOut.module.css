@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 .block {
-  background-color: rgba(255, 255, 255, 0.438);
+  background-color: #efeee9
+  ;
+  box-shadow: 2px 2px 4px #000000;
+
   border-radius: 15px;
   padding: 1vw;
   margin: 1vw;
@@ -11,11 +14,12 @@
   display:flow-root;
   width: 95%;  
   margin:auto;
-  background: linear-gradient(
+  /* background: linear-gradient(
     0deg,
     #369fa1 30%,
     #1d6c76 100%
-  );
+  ); */
+  background-color:  #62513f;
   border-radius: 20px;
   /* border: 5px inset #16191e; */
   
@@ -28,7 +32,7 @@
   cursor: pointer;
 }
 .input:focus {
-  background-color: rgba(163, 255, 255, 0.288);
+  background-color: #efeee9;
 }
 ::placeholder {
   font-family: "Montserrat", sans-serif;
