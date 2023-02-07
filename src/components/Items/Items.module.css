@@ -29,6 +29,9 @@
   margin: auto;
 border-top-left-radius: 15px;
 border-top-right-radius: 15px;
+border-top: 2px solid #0d0b08;
+border-right: 2px solid #0d0b08;
+border-left: 2px solid #0d0b08;
   color: white
 }
 
@@ -43,16 +46,24 @@ border-top-right-radius: 15px;
   text-align: center;
   font-family: 'PT Serif', serif;
   width: 80%;  
+  background-image: url("./img/woodenBackground2.jpg");
   /* background: linear-gradient(
     0deg,
     #369fa1 30%,
     #1d6c76 100%
   ); */
-  background-color: #62513f
+  /* background-color: #62513f */
   ;
+ 
   border-radius: 20px;
-  /* border: 5px inset #16191e; */
+  border: 3px inset #62513f;
 }
+
+/* .backgroundImage{
+  width: 80%;  
+  display: flex;
+  justify-content: center;
+} */
 .itemsIMG {
   width: 15rem;
   height: 15rem;

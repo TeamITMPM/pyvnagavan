@@ -19,13 +19,10 @@
     #1d6c76 100%
   ); */
 
-  background-color: #132b37
-
-
-  ;
-
+  background-color: #132b37;
+border-bottom: 3px solid #0f0802 ;
   /* border:#62513f solid 2px; */
-  box-shadow: 0px 0px 5px #0f0802 ;
+  box-shadow: 0px 0px 5px #0f0802;
   z-index: 999;
 }
 
@@ -37,10 +34,10 @@
 }
 
 .email {
-  color:#efeee9 ;
+  color: #efeee9;
   margin-left: 1vw;
   font-size: 1.1vw;
-  text-shadow: 0px 0px 10px #efeee9
+  text-shadow: 0px 0px 10px #efeee9;
 }
 .headerLeft {
   display: flex;
@@ -56,7 +53,7 @@
   font-size: 1.5vw;
   font-style: italic;
   font-family: "Lobster Two", cursive;
-  color:#efeee9 ;
+  color: #efeee9;
   font-weight: 100;
   padding: 1vw;
   border: 10;
@@ -105,7 +102,7 @@ a:active {
   letter-spacing: 0.125rem;
   text-decoration: none;
   text-transform: uppercase;
-  color: #0f0802 ;
+  color: #0f0802;
   cursor: pointer;
   border: 0.188rem solid;
   box-shadow: 0.063rem 0.063rem 0rem 0rem, 0.125rem 0.125rem 0rem 0rem,
@@ -178,7 +175,7 @@ a:active {
   width: 1.4vw;
   border-radius: 1.4vw;
   background: #fff;
-  box-shadow: 0 0.1em 0.3em #0f0802 ;
+  box-shadow: 0 0.1em 0.3em #0f0802;
   -webkit-transition: all 300ms;
   -moz-transition: all 300ms;
   transition: all 300ms;

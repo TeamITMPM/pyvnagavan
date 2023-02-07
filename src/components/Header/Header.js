@@ -31,7 +31,7 @@ export default function Header() {
       <FontAwesomeIcon icon={faSun} color="#efeee9" className={styles.icon} />
     ),
     moonIcon = (
-      <FontAwesomeIcon icon={faMoon} color="#efeee9" className={styles.icon} />
+      <FontAwesomeIcon icon={faMoon} color="#efeee9 " className={styles.icon} />
     ),
     exitIcon = <FontAwesomeIcon icon={faRightFromBracket} />,
     uaFlag = <img className={styles.icon} src={require("./img/ukraine.png")} />,
