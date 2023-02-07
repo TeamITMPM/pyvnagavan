@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listMyBasket, deleteFromBasket } from "../../../actions/basketActions";
 
+import { Placeholder } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
@@ -32,6 +33,40 @@ export default function BeerInBasket() {
       theme: "dark",
     });
   };
+
+
+  const itemPlaceholder = [];
+  for (let i = 0; i < 6; i++) {
+    itemPlaceholder.push(
+      <div className={styles.item}>
+        <Placeholder as="p" animation="glow">
+          <Placeholder xs={12} />
+        </Placeholder>{" "}
+        <div className={styles.img}>
+          <Placeholder as="p" animation="glow">
+            <Placeholder xs={600} />
+          </Placeholder>{" "}
+        </div>
+        <hr />
+        <Placeholder as="p" animation="glow">
+          <Placeholder xs={6} />
+        </Placeholder>{" "}
+        <Placeholder as="p" animation="glow">
+          <Placeholder xs={4} />
+        </Placeholder>{" "}
+        <Placeholder as="p" animation="glow">
+          <Placeholder xs={8} />
+        </Placeholder>
+        <button className={styles.button}>
+          <Placeholder as="p" animation="glow">
+            <Placeholder lg={16} bg="info" />
+          </Placeholder>
+        </button>
+      </div>
+    );
+  }
+  
+
 
   if (!basketState.loading && basketState.itemInBasket) {
     const items = basketState.itemInBasket[0];
@@ -74,12 +109,11 @@ export default function BeerInBasket() {
               );
             })}
         </div>
-        {loading && <h1> Завантажується пивко ... </h1>}
         <ToastContainer />
       </>
     );
   }
   if (basketState.loading || !basketState.itemInBasket) {
-    return <div> Завантажується корзина</div>;
+    return <div className={styles.grid}>{itemPlaceholder} </div>;
   }
 }

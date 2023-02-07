@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { logout } from "../../actions/userAction";
-
+import { Placeholder } from "react-bootstrap";
 // import { cleareBasketState } from "../../actions/basketActions";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhone,
@@ -13,6 +11,8 @@ import {
   faMoon,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { logout } from "../../actions/userAction";
 
 import styles from "./Header.module.css";
 
@@ -47,6 +47,12 @@ export default function Header() {
       alt="pyvnagavan"
     />
   );
+
+  const pyvnaGavanLogoPlaceholder = (
+    <Placeholder as="p" animation="glow">
+        <Placeholder lg={24} />
+      </Placeholder>
+  )
 
   const {
     userInfo: { token, error },

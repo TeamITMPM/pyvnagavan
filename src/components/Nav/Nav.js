@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { Placeholder } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
@@ -34,7 +35,6 @@ export default function Nav() {
     />
   );
 
-  
   useEffect(() => {
     dispatch(typeList());
   }, []);
@@ -61,35 +61,48 @@ export default function Nav() {
     });
   };
 
+  const navButtonPlaceholder = [];
+
+  for (let i = 0; i < 8; i++) {
+    navButtonPlaceholder.push(
+          <Placeholder as="p" animation="glow"className={styles.placeholder}>
+            <Placeholder xs={12} />
+          </Placeholder>
+    );
+  }
+
   return (
     <>
-    <div className={styles.nav}>
-      {loading && <p> Завантажується навігація </p>}
-      {types &&
-        types.map(({ name, id }) => {
-          return (
-            <button
-              onClick={() => {
-                navClick(id);
-              }}
-              id={id}
-              key={id}
-              className={styles.categories}
-            >
-              {name}
-            </button>
-          );
-        })}
+      <div className={styles.nav}>
+        {loading && navButtonPlaceholder}
+        {/* {loading && <p> Завантажується навігація </p>} */}
+        {types &&
+          types.map(({ name, id }) => {
+            return (
+              <button
+                onClick={() => {
+                  navClick(id);
+                }}
+                id={id}
+                key={id}
+                className={styles.categories}
+              >
+                {name}
+              </button>
+            );
+          })}
 
-      {userInfo.token ? (
-        <Link to="/basket" style={{ textDecoration: "none" }}>
-          <button className={styles.basket}>Кошик {basketIcon}</button>
-        </Link>
-      ) : (
-        <button className={styles.basket} onClick={errorClick}>
-          Кошик {basketIcon}
-        </button>
-      )}
-    </div> {toastContainer}</>
+        {userInfo.token ? (
+          <Link to="/basket" style={{ textDecoration: "none" }}>
+            <button className={styles.basket}>Кошик {basketIcon}</button>
+          </Link>
+        ) : (
+          <button className={styles.basket} onClick={errorClick}>
+            Кошик {basketIcon}
+          </button>
+        )}
+      </div>{" "}
+      {toastContainer}
+    </>
   );
 }
