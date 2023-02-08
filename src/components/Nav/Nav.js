@@ -39,9 +39,11 @@ export default function Nav() {
     dispatch(typeList());
   }, []);
 
+
   const navClick = (typeId) => {
+    const productsScroll =   document.getElementById("products");
     dispatch(setCategory(typeId));
-    document.getElementById("products").scrollIntoView({
+    productsScroll.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "start",
@@ -62,12 +64,11 @@ export default function Nav() {
   };
 
   const navButtonPlaceholder = [];
-
   for (let i = 0; i < 8; i++) {
     navButtonPlaceholder.push(
-          <Placeholder as="p" animation="glow"className={styles.placeholder}>
-            <Placeholder xs={12} />
-          </Placeholder>
+      <Placeholder as="p" animation="glow" className={styles.placeholder}>
+        <Placeholder xs={12} />
+      </Placeholder>
     );
   }
 

@@ -9,6 +9,7 @@ import News from "../components/News";
 // import Items from "../components/Items";
 import Items from "../components/Items/Items";
 import Pagination from "../components/ShopPagination"
+import Anchor from "../components/Anchor";
 import Footer from "../components/Footer";
 
 const Shop = () => {
@@ -17,9 +18,9 @@ const Shop = () => {
       <Header />
       <Nav />
       <News />
-      
       <Items />
       <Pagination />
+      <Anchor />
       <Footer />
     </>
   );

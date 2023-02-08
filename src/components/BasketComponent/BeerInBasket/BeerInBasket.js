@@ -44,7 +44,7 @@ export default function BeerInBasket() {
         </Placeholder>{" "}
         <div className={styles.img}>
           <Placeholder as="p" animation="glow">
-            <Placeholder xs={600} />
+            <Placeholder xs={40} />
           </Placeholder>{" "}
         </div>
         <hr />

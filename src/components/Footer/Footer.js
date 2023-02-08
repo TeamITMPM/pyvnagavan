@@ -16,7 +16,7 @@ export default function Footer() {
   twitterIcon=  <FontAwesomeIcon icon={faTwitter} />;
   
   return (
-    <div>
+    <div id = "footer">
       <footer className={styles.siteFooter}>
       <div class="container">
         <div class="row">

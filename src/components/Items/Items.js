@@ -125,8 +125,8 @@ const Items = () => {
 
   return (
     <>
-      <h2 className={styles.h2}>Асортимент</h2>
-      <div className={styles.products} id="products">
+      <h2 className={styles.h2 } id="products">Асортимент</h2>
+      <div className={styles.products} >
         <div className={styles.items}>
           {products &&
             products.map(
@@ -173,7 +173,7 @@ const Items = () => {
                           onChange={changeLiters}
                           defaultValue={1}
                         />{" "}
-                        літрів
+                        л
                       </label>
 
                       <button
