@@ -2,40 +2,87 @@ import React from "react";
 
 import { Table } from "react-bootstrap";
 
-import styles from "./OrderHistory.module.css"
-
+import styles from "./OrderHistory.module.css";
 
 export default function OrderHistory() {
-  return <div>
-    Список замовлень
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Унікальний номер замовлення</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </Table>
-  </div>;
+  return (
+    <div>
+      Список замовлень
+      <Table striped bordered hover responsive>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Nº замовлення</th>
+            <th>Дата</th>
+            <th>Статус</th>
+            <th>Спосіб</th>
+            <th>Інформація про замовлення</th>
+            <th>Інформація про оплату</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>12345</td>
+            <td>22.01.2023</td>
+            <td>Оплачено</td>
+            <td>Доставка</td>
+            <td>
+              <ul>
+                <li>
+                  <b>Ім'я:</b> Михайло
+                </li>
+                <li>
+                  <b>Номер:</b> 095-222-33-22
+                </li>
+                <li>
+                  <b>Email:</b> pizza@gmail.com
+                </li>
+                <li>
+                  <b>Адреса:</b> Героїв ст.
+                </li>
+                <li>
+                  <b>Ресторан:</b> Null
+                </li>
+                <li>
+                  <b>Будинок:</b> 32
+                </li>
+                <li>
+                  <b>Квартира:</b> 22
+                </li>
+                <li>
+                  <b>Код:</b> 1234
+                </li>
+                <li>
+                  <b>Поверх:</b> 9
+                </li>
+                <li>
+                  <b>Коментар:</b> І не затримуйтесь!
+                </li>
+                <li>
+                  <b>Час:</b> 18:00
+                </li>
+                <li>
+                  <b>Дата доставки:</b> 23.02.2023
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>
+                  <b>Спосіб оплати:</b> MasterCard
+                </li>
+                <li>
+                  <b>Статус:</b> Успішно
+                </li>
+                <li>
+                  <b>Чек:</b> 12345
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </div>
+  );
 }
