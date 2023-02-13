@@ -23,11 +23,14 @@ export default function UserInfo() {
   } = payload;
 
   return (
-    <Table striped bordered hover size="sm" className={styles.table}>
+    <div className={styles.table}>
+            <h3>Особиста інформація</h3>
+
+    <Table striped bordered hover size="sm" >
       <tbody>
       <tr>
         <td>Імя</td>
-        <td>{firstName} </td>
+        <td><b>{firstName}</b> </td>
       </tr>
       <tr>
         <td>Фамілія</td>
@@ -54,6 +57,6 @@ export default function UserInfo() {
         <td>{id}</td>
       </tr>
       </tbody>
-    </Table>
+    </Table></div>
   );
 }

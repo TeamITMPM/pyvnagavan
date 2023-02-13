@@ -6,8 +6,8 @@ import styles from "./OrderHistory.module.css";
 
 export default function OrderHistory() {
   return (
-    <div>
-      Список замовлень
+    <div className={styles.table}>
+      <h3>Список замовлень</h3>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
