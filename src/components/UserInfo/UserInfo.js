@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+
 import {Table} from "react-bootstrap"
+import {Button} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import styles from "./UserInfo.module.css";
@@ -11,6 +15,9 @@ export default function UserInfo() {
 
   const { payload } = useSelector((state) => state.userInfo.token);
   // В state.userInfo так же хранится error
+
+  const [setInput, onSetInput] = useState();
+
 
   const {
     firstName,
@@ -22,6 +29,12 @@ export default function UserInfo() {
     id,
   } = payload;
 
+
+
+
+  const editIcon =<FontAwesomeIcon icon = {faEdit} className={styles.editIcon} size="1x" />
+
+
   return (
     <div className={styles.table}>
             <h3>Особиста інформація</h3>
@@ -29,31 +42,32 @@ export default function UserInfo() {
     <Table striped bordered hover size="sm" >
       <tbody>
       <tr>
-        <td>Імя</td>
-        <td><b>{firstName}</b> </td>
+        <td><b>Імя</b> </td>
+        <td>{editIcon} {firstName} </td>
+        
       </tr>
       <tr>
-        <td>Фамілія</td>
-        <td>{secondName}</td>
+        <td><b>Прізвище</b></td>
+        <td>{editIcon} {secondName}</td>
       </tr>
       <tr>
-        <td>Дата народження </td>
-        <td>{dateOfBirthsday} </td>
+        <td><b>Дата народження</b></td>
+        <td>{editIcon} {dateOfBirthsday}</td>
       </tr>
       <tr>
-        <td>Електронна адреса </td>
-        <td>{email} </td>
+        <td><b>Електронна адреса</b></td>
+        <td>{editIcon} {email} </td>
       </tr>
       <tr>
-        <td>Номер телефону </td>
-        <td>{phone}</td>
+        <td><b>Номер телефону</b></td>
+        <td>{editIcon} {phone}</td>
       </tr>
       <tr>
-        <td>Улюблене пиво</td>
-        <td>{favouriteBeer}</td>
+        <td><b>Улюблене пиво</b></td>
+        <td>{editIcon} {favouriteBeer}</td>
       </tr>
       <tr>
-        <td>ID </td>
+        <td><b>ID</b></td>
         <td>{id}</td>
       </tr>
       </tbody>
