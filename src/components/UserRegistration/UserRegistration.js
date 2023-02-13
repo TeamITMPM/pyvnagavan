@@ -20,7 +20,6 @@ export default function UserRegistration() {
   const {
     userInfo: { token, error },
   } = useSelector((state) => state);
-  console.log("err>>>>>>>", error);
 
   const signUpClick = (evt) => {
     evt.preventDefault();
