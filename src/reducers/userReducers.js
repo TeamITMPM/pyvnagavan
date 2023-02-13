@@ -35,6 +35,14 @@ export const userLoginReducer = (state = {}, action) => {
       return { loading: false, token: action };
     case USER_LOGIN_FAIL:
       return { loading: false, error: action };
+
+    case USER_REGISTER_REQUEST:
+      return { loading: true };
+    case USER_REGISTER_SUCCESS:
+      return { loading: false, token: action };
+    case USER_REGISTER_FAIL:
+      return { loading: false, error: action };
+
     case USER_LOGOUT:
       return {};
     default:

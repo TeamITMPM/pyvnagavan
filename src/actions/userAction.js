@@ -53,7 +53,6 @@ export const login = (email, password) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: jwt_decode(data.token),
     });
-
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
@@ -72,7 +71,7 @@ export const logout = () => (dispatch) => {
 };
 
 export const register = (userData) => async (dispatch) => {
-  console.log(userData);
+  // console.log(userData);
   URL = process.env.REACT_APP_API_URL + `api/user/registration`;
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
@@ -88,11 +87,11 @@ export const register = (userData) => async (dispatch) => {
       payload: data,
     });
 
-    dispatch({
-      //after register login in user imidiately immediately
-      type: USER_LOGIN_SUCCESS,
-      payload: data,
-    });
+    // dispatch({
+    //   //after register login in user imidiately immediately
+    //   type: USER_LOGIN_SUCCESS,
+    //   payload: data,
+    // });
 
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {

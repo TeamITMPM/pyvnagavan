@@ -20,6 +20,7 @@ export default function UserRegistration() {
   const {
     userInfo: { token, error },
   } = useSelector((state) => state);
+  console.log("err>>>>>>>", error);
 
   const signUpClick = (evt) => {
     evt.preventDefault();
@@ -177,6 +178,7 @@ export default function UserRegistration() {
             {" "}
             Відправити
           </button>
+          {error && <h1>{error.payload.response.data.message}</h1>}
         </div>
       </form>
     </div>
