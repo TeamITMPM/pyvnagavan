@@ -20,14 +20,7 @@ export default function Header() {
   const dispatch = useDispatch();
 
   // icons
-  const phoneIcon = (
-      <FontAwesomeIcon
-        icon={faPhone}
-        color="black"
-        className={styles.phoneIcon}
-      />
-    ),
-    sunIcon = (
+  const sunIcon = (
       <FontAwesomeIcon icon={faSun} color="#efeee9" className={styles.icon} />
     ),
     moonIcon = (
@@ -50,9 +43,9 @@ export default function Header() {
 
   const pyvnaGavanLogoPlaceholder = (
     <Placeholder as="p" animation="glow">
-        <Placeholder lg={24} />
-      </Placeholder>
-  )
+      <Placeholder lg={24} />
+    </Placeholder>
+  );
 
   const {
     userInfo: { token, error },
@@ -66,10 +59,6 @@ export default function Header() {
     <div className={styles.header}>
       {/* Левая часть хєдера */}
       <div className={styles.headerLeft}>
-        {phoneIcon}
-        <a href="" className={styles.number}>
-          +380639356317
-        </a>
         <div className={styles.space} />
         {sunIcon}
         <label className={styles.themeSelector}>

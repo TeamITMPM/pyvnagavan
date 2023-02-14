@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+.topfooter {
+  background-color: #132b37;
+  position: fixed;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  bottom: 0px;
+height: 4rem;  width: 100%;
+  color: #737373;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 100px); */
+}
+
+.container {
+  display: block;
+}
+
+.anchor {
+  justify-content: center;
+  align-items: center;
+  bottom: 3rem;
+  left: 3rem;
+  background-color: #132b37;
+  width: 3rem;
+  height: 3rem;
+  border: 0px solid #bd782d;
+}
+.anchor:hover {
+  cursor: pointer;
+}
+
+.number {
+  font-size: 1.5vw;
+  font-style: italic;
+  font-family: "Lobster Two", cursive;
+  color: #efeee9;
+  font-weight: 100;
+}
+
+a:link.number {
+  display: flex;
+
+  font-weight: 800;
+  text-decoration: none;
+}
+a:visited.number {
+  font-weight: 800;
+  text-decoration: none;
+}
+a:hover.number {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}

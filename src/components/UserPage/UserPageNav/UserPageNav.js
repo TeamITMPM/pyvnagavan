@@ -18,7 +18,6 @@ export default function UserPageNav() {
       <hr />
       <button className={styles.button}>Залишити відгук ➤</button>
       <div />
-     
     </div>
   );
 }

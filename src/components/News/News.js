@@ -11,7 +11,7 @@ export default function News() {
 
 
   return (
-    <div className={styles.news}>
+    <div className={styles.news} id = "news">
       <div className={styles.newsDiv}>
       <Carousel>
       <Carousel.Item interval={1500}>

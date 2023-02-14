@@ -14,7 +14,7 @@
   position: fixed;
   left: 0px;
   top:5vw;
-  z-index: -1;
+  z-index: 0;
 }
 
 .button {
@@ -30,8 +30,9 @@
 }
 
 .button:hover{
+  cursor: pointer;
     background-color: transparent;
-    animation-name: mouseHover;
+    animation-name: mouseeHover;
     animation-duration: 0.5s;
     animation-fill-mode: both;
  
@@ -42,7 +43,7 @@
         width: 90%;
 }
 
-@keyframes mouseHover {
+@keyframes mouseeHover {
     from {
         text-decoration:none;
 

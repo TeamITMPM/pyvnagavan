@@ -1,74 +1,116 @@
 import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faInstagram, faTelegram, faFacebook, faTwitter} from "@fortawesome/free-brands-svg-icons"
+import {
+  faInstagram,
+  faTelegram,
+  faFacebook,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+
+import StickyFooter from "../StickyFooter";
 
 import styles from "./Footer.module.css";
 
-
-
 export default function Footer() {
+  const telegramIcon = <FontAwesomeIcon icon={faTelegram} />,
+    instagramIcon = <FontAwesomeIcon icon={faInstagram} />,
+    facebookIcon = <FontAwesomeIcon icon={faFacebook} />,
+    twitterIcon = <FontAwesomeIcon icon={faTwitter} />;
 
-  const
-  telegramIcon = <FontAwesomeIcon icon={faTelegram} />,
-  instagramIcon = <FontAwesomeIcon icon={faInstagram} />,
-  facebookIcon =  <FontAwesomeIcon icon={faFacebook} />,
-  twitterIcon=  <FontAwesomeIcon icon={faTwitter} />;
-  
   return (
-    <div id = "footer">
-      <footer className={styles.siteFooter}>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
-          </div>
+    <>
+      <footer className={styles.siteFooter} id="footer">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12 col-md-6">
+              <h6>Про нас</h6>
+              <li>
+                Ми мережа магазинів розливного пива <i>Пивна Гавань</i>
+              </li>
+              <li>-Наша мета доставити пиво у кожен куточок Киева.</li>
+              <li>-Що ми для цього робимо?</li>
+              <li>-Запускаемо сайт</li>
+              <li>-Хто ми?</li>
+              <li>-Ті хто полюбляє свіже розливне пиво</li>
+              <li>-Коли ми це робимо?</li>
+              <li>-З 10 по 22 згідно з чинного законодавства нашої країни</li>
+              <li>Відкриті з 10:00 до 22:00</li>
+            </div>
 
-          <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
-            <ul class="footer-links">
-              <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-              <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-              <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-              <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-              <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-              <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
-            </ul>
-          </div>
+            <div className="col-xs-6 col-md-3">
+              <h6>Контакти</h6>
+              <ul className="footer-links">
+                <li>
+                  <a href="email">info@pyvnagavan.com</a>
+                </li>
+                <li>
+                  <a href="">Адреса</a>
+                </li>
+                <li>
+                  <a href="">Залишити відгук</a>
+                </li>
+              </ul>
+            </div>
+            
 
-          <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-              <li><a href="http://scanfcode.com/about/">About Us</a></li>
-              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-            </ul>
+            <div className="col-xs-6 col-md-3">
+              <h6>Навігація</h6>
+              <ul className="footer-links">
+                <li>
+                  <a href=" ">Головна</a>
+                </li>
+                <li>
+                  <a href=" ">Акції</a>
+                </li>
+                <li>
+                  <a href=" ">Про нас</a>
+                </li>
+                <li>
+                  <a href=" ">Контакти</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div className="container">
+            <div className="row">
+              <div className="col-md-8 col-sm-6 col-xs-12">
+                <p className="copyright-text">
+                  Copyright &copy; 2023 All Rights Reserved by
+                  <a href="#"> Pyvnagavan</a>.
+                </p>
+              </div>
+
+              <div className="col-md-4 col-sm-6 col-xs-12">
+                <ul className={styles.socialIcons}>
+                  <li>
+                    <a className={styles.facebook} href="#">
+                      {facebookIcon}
+                    </a>
+                  </li>
+                  <li>
+                    <a className={styles.twitter} href="#">
+                      {twitterIcon}
+                    </a>
+                  </li>
+                  <li>
+                    <a className={styles.instagram} href="#">
+                      {instagramIcon}
+                    </a>
+                  </li>
+                  <li>
+                    <a className={styles.telegram} href="#">
+                      {telegramIcon}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <hr />
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by  
-         <a href="#"> Pyvnagavan</a>.
-            </p>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul className={styles.socialIcons}>
-              <li><a class={styles.facebook} href="#">{facebookIcon}</a></li>
-              <li><a class={styles.twitter}  href="#">{twitterIcon}</a></li>
-              <li><a class={styles.instagram}  href="#">{instagramIcon}</a></li>
-              <li><a class={styles.telegram}href="#">{telegramIcon}</a></li>   
-            </ul>
-          </div>
-        </div>
-      </div>
-</footer>
-    </div>
+      </footer>
+      <StickyFooter />
+    </>
   );
 }

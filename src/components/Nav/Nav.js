@@ -74,7 +74,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className={styles.nav}>
+      <div className={styles.nav} >
         {loading && navButtonPlaceholder}
         {/* {loading && <p> Завантажується навігація </p>} */}
         {types &&
