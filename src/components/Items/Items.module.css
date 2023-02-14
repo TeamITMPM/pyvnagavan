@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700");
-
-
 
 .products {
   display: flex;
@@ -9,8 +7,8 @@
   /* background: linear-gradient(180deg, rgb(20, 20, 20) 30%, rgba(202,75,75,1) 100%);    position: absolute; */
   /* background: linear-gradient(180deg, rgb(206, 181, 135) 30%, rgba(67, 167, 83, 0.726) 100%);    position: absolute; */
   width: 100%;
- 
-   /* background: linear-gradient(
+
+  /* background: linear-gradient(
     0deg,
     #1d6c76 30%,  
     #369fa1 100%,
@@ -18,21 +16,21 @@
   ); */
 }
 
-.h2{
-  font-family: 'PT Serif', serif;
+.h2 {
+  font-family: "PT Serif", serif;
   text-align: center;
   font-weight: 700;
   padding: 0.8rem;
-  margin:0px;
+  margin: 0px;
   width: 60%;
   background: #132b37;
   margin: auto;
-border-top-left-radius: 15px;
-border-top-right-radius: 15px;
-border-top: 2px solid #0d0b08;
-border-right: 2px solid #0d0b08;
-border-left: 2px solid #0d0b08;
-  color: white
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-top: 2px solid #0d0b08;
+  border-right: 2px solid #0d0b08;
+  border-left: 2px solid #0d0b08;
+  color: white;
 }
 
 .items {
@@ -44,8 +42,8 @@ border-left: 2px solid #0d0b08;
   grid-auto-rows: max-content;
   justify-items: center;
   text-align: center;
-  font-family: 'PT Serif', serif;
-  width: 80%;  
+  font-family: "PT Serif", serif;
+  width: 80%;
   background-image: url("./img/woodenBackground2.jpg");
   /* background: linear-gradient(
     0deg,
@@ -53,8 +51,6 @@ border-left: 2px solid #0d0b08;
     #1d6c76 100%
   ); */
   /* background-color: #62513f */
-  ;
- 
   border-radius: 20px;
   border: 3px inset #62513f;
 }
@@ -74,22 +70,17 @@ border-left: 2px solid #0d0b08;
 
 .item {
   /* border: 0.313rem inset rgba(199, 199, 199, 0.425);*/
-  border-radius: 0.625rem; 
+  border-radius: 0.625rem;
   margin: 1.5rem;
-  padding:0.5rem;
-  background: linear-gradient(
-    0deg,
-    #fefefe 0%,
-    #ffffffad 57%
-  );
+  padding: 0.5rem;
+  background: linear-gradient(0deg, #fefefe 0%, #ffffffad 57%);
   width: 18.75rem;
   font-size: 1.25rem;
-  box-shadow: 2px 4px 4px #0f0802 ;
-
+  box-shadow: 2px 4px 4px #0f0802;
 }
 .button {
   display: inline-block;
-  width:75%;
+  width: 75%;
   padding: 0.45rem 1.25rem;
   margin-bottom: 1.563rem;
   margin-top: 0.5rem;
@@ -97,8 +88,7 @@ border-left: 2px solid #0d0b08;
   border: 0px;
   color: #bd782d;
   font-weight: 800;
-  background-color: #132b37
-  ;
+  background-color: #132b37;
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.15rem;
@@ -112,21 +102,16 @@ border-left: 2px solid #0d0b08;
   animation-fill-mode: forwards;
 }
 
-@keyframes toGray{
-  0% {  background-color: #132b37
-    ;
+@keyframes toGray {
+  0% {
+    background-color: #132b37;
     color: #bd782d;
-
   }
-  100%{
-    background-color: #0f0802
-;
-    color:#bd782d;
-
+  100% {
+    background-color: #0f0802;
+    color: #bd782d;
   }
 }
-
-
 
 .counter {
   padding: 0px;
@@ -135,7 +120,7 @@ border-left: 2px solid #0d0b08;
   border-radius: 5px;
   text-align: center;
   font-size: 1.3rem;
-  width:4rem
+  width: 4rem;
 }
 
 .counter:focus {
@@ -143,7 +128,7 @@ border-left: 2px solid #0d0b08;
 }
 
 .number {
-  font-family: 'Lobster Two', cursive;
+  font-family: "Lobster Two", cursive;
 }
 
 /*.number input[type="number"] {

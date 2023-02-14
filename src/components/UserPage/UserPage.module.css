@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  /* justify-content: space-around; */
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  /* background-color: antiquewhite; */
+}
+
+.nav {
+  flex-basis:20%;
+}
+
+.content {
+  flex-basis:80%;
+  display: flex;
+  justify-content: center;
+}
