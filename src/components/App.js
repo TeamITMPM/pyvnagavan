@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 // import { SHOP_ROUTE } from "../utils/consts";
+import NotFound from "./NotFound"
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -37,6 +39,7 @@ export default function App() {
         authRoutes.map(({ path, Component }) => (
           <Route key={path} path={path} component={Component} exact />
         ))}
+        <Route key={"*"} path="*" component={NotFound} />
     </Router>
   );
 }
