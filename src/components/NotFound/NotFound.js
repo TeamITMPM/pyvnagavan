@@ -7,7 +7,6 @@ import Footer from "../Footer";
 const NotFoundPage = () => {
   return (
     <>
-    <Header />
       <div className={styles.container} style = {{marginTop:"200px"}}>
         <h1>404 - Page Not Found</h1>
         <p>Sorry, there is nothing to see here</p>
@@ -32,9 +31,10 @@ const NotFoundPage = () => {
           </Link>
         </div>
       </div>
-      <Footer />
+   
     </>
   );
 };
+
 
 export default NotFoundPage;

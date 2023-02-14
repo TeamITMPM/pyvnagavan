@@ -5,3 +5,4 @@ export const SHOP_ROUTE = "/";
 export const BASKET_ROUTE = "/basket";
 export const ITEM_ROUTE = "/item";
 export const USER_ROUTE = "/user";
+// export const NOT_FOUND_ROUTE = "/*"

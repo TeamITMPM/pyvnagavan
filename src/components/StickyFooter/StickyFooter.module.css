@@ -22,13 +22,11 @@
   display: block;
 }
 
-
-
-.arrow{
+.arrow {
   filter: drop-shadow(2px 2px 0.1px #0f0802);
-
 }
-.buttonLeft, .buttonRight {
+.buttonLeft,
+.buttonRight {
   /* box-shadow: 1px 1px 15px black; */
   /* border-radius: 15px; */
   /* text-shadow: 2px 2px 2px #0f0802  */
@@ -43,7 +41,6 @@
   border: 0px solid #bd782d;
 }
 .buttonRight {
-
   margin-left: -30vw;
 }
 
@@ -69,10 +66,8 @@ a:visited.number {
 }
 a:hover.number {
   text-decoration: none;
-  color:#bd782d;
-  text-shadow: 2px 2px 2px black
-
-  ;
+  color: #bd782d;
+  text-shadow: 2px 2px 2px black;
 }
 
 a:active {

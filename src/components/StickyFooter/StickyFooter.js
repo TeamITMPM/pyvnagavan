@@ -18,10 +18,20 @@ export default function StickyFooter() {
   //   />
   // );
   const arrowUpIcon = (
-    <FontAwesomeIcon icon={faArrowUp} color="#efeee9" size="xl"  className={styles.arrow} />
+    <FontAwesomeIcon
+      icon={faArrowUp}
+      color="#efeee9"
+      size="xl"
+      className={styles.arrow}
+    />
   );
   const arrowDownIcon = (
-    <FontAwesomeIcon icon={faArrowDown} color="#efeee9" size="xl" className={styles.arrow}/>
+    <FontAwesomeIcon
+      icon={faArrowDown}
+      color="#efeee9"
+      size="xl"
+      className={styles.arrow}
+    />
   );
   const scrollToFooter = () => {
     const footer = document.getElementById("footer");
