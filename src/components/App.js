@@ -40,7 +40,8 @@ export default function App() {
         authRoutes.map(({ path, Component }) => (
           <Route key={path}  path={path} component={Component} exact />
           ))}
-          <Route component={NotFound} />
+          <Route component={NotFound} /> 
+          //123
       </Switch>
     </Router>
   );
