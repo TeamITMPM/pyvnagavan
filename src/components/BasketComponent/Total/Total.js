@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { Button } from "react-bootstrap";
 
@@ -17,7 +17,7 @@ export default function Total() {
   return (
     <div className={styles.container}>
       <div>До сплати: {price}грн</div>
-      <Link to="/"> <Button variant="success" size ="lg"  value="Submit">Перейти до оплати</Button></Link>
+      <NavLink to="/payment"> <Button variant="success" size ="lg"  value="Submit">Перейти до оплати</Button></NavLink>
      
     </div>
   );}

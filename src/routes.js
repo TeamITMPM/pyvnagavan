@@ -6,7 +6,10 @@ import {
   REGISTRATION_ROUTE,
   SHOP_ROUTE,
   USER_ROUTE,
+  PAYMENT_ROUTE,
+  MAP_PAGE_ROUTE
 } from "./utils/consts";
+
 import Admin from "./pages/Admin";
 import Basket from "./pages/Basket";
 import Shop from "./pages/Shop";
@@ -14,6 +17,8 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import ItemPage from "./pages/ItemPage";
 import User from "./pages/User";
+import Payment from "./pages/Payment";
+import MapPage from "./pages/MapPage"
 
 export const authRoutes = [
   {
@@ -49,5 +54,11 @@ export const publicRoutes = [
     path: ITEM_ROUTE + "/:id",
     Component: ItemPage,
   },
- 
+  {
+    path: PAYMENT_ROUTE,
+    Component: Payment,
+  }, {
+    path: MAP_PAGE_ROUTE,
+    Component: MapPage,
+  },
 ];
