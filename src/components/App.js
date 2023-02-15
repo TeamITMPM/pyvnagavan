@@ -10,7 +10,7 @@ import {
 
 import jwt_decode from "jwt-decode";
 
-import NotFound from "./NotFound";
+import NotFound from "../pages/NotFoundPage";
 
 import { authRoutes, publicRoutes } from "../routes";
 import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
@@ -31,6 +31,7 @@ export default function App() {
   }, []);
   return (
     <Router>
+      <Switch>
       {publicRoutes.map(({ path, Component }) => (
         <Route key={path} path={path} component={Component} exact />
       ))}
@@ -38,8 +39,9 @@ export default function App() {
       {isAuth &&
         authRoutes.map(({ path, Component }) => (
           <Route key={path}  path={path} component={Component} exact />
-        ))}
-      {/* <Route path="*" component={NotFound} /> */}
+          ))}
+          <Route component={NotFound} />
+      </Switch>
     </Router>
   );
 }

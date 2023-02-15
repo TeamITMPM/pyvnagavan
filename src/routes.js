@@ -6,7 +6,6 @@ import {
   REGISTRATION_ROUTE,
   SHOP_ROUTE,
   USER_ROUTE,
-  NOT_FOUND_ROUTE,
 } from "./utils/consts";
 import Admin from "./pages/Admin";
 import Basket from "./pages/Basket";
@@ -50,5 +49,5 @@ export const publicRoutes = [
     path: ITEM_ROUTE + "/:id",
     Component: ItemPage,
   },
-  
+ 
 ];
