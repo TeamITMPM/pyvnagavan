@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 
 // import UserPageNav from "./UserPageNav";
 import UserInfo from "./UserInfo";
+import Bonuses from "./Bonuses";
 import OrderHistory from "./OrderHistory";
 import UserAdress from "./UserAdress";
 
 import styles from "./UserPage.module.css";
+import UserFeedback from "./UserFeedback";
 
 export default function UserPage() {
   const [userCategory, setUserCategory] = useState("0");
@@ -76,8 +78,10 @@ export default function UserPage() {
       <div className={styles.content1}></div>
       <div className={styles.content2}>
         {userCategory === "0" && <UserInfo />}
+        {userCategory === "1" && <Bonuses />}
         {userCategory === "2" && <OrderHistory />}
         {userCategory === "3" && <UserAdress />}
+        {userCategory === "4" && <UserFeedback />}
       </div>
 
       {/* <OrderHistory /> */}
