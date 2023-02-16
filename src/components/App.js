@@ -16,9 +16,9 @@ import { authRoutes, publicRoutes } from "../routes";
 import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
 
 export default function App() {
-  const token = localStorage.userInfo,
-    isAuth = !!token,
-    dispatch = useDispatch();
+  const token = localStorage.userInfo;
+  const isAuth = !!token;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isAuth) {
@@ -32,16 +32,16 @@ export default function App() {
   return (
     <Router>
       <Switch>
-      {publicRoutes.map(({ path, Component }) => (
-        <Route key={path} path={path} component={Component} exact />
-      ))}
-      {/* <Redirect to={SHOP_ROUTE} /> */}
-      {isAuth &&
-        authRoutes.map(({ path, Component }) => (
-          <Route key={path}  path={path} component={Component} exact />
+        {publicRoutes.map(({ path, Component }) => (
+          <Route key={path} path={path} component={Component} exact />
+        ))}
+        {/* <Redirect to={SHOP_ROUTE} /> */}
+        {isAuth &&
+          authRoutes.map(({ path, Component }) => (
+            <Route key={path} path={path} component={Component} exact />
           ))}
-          <Route component={NotFound} /> 
-          //123
+        <Route component={NotFound} />
+        //123
       </Switch>
     </Router>
   );
