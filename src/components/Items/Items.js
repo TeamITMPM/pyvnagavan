@@ -125,8 +125,10 @@ const Items = () => {
 
   return (
     <>
-      <h2 className={styles.h2 } id="products">Асортимент</h2>
-      <div className={styles.products} >
+      <h2 className={styles.h2} id="products">
+        Асортимент
+      </h2>
+      <div className={styles.products}>
         <div className={styles.items}>
           {products &&
             products.map(
@@ -148,47 +150,67 @@ const Items = () => {
                     />
                   );
                   return (
-                    <div className={styles.item} key={id}>
-                      <h2>{name}</h2>
-                      {image}
-                      <hr />
-                      <p>
-                        Стара ціна за літр{" "}
-                        <span className={styles.number}>{oldPrice}</span>
-                      </p>
-                      <p>
-                        Ціна за <span className={styles.number}>1</span> літр{" "}
-                        <span className={styles.number}>{price}</span> грн
-                      </p>
-                      <p>Рейтинг {rating}</p>
-                      <label>
-                        <input
-                          className={styles.counter}
-                          id={id}
-                          type="number"
-                          min="0.5"
-                          max="20"
-                          step="0.5"
-                          // value={quantity}
-                          onChange={changeLiters}
-                          defaultValue={1}
-                        />{" "}
-                        л
-                      </label>
+                    <div className={styles.card1}>
+                        <h3 className={styles.h3}>{name}</h3>
 
-                      <button
-                        onClick={() => {
-                          onAddToBasket(id);
-                        }}
-                        type="button"
-                        className={styles.button}
-                      >
-                        {isAuth ? (
-                          <>Додати {basketIcon}</>
-                        ) : (
-                          "Увійдіть аби замовити"
-                        )}
-                      </button>
+                        <div className={styles.item} key={id}>
+                          {image}
+
+                          <div className={styles.buySection}>
+                            <div className={styles.prices}>
+                              <strike>{oldPrice}грн за 1 літр</strike>
+                              <br />
+                              <span className={styles.number}>{price}</span>грн
+                              за 1 літр
+                            </div>
+
+                            <label>
+                              <button>+</button>
+                              <button>-</button>
+                              <input
+                                className={styles.counter}
+                                id={id}
+                                type="number"
+                                min="0.5"
+                                max="20"
+                                step="0.5"
+                                // value={quantity}
+                                onChange={changeLiters}
+                                defaultValue={1}
+                              />
+                            </label>
+
+                            <button
+                              onClick={() => {
+                                onAddToBasket(id);
+                              }}
+                              type="button"
+                              className={styles.button}
+                            >
+                              {isAuth ? basketIcon : "Потрібно увійти"}
+                            </button>
+                          </div>
+                          <div className={styles.description}>
+                            <p className={styles.p}>
+                              <b>Тип:</b> <i>Lager</i>
+                            </p>
+                            <p className={styles.p}>
+                              <b>Щільність:</b> <i>22.2%</i>
+                            </p>
+                            <p className={styles.p}>
+                              <b>Походження:</b> <i>123</i>
+                            </p>
+                            <p className={styles.p}>
+                              <b>Міцність:</b> <i>4.5°</i>
+                            </p>
+                            <p className={styles.p}>
+                              <b>Гіркота:</b> <i>15.4</i>
+                            </p>
+                            <p className={styles.p}>
+                              <b>Колір:</b> <i>Пивний</i>
+                            </p>
+                          </div>
+                        </div>
                     </div>
                   );
                 }
