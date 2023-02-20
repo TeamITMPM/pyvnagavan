@@ -39,9 +39,8 @@ export default function Nav() {
     dispatch(typeList());
   }, []);
 
-
   const navClick = (typeId) => {
-    const productsScroll =   document.getElementById("products");
+    const productsScroll = document.getElementById("products");
     dispatch(setCategory(typeId));
     productsScroll.scrollIntoView({
       behavior: "smooth",
@@ -74,7 +73,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className={styles.nav} >
+      <div className={styles.nav}>
         {loading && navButtonPlaceholder}
         {/* {loading && <p> Завантажується навігація </p>} */}
         {types &&
@@ -85,7 +84,7 @@ export default function Nav() {
                   navClick(id);
                 }}
                 id={id}
-                key={id}
+                key={name}
                 className={styles.categories}
               >
                 {name}

@@ -16,12 +16,9 @@ import { authRoutes, publicRoutes } from "../routes";
 import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
 
 export default function App() {
-<<<<<<< HEAD
   // const userInfo = useSelector((state) => state.userInfo);
   // const { token } = userInfo;
 
-=======
->>>>>>> 551d8e22edac14bdff563b0baf6d40be8a48ee09
   const token = localStorage.userInfo;
   const isAuth = !!token;
   const dispatch = useDispatch();
