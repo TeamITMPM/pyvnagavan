@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { SHOP_ROUTE } from "../utils/consts";
 import {
   BrowserRouter as Router,
@@ -16,9 +16,12 @@ import { authRoutes, publicRoutes } from "../routes";
 import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
 
 export default function App() {
-  const token = localStorage.userInfo,
-    isAuth = !!token,
-    dispatch = useDispatch();
+  // const userInfo = useSelector((state) => state.userInfo);
+  // const { token } = userInfo;
+
+  const token = localStorage.userInfo;
+  const isAuth = !!token;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isAuth) {
@@ -32,16 +35,16 @@ export default function App() {
   return (
     <Router>
       <Switch>
-      {publicRoutes.map(({ path, Component }) => (
-        <Route key={path} path={path} component={Component} exact />
-      ))}
-      {/* <Redirect to={SHOP_ROUTE} /> */}
-      {isAuth &&
-        authRoutes.map(({ path, Component }) => (
-          <Route key={path}  path={path} component={Component} exact />
+        {publicRoutes.map(({ path, Component }) => (
+          <Route key={path} path={path} component={Component} exact />
+        ))}
+        {/* <Redirect to={SHOP_ROUTE} /> */}
+        {isAuth &&
+          authRoutes.map(({ path, Component }) => (
+            <Route key={path} path={path} component={Component} exact />
           ))}
-          <Route component={NotFound} /> 
-          //123
+        <Route component={NotFound} />
+        //123
       </Switch>
     </Router>
   );
