@@ -33,7 +33,6 @@ export default function BasketComponent() {
       if (element.name !== "") {
         data[element.name] = element.value;
       }
-      console.log(typeof element.value);
     }
 
     dispatch(addToOrder(data));

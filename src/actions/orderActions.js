@@ -51,30 +51,30 @@ export const addToOrder = (formInfo) => async (dispatch) => {
   }
 };
 
-// export const listMyOrder = () => async (dispatch, getState) => {
-//   const { token } = JSON.parse(localStorage.getItem("userInfo"));
-//   const { basketId } = jwt_decode(token);
+export const listMyOrder = () => async (dispatch, getState) => {
+  const { token } = JSON.parse(localStorage.getItem("userInfo"));
+  const { basketId } = jwt_decode(token);
 
-//   URL = process.env.REACT_APP_API_URL + `api/basket/item/${basketId}`;
+  URL = process.env.REACT_APP_API_URL + `api/order/${basketId}`;
 
-//   try {
-//     dispatch({ type: BASKET_LIST_MY_REQUEST });
+  try {
+    dispatch({ type: ORDER_LIST_MY_REQUEST });
 
-//     const config = {
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${token}`,
-//       },
-//     };
-//     const { data } = await axios.get(URL, config);
-//     dispatch({
-//       type: BASKET_LIST_MY_SUCCESS,
-//       payload: data,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: BASKET_LIST_MY_FAIL,
-//       payload: error,
-//     });
-//   }
-// };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const { data } = await axios.get(URL, config);
+    dispatch({
+      type: ORDER_LIST_MY_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ORDER_LIST_MY_FAIL,
+      payload: error,
+    });
+  }
+};

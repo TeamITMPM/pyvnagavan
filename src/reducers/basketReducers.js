@@ -59,8 +59,6 @@ export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
         error: action.paylod,
       };
 
-    // case BASKET_LIST_MY_RESET:
-    //   return { itemInBasket: [] };
     default:
       return state;
   }

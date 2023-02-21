@@ -1,10 +1,25 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Table } from "react-bootstrap";
 
 import styles from "./OrderHistory.module.css";
+import { listMyOrder } from "../../../actions/orderActions";
 
 export default function OrderHistory() {
+  const dispatch = useDispatch();
+  const orderList = useSelector((state) => state.orderState);
+  const { itemInOrder } = orderList;
+
+  useEffect(() => {
+    dispatch(listMyOrder());
+  }, []);
+  console.log("itemInOrder", itemInOrder);
+  if (itemInOrder) {
+    itemInOrder.map((elem) => {
+      console.log(elem);
+    });
+  }
+
   return (
     <div className={styles.table}>
       <h3>Список замовлень</h3>

@@ -5,13 +5,15 @@ import { userLoginReducer } from "./reducers/userReducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { navListReducer } from "./reducers/navReducers";
 import { basketListMyReducer } from "./reducers/basketReducers";
-import { orderReducer } from "./reducers/orderReducers";
+import { currentOrderReducer, orderReducer } from "./reducers/orderReducers";
 
 let rootReducer = combineReducers({
   itemState: itemListReducer,
   userInfo: userLoginReducer,
   navState: navListReducer,
   basketState: basketListMyReducer,
+  currentOrderState: currentOrderReducer,
+  orderState: orderReducer,
 });
 
 const initialState = {
@@ -19,6 +21,7 @@ const initialState = {
   userInfo: {},
   navState: {},
   basketState: {},
+  currentOrderState: {},
   orderState: {},
 };
 

@@ -22,40 +22,46 @@ import {
   ORDER_DELIVER_RESET,
 } from "../constants/orderConstants";
 
-export const orderReducer = (state = { itemInBasket: [] }, action) => {
-  //   switch (action.type) {
-  //     case BASKET_LIST_MY_REQUEST:
-  //       return {
-  //         loading: true,
-  //       };
-  //     case BASKET_LIST_MY_SUCCESS:
-  //       return {
-  //         loading: false,
-  //         itemInBasket: action.payload,
-  //       };
-  //     case BASKET_LIST_MY_FAIL:
-  //       return {
-  //         loading: false,
-  //         error: action.paylod,
-  //       };
-  //     case BASKET_DELETE_REQUEST:
-  //       return {
-  //         loading: true,
-  //       };
-  //     case BASKET_DELETE_SUCCESS:
-  //       console.log("action_payload_DELETE_SUCCES", action.payload);
-  //       return {
-  //         loading: false,
-  //         itemInBasket: action.payload,
-  //       };
-  //     case BASKET_DELETE_FAIL:
-  //       return {
-  //         loading: false,
-  //         error: action.paylod,
-  //       };
-  //     // case BASKET_LIST_MY_RESET:
-  //     //   return { itemInBasket: [] };
-  // default:
-  //   return state;
-  //   }
+export const currentOrderReducer = (state = { itemInOrder: [] }, action) => {
+  switch (action.type) {
+    case ORDER_CREATE_REQUEST:
+      return {
+        loading: true,
+      };
+    case ORDER_CREATE_SUCCESS:
+      return {
+        loading: false,
+        itemInOrder: action.payload,
+      };
+    case ORDER_CREATE_FAIL:
+      return {
+        loading: false,
+        error: action.paylod,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const orderReducer = (state = { itemInOrder: [] }, action) => {
+  switch (action.type) {
+    case ORDER_LIST_MY_REQUEST:
+      return {
+        loading: true,
+      };
+    case ORDER_LIST_MY_SUCCESS:
+      return {
+        loading: false,
+        itemInOrder: action.payload,
+      };
+    case ORDER_LIST_MY_FAIL:
+      return {
+        loading: false,
+        error: action.paylod,
+      };
+
+    default:
+      return state;
+  }
 };

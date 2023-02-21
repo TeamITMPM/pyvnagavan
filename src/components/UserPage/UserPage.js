@@ -15,7 +15,6 @@ export default function UserPage() {
   const setCategoryType = (e) => {
     const { category } = e.target.dataset;
     setUserCategory(category);
-    console.log(userCategory);
   };
 
   return (
