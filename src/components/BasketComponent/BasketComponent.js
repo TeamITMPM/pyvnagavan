@@ -16,7 +16,6 @@ export default function BasketComponent() {
   const dispatch = useDispatch();
   const [delivery, setDelivery] = useState(true);
 
-<<<<<<< HEAD
   const switchToDelivery = () => {
     setDelivery(true);
   };
@@ -24,10 +23,6 @@ export default function BasketComponent() {
     setDelivery(false);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("WWWWWWWWWWWWW>>>>>>>>>>");
-=======
   const handleSubmit = (evt) => {
     evt.preventDefault(); // prevent default form submission behavior
 
@@ -43,7 +38,6 @@ export default function BasketComponent() {
     }
 
     dispatch(addToOrder(data));
->>>>>>> 72fbd5c0b1086da940927911b20e136600c7718d
   };
 
   return (
