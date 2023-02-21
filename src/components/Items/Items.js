@@ -38,7 +38,7 @@ const Items = () => {
       theme="light"
     />
   );
-  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" />;
+  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" size="xl" />;
 
   useEffect(() => {
     dispatch(listItems());
@@ -128,6 +128,13 @@ const Items = () => {
                       alt={name}
                     />
                   );
+
+                  let beerAmount;
+                  if (setBeer) {
+                    beerAmount = setBeer[id];
+                    console.log(beerAmount);
+                  }
+
                   return (
                     <div className={styles.card1}>
                       <h3 className={styles.h3}>{name}</h3>
@@ -137,10 +144,12 @@ const Items = () => {
 
                         <div className={styles.buySection}>
                           <div className={styles.prices}>
-                            <strike>{oldPrice}грн</strike>
+                            <strike>{oldPrice * beerAmount}грн</strike>
                             <hr />
 
-                            <span className={styles.number}>{price} грн</span>
+                            <span className={styles.number}>
+                              {price * beerAmount} грн
+                            </span>
                           </div>
 
                           <div>

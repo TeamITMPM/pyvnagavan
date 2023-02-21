@@ -6,7 +6,7 @@ import BeerInBasket from "./BeerInBasket";
 import BuyAlso from "./BuyAlso";
 import Total from "./Total";
 
-import { Button, NavLink } from "react-bootstrap";
+import { Button} from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
 
 import styles from "./BasketComponent.module.css";
