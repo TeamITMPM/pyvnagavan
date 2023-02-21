@@ -24,17 +24,11 @@ import {
 } from "../constants/orderConstants";
 import axios from "axios";
 
-export const addToOrder = (itemId, setBeer) => async (dispatch) => {
-  // console.log("itemId", itemId);
-  // console.log("setBeer", setBeer);
+export const addToOrder = (formInfo) => async (dispatch) => {
+  console.log("data", formInfo);
   const { token } = JSON.parse(localStorage.getItem("userInfo"));
   try {
     dispatch({ type: ORDER_CREATE_REQUEST });
-
-    const order = {
-      itemId: itemId,
-      quantity: setBeer[itemId],
-    };
 
     const config = {
       headers: {
@@ -42,11 +36,9 @@ export const addToOrder = (itemId, setBeer) => async (dispatch) => {
         Authorization: `Bearer ${token}`,
       },
     };
-
     const { basketId } = jwt_decode(token);
-
-    URL = process.env.REACT_APP_API_URL + `api/basket/item/${basketId}`;
-    const { data } = await axios.post(URL, JSON.stringify(order), config);
+    URL = process.env.REACT_APP_API_URL + `api/order/create/${basketId}`;
+    const { data } = await axios.post(URL, JSON.stringify(formInfo), config);
     dispatch({
       type: ORDER_CREATE_SUCCESS,
       payload: data,
