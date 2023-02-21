@@ -38,7 +38,9 @@ const Items = () => {
       theme="light"
     />
   );
-  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" size="xl" />;
+  const basketIcon = (
+    <FontAwesomeIcon icon={faBasketShopping} color="white" size="xl" />
+  );
 
   useEffect(() => {
     dispatch(listItems());
@@ -132,7 +134,6 @@ const Items = () => {
                   let beerAmount;
                   if (setBeer) {
                     beerAmount = setBeer[id];
-                    console.log(beerAmount);
                   }
 
                   return (
