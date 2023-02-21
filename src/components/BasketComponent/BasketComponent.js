@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
 import Delivery from "./Delivery/Delivery";
 import CarryOut from "./CarryOut/CarryOut";
 import BeerInBasket from "./BeerInBasket";
@@ -10,8 +10,10 @@ import { Button, NavLink } from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
 
 import styles from "./BasketComponent.module.css";
+import { addToOrder } from "../../actions/orderActions";
 
 export default function BasketComponent() {
+  const dispatch = useDispatch();
   const [delivery, setDelivery] = useState(true);
   const switchToDelivery = () => {
       setDelivery(true);
@@ -20,13 +22,21 @@ export default function BasketComponent() {
       setDelivery(false);
     };
 
-  const paymentClick = () => {
-    console.log("WWWWWWWWWWWWW>>>>>>>>>>");
-  };
+  const handleSubmit = (evt) => {
+    evt.preventDefault(); // prevent default form submission behavior
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // prevent default form submission behavior
-    paymentClick();
+    let data = {};
+    const limit = evt.target.length;
+
+    for (let i = 0; i < limit; i++) {
+      const element = evt.target[i];
+      if (element.name !== "") {
+        data[element.name] = element.value;
+      }
+      console.log(typeof element.value);
+    }
+
+    dispatch(addToOrder(data));
   };
 
   return (
