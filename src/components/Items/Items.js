@@ -144,7 +144,7 @@ const Items = () => {
 
                         <div className={styles.buySection}>
                           <div className={styles.prices}>
-                            <strike>{oldPrice * beerAmount}грн</strike>
+                            <strike>{oldPrice * beerAmount} грн</strike>
                             <hr />
 
                             <span className={styles.number}>
