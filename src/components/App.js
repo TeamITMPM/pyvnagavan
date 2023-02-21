@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
 } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
@@ -14,13 +13,14 @@ import NotFound from "../pages/NotFoundPage";
 
 import { authRoutes, publicRoutes } from "../routes";
 import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
+import { legacy_createStore } from "redux";
 
 export default function App() {
   // const userInfo = useSelector((state) => state.userInfo);
   // const { token } = userInfo;
 
   const token = localStorage.userInfo;
-  const isAuth = !!token;
+  let isAuth = !!token;
   const dispatch = useDispatch();
 
   useEffect(() => {

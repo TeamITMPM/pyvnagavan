@@ -16,14 +16,16 @@
   ); */
 }
 
-.card1{
-height:30rem;
-width: 100%;}
-
-.card2{
-  position: absolute;
+.card1 {
+  height: 30rem;
+  width: 100%;
 }
 
+.card2 {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
 
 .h2 {
   font-family: "PT Serif", serif;
@@ -80,12 +82,11 @@ width: 100%;}
 .item {
   /* border: 0.313rem inset rgba(199, 199, 199, 0.425);*/
   border-radius: 0.625rem;
-  margin: 1.5rem;
+  margin: auto;
   background: linear-gradient(0deg, #fefefe 0%, #ffffffad);
   width: 18.75rem;
   font-size: 1.25rem;
   box-shadow: 2px 4px 4px #0f0802;
-  
 }
 
 .item:hover > .description {
@@ -131,17 +132,19 @@ width: 100%;}
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
+  margin: 0px;
   margin-top: 1rem;
 }
 
 .prices {
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .button {
   display: inline-block;
   width: 100%;
-  padding: 0.45rem 1.25rem;
+  height: 100%;
+  /* padding: 0.45rem 1.25rem; */
   margin-bottom: 1.563rem;
   margin-top: 0.5rem;
   border-radius: 10px;
@@ -178,15 +181,66 @@ width: 100%;}
 .counter {
   padding: 0px;
   margin-bottom: 0.5rem;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 0px solid #000;
+  /* border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black; */
+  /* border-top: 1px solid #000; */
+  /* border-radius: 5px; */
   text-align: center;
   font-size: 1.3rem;
   width: 4rem;
+  -webkit-appearance: none;
+  margin: 0;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #bd772d;
+  /* background-color: #d9e1e8  ; */
+  color: black;
 }
 
 .counter:focus {
   outline: rgba(238, 238, 238, 0);
+  background-color: #bd782d;
+}
+
+input.counter::-webkit-outer-spin-button,
+input.counter::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input.counter[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.beerIncrement,
+.beerDecrement {
+  border: 0px solid #000;
+  height: 2rem;
+  width: 2rem;
+  background-color: #bd772d4d;
+  margin: 0px;
+  padding: 0px;
+}
+.beerDecrement {
+  /* border-left: 1px solid #000; */
+  border-top-right-radius: 5px;
+  /* border-top: 1px solid black;
+  border-right: 1px solid black; */
+}
+.beerIncrement {
+  /* border-left: 1px solid #000; */
+  border-top-left-radius: 5px;
+  /* border-top: 1px solid black;
+  border-left: 1px solid black; */
+}
+
+.beerIncrement:hover {
+  background-color: #bd782d;
+}
+.beerDecrement:hover {
+  background-color: #bd782d;
 }
 
 .number {

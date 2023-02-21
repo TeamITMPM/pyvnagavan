@@ -13,30 +13,27 @@ import styles from "./BasketComponent.module.css";
 
 export default function BasketComponent() {
   const [delivery, setDelivery] = useState(true);
-  const switchToDelivery = () => {
-      setDelivery(true);
-    },
-    switchToCarryOut = () => {
-      setDelivery(false);
-    };
 
-  const paymentClick = () => {
-    console.log("WWWWWWWWWWWWW>>>>>>>>>>");
+  const switchToDelivery = () => {
+    setDelivery(true);
+  };
+  const switchToCarryOut = () => {
+    setDelivery(false);
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // prevent default form submission behavior
-    paymentClick();
+    event.preventDefault();
+    console.log("WWWWWWWWWWWWW>>>>>>>>>>");
   };
 
   return (
     <>
       <div className={styles.container}>
+        {/* /////////////////////// Left side of header Delivery|Carry out */}
         <div className={styles.delivery}>
+          {/* /////////////////// Delivery or CarryOut button Selectors */}
           <div className={styles.selector}>
-            {" "}
             <h3 className={styles.text}>
-              {" "}
               <ButtonGroup size="lg" className={`"mb-2" ${styles.buttonGroup}`}>
                 <Button
                   variant={delivery ? "success" : "secondary"}
@@ -53,21 +50,23 @@ export default function BasketComponent() {
               </ButtonGroup>
             </h3>
           </div>
+
+          {/* ///////////// Delivery or CarryOut inputs */}
           <form onSubmit={handleSubmit}>
-            {" "}
             {delivery ? <Delivery /> : <CarryOut />}
             <Total />
-            {/* <NavLink to="/payment"> */}{" "}
             <Button variant="success" size="lg" value="Submit" type="submit">
               Перейти до оплати
             </Button>
-            {/* </NavLink> */}
           </form>
         </div>
+
+        {/* /////////////////////////////////////////////////////////// */}
+
+        {/* Right side of screen with basket items */}
         <div className={styles.basket}>
           <p className={styles.text}>Кошик</p>
           <BeerInBasket />
-          {/* <BuyAlso /> */}
         </div>
       </div>
     </>
