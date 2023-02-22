@@ -13,11 +13,11 @@ export default function OrderHistory() {
   useEffect(() => {
     dispatch(listMyOrder());
   }, []);
-  console.log("itemInOrder", itemInOrder);
+  // console.log("itemInOrder", itemInOrder);
   if (itemInOrder) {
-    itemInOrder.map((elem) => {
-      console.log(elem);
-    });
+    // itemInOrder.map((elem) => {
+    //   console.log("elem >>>>>>>>>>", elem);
+    // });
   }
 
   return (
