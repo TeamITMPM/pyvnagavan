@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
 
+import { NavLink } from "react-router-dom";
+
 import { listItems } from "../../actions/itemActions";
 import { addToBasket } from "../../actions/basketActions";
 
@@ -15,7 +17,7 @@ import PlaceholderItems from "./Placeholders";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Items.module.css";
 
-const Items = () => {
+export default function Items() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
@@ -139,10 +141,14 @@ const Items = () => {
                   return (
                     <div className={styles.card1}>
                       <h3 className={styles.h3}>{name}</h3>
-
+                      {/* <NavLink to={`/item/${id}`}> */}
                       <div className={styles.item} key={name}>
-                        {image}
-
+                        <NavLink
+                          to={`/item/${id}`}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                          {image}
+                        </NavLink>
                         <div className={styles.buySection}>
                           <div className={styles.prices}>
                             <strike>{oldPrice * beerAmount} грн</strike>
@@ -213,6 +219,7 @@ const Items = () => {
                           </p>
                         </div>
                       </div>
+                      {/* </NavLink> */}
                     </div>
                   );
                 }
@@ -225,15 +232,4 @@ const Items = () => {
       </div>
     </>
   );
-};
-
-let mapStateToProps = (state) => {
-  return {
-    items: state.itemState.items,
-  };
-};
-let mapDispatchToProps = {
-  listItems,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Items);
+}
