@@ -43,6 +43,13 @@ export const userLoginReducer = (state = {}, action) => {
     case USER_REGISTER_FAIL:
       return { loading: false, error: action };
 
+    case USER_UPDATE_REQUEST:
+      return { loading: true };
+    case USER_UPDATE_SUCCESS:
+      return { loading: false, token: action };
+    case USER_UPDATE_FAIL:
+      return { loading: false, error: action };
+
     case USER_LOGOUT:
       return {};
     default:
