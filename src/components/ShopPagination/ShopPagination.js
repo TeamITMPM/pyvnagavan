@@ -1,17 +1,15 @@
-import React from 'react'
+import React from "react";
 
+import Button from "react-bootstrap/Button";
+import Pagination from "react-bootstrap/Pagination";
 
-import  Button  from 'react-bootstrap/Button';
-import Pagination from 'react-bootstrap/Pagination';
-
-import styles from "./ShopPagination.module.css"
+import styles from "./ShopPagination.module.css";
 
 export default function ShopPagination() {
   return (
     <div className={styles.paginationMenu}>
-
-      <Button variant="secondary" className={styles.button}>Завантажити більшe</Button>
-    {/* <Pagination>
+      {/* <Button variant="secondary" className={styles.button}>Завантажити більшe</Button> */}
+      {/* <Pagination>
       <Pagination.First />
       <Pagination.Prev />
       <Pagination.Item>{1}</Pagination.Item>
@@ -29,5 +27,5 @@ export default function ShopPagination() {
       <Pagination.Last />
     </Pagination> */}
     </div>
-  )
+  );
 }
