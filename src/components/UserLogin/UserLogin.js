@@ -44,11 +44,11 @@ function UserLogin() {
         <div className={styles.FormRegistration}>
           <div className={styles.labelTable}>
             <label htmlFor="mail">
-              <p className={styles.p2}>Email</p>
+              <p className={styles.p2}>Email або номер телефону</p>
             </label>
           </div>
           <div className={styles.inputTable}>
-            <input className={styles.inputText} id="4" type="email" required />
+            <input className={styles.inputText} id="4" required />
           </div>
 
           <div className={styles.labelTable}>
