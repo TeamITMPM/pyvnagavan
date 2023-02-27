@@ -115,7 +115,8 @@ export default function Items() {
         <div className={styles.items}>
           {products &&
             products.map(
-              ({ name, id, price, oldPrice, rating, img, typeId }) => {
+              (product) => {
+               const { name, id, price, oldPrice, rating, img, typeId, info }= product
                 if (
                   category === typeId ||
                   category === 9 ||
@@ -217,6 +218,7 @@ export default function Items() {
                           <p className={styles.p}>
                             <b>Колір:</b> <i>Пивний</i>
                           </p>
+                         
                         </div>
                       </div>
                       {/* </NavLink> */}

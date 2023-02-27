@@ -72,8 +72,9 @@
   justify-content: center;
 } */
 .itemsIMG {
-  width: 15rem;
+  max-width: 15rem;
   height: 15rem;
+  margin: 0.6rem;
   /* border: 2px inset rgb(148, 148, 148); */
   overflow: hidden;
   border-radius: 0.938rem;
