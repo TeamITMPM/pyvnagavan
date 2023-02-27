@@ -29,7 +29,7 @@ import {
 import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import axios from "axios";
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (identifier, password) => async (dispatch) => {
   // console.log(email, password);
 
   dispatch({ type: USER_LOGIN_REQUEST });
@@ -43,7 +43,7 @@ export const login = (email, password) => async (dispatch) => {
     const { data } = await axios.post(
       URL,
       {
-        email: email,
+        identifier: identifier,
         password: password,
       },
       config
