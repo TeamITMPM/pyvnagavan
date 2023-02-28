@@ -65,11 +65,11 @@ export default function Header() {
           <input type="checkbox" /> <div></div>
         </label>
         {moonIcon}
-        {uaFlag}
+        {/* {uaFlag}
         <label className={styles.languageSelector}>
           <input type="checkbox" /> <div />
         </label>
-        {ukFlag}
+        {ukFlag} */}
       </div>
 
       {/* Центральная часть хєдера */}
