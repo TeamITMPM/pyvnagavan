@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import jwt_decode from "jwt-decode";
+
+import { USER_LOGIN_SUCCESS } from "../../constants/userConstants";
 
 // import UserPageNav from "./UserPageNav";
 import UserInfo from "./UserInfo";
@@ -11,6 +15,9 @@ import UserFeedback from "./UserFeedback";
 
 export default function UserPage() {
   const [userCategory, setUserCategory] = useState("0");
+
+ 
+
 
   const setCategoryType = (e) => {
     const { category } = e.target.dataset;
@@ -30,7 +37,7 @@ export default function UserPage() {
             setCategoryType(e);
           }}
         >
-          Профіль ➤
+          Історія ➤
         </button>
         <hr />
         <button
@@ -40,7 +47,7 @@ export default function UserPage() {
             setCategoryType(e);
           }}
         >
-          Бонуси ➤
+          Профіль ➤
         </button>
         <hr />
         <button
@@ -50,7 +57,7 @@ export default function UserPage() {
             setCategoryType(e);
           }}
         >
-          Історія ➤
+          Бонуси ➤
         </button>
         <hr />
         <button
@@ -76,9 +83,9 @@ export default function UserPage() {
       </div>
       <div className={styles.content1}></div>
       <div className={styles.content2}>
-        {userCategory === "0" && <UserInfo />}
-        {userCategory === "1" && <Bonuses />}
-        {userCategory === "2" && <OrderHistory />}
+        {userCategory === "0" && <OrderHistory />}
+        {userCategory === "1" && <UserInfo />}
+        {userCategory === "2" && <Bonuses />}
         {userCategory === "3" && <UserAdress />}
         {userCategory === "4" && <UserFeedback />}
       </div>

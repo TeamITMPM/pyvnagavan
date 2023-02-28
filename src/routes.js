@@ -7,7 +7,10 @@ import {
   SHOP_ROUTE,
   USER_ROUTE,
   PAYMENT_ROUTE,
-  MAP_PAGE_ROUTE
+  MAP_PAGE_ROUTE,
+  ABOUTUS_PAGE_ROUTE,
+  LOCATIONS_PAGE_ROUTE,
+  PROMO_PAGE_ROUTE
 } from "./utils/consts";
 
 import Admin from "./pages/Admin";
@@ -19,6 +22,9 @@ import ItemPage from "./pages/ItemPage";
 import User from "./pages/User";
 import Payment from "./pages/Payment";
 import MapPage from "./pages/MapPage"
+import AboutUs from "./pages/AboutUs"
+import Locations from "./pages/Locations"
+import PromoPage from "./pages/PromoPage"
 
 export const authRoutes = [
   {
@@ -60,5 +66,14 @@ export const publicRoutes = [
   }, {
     path: MAP_PAGE_ROUTE,
     Component: MapPage,
+  },{
+    path: ABOUTUS_PAGE_ROUTE,
+    Component: AboutUs,
+  },{
+    path:LOCATIONS_PAGE_ROUTE,
+    Component: Locations,
+  },{
+    path:PROMO_PAGE_ROUTE,
+    Component: PromoPage,
   },
 ];

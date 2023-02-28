@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 // import { SHOP_ROUTE } from "../utils/consts";
 import {
   BrowserRouter as Router,
@@ -13,7 +13,6 @@ import NotFound from "../pages/NotFoundPage";
 
 import { authRoutes, publicRoutes } from "../routes";
 import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
-import { legacy_createStore } from "redux";
 
 export default function App() {
   // const userInfo = useSelector((state) => state.userInfo);
