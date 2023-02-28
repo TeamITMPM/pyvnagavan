@@ -1,68 +1,68 @@
 import {
-  ADMIN_ROUTE,
-  BASKET_ROUTE,
+  ADMIN_PAGE_ROUTE,
+  BASKET_PAGE_ROUTE,
   ITEM_ROUTE,
-  LOGIN_ROUTE,
+  LOGIN_PAGE_ROUTE,
   REGISTRATION_ROUTE,
-  SHOP_ROUTE,
-  USER_ROUTE,
-  PAYMENT_ROUTE,
+  SHOP_PAGE_ROUTE,
+  USER_PAGE_ROUTE,
+  RECEIPT_PAGE_ROUTE,
   MAP_PAGE_ROUTE,
   ABOUTUS_PAGE_ROUTE,
   LOCATIONS_PAGE_ROUTE,
   PROMO_PAGE_ROUTE
 } from "./utils/consts";
 
-import Admin from "./pages/Admin";
-import Basket from "./pages/Basket";
-import Shop from "./pages/Shop";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+import AdminPage from "./pages/AdminPage";
+import BasketPage from "./pages/BasketPage";
+import ShopPage from "./pages/ShopPage";
+import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage";
 import ItemPage from "./pages/ItemPage";
-import User from "./pages/User";
-import Payment from "./pages/Payment";
+import UserPage from "./pages/UserPage";
+import ReceiptPage from "./pages/ReceiptPage";
 import MapPage from "./pages/MapPage"
 import AboutUs from "./pages/AboutUs"
-import Locations from "./pages/Locations"
+import LocationsPage from "./pages/LocationsPage"
 import PromoPage from "./pages/PromoPage"
 
 export const authRoutes = [
   {
-    path: ADMIN_ROUTE,
-    Component: Admin,
+    path: ADMIN_PAGE_ROUTE,
+    Component: AdminPage,
   },
   {
-    path: BASKET_ROUTE,
-    Component: Basket,
+    path: BASKET_PAGE_ROUTE,
+    Component: BasketPage,
   },
 
   {
-    path: USER_ROUTE,
-    Component: User,
+    path: USER_PAGE_ROUTE,
+    Component: UserPage,
   },
 ];
 
 export const publicRoutes = [
   {
-    path: SHOP_ROUTE,
-    Component: Shop,
+    path: SHOP_PAGE_ROUTE,
+    Component: ShopPage,
   },
 
   {
-    path: LOGIN_ROUTE,
-    Component: Login,
+    path: LOGIN_PAGE_ROUTE,
+    Component: LoginPage,
   },
   {
     path: REGISTRATION_ROUTE,
-    Component: SignUp,
+    Component: RegistrationPage,
   },
   {
     path: ITEM_ROUTE + "/:id",
     Component: ItemPage,
   },
   {
-    path: PAYMENT_ROUTE,
-    Component: Payment,
+    path: RECEIPT_PAGE_ROUTE,
+    Component: ReceiptPage,
   }, {
     path: MAP_PAGE_ROUTE,
     Component: MapPage,
@@ -71,7 +71,7 @@ export const publicRoutes = [
     Component: AboutUs,
   },{
     path:LOCATIONS_PAGE_ROUTE,
-    Component: Locations,
+    Component: LocationsPage,
   },{
     path:PROMO_PAGE_ROUTE,
     Component: PromoPage,

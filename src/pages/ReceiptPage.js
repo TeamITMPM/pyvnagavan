@@ -1,17 +1,17 @@
 import React from "react";
 
 import Header from "../components/Header";
-import PaymentComponent from "../components/PaymentComponent";
+import Receipt from "../components/Receipt";
 import Footer from "../components/Footer";
 
-export default function Payment() {
+export default function ReceiptPage() {
 
    
 
   return (
     <div>
       <Header />
-      <PaymentComponent />
+      <Receipt />
    
       <Footer />
     </div>

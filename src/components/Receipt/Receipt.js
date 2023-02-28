@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import GooglePayButton from "@google-pay/button-react";
 
-export default function PaymentComponent() {
+export default function Receipt() {
 //   const { basketState } = useSelector((state) => state);
 //   if (!basketState.loading && basketState.itemInBasket) {
 //   }

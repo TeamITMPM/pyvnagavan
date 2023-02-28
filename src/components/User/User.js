@@ -10,10 +10,10 @@ import Bonuses from "./Bonuses";
 import OrderHistory from "./OrderHistory";
 import UserAdress from "./UserAdress";
 
-import styles from "./UserPage.module.css";
+import styles from "./User.module.css";
 import UserFeedback from "./UserFeedback";
 
-export default function UserPage() {
+export default function User() {
   const [userCategory, setUserCategory] = useState("0");
 
  
@@ -57,7 +57,7 @@ export default function UserPage() {
             setCategoryType(e);
           }}
         >
-          Бонуси ➤
+          Бонусы ➤
         </button>
         <hr />
         <button

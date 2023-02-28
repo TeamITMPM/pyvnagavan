@@ -2,15 +2,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/userAction";
-
 import { Link, useHistory } from "react-router-dom";
+
+import { SHOP_PAGE_ROUTE } from "../../utils/consts";
+
+
 import styles from "./UserRegistration.module.css";
-import { SHOP_ROUTE } from "../../utils/consts";
 
 export default function UserRegistration() {
   useEffect(() => {
     if (token) {
-      history.push(SHOP_ROUTE);
+      history.push(SHOP_PAGE_ROUTE);
     }
   });
 

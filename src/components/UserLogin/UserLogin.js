@@ -5,12 +5,12 @@ import { Link, useHistory } from "react-router-dom";
 import { login } from "../../actions/userAction";
 import { connect } from "react-redux";
 import styles from "./UserLogin.module.css";
-import { SHOP_ROUTE } from "../../utils/consts";
+import { SHOP_PAGE_ROUTE } from "../../utils/consts";
 
 function UserLogin() {
   useEffect(() => {
     if (token) {
-      history.push(SHOP_ROUTE);
+      history.push(SHOP_PAGE_ROUTE);
     }
   });
 

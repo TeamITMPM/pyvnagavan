@@ -1,14 +1,15 @@
 import React from 'react'
 import Header from "../components/Header"
-import BasketComponent from "../components/BasketComponent"
+import Basket from "../components/Basket"
 import Footer from "../components/Footer"
 
-export default function Basket() {
+const BasketPage = () => {
   return (
     <>
     <Header />
-    <BasketComponent />
+    <Basket />
     <Footer />
     </>
   )
 }
+export default BasketPage

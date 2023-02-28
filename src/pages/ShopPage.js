@@ -11,7 +11,7 @@ import Items from "../components/Items/Items";
 import Pagination from "../components/ShopPagination"
 import Footer from "../components/Footer";
 
-const Shop = () => {
+const ShopPage = () => {
   return (
     <>
       <Header />
@@ -24,4 +24,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default ShopPage;

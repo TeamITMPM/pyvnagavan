@@ -9,10 +9,10 @@ import Total from "./Total";
 import { Button} from "react-bootstrap";
 import { ButtonGroup } from "react-bootstrap";
 
-import styles from "./BasketComponent.module.css";
+import styles from "./Basket.module.css";
 import { addToOrder } from "../../actions/orderActions";
 
-export default function BasketComponent() {
+export default function Basket() {
   const dispatch = useDispatch();
   const [delivery, setDelivery] = useState(true);
 

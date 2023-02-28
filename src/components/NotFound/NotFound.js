@@ -2,12 +2,11 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import Header from "../Header";
-import Footer from "../Footer";
 
-import styles from "./NotFoundComponent.module.css";
 
-const NotFoundComponent = () => {
+import styles from "./NotFound.module.css";
+
+const NotFound = () => {
   return (
     <>
       <div className={styles.container}>
@@ -22,4 +21,4 @@ const NotFoundComponent = () => {
   );
 };
 
-export default NotFoundComponent;
+export default NotFound;

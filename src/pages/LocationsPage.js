@@ -1,15 +1,14 @@
 import React from "react";
 
 import Header from "../components/Header";
-import NotFound from "../components/NotFound";
+import Locations from "../components/Locations";
 import Footer from "../components/Footer";
 
-const NotFoundPage = () => {
+const LocationsPage = () => {
   return (
     <div>
-      <Header />
-      <NotFound /> <Footer />
+      <Header /> <Locations /> <Footer />
     </div>
   );
 };
-export default NotFoundPage;
+export default LocationsPage;

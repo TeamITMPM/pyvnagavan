@@ -4,13 +4,13 @@ import Header from "../components/Header";
 import Map from "../components/Map";
 import Footer from "../components/Footer";
 
-export default function MapPage() {
+const MapPage = () => {
   return (
     <>
-        <Header/>
-        <Map />
-        <Footer />
-
+      <Header />
+      <Map />
+      <Footer />
     </>
   );
-}
+};
+export default MapPage;

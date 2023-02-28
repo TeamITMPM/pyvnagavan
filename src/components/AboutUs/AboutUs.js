@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AboutUsComponent() {
+export default function AboutUs() {
   return (
     <div>AboutUsComponent</div>
   )

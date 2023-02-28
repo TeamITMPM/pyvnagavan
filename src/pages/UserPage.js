@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-import UserPage from "../components/UserPage";
+import User from "../components/User";
 // import { connect } from "react-redux";
 
-export default function User() {
+const UserPage = () =>  {
   return (
     <>
       <Header />
-        <UserPage />
+        <User />
       
       <div style={{ bottom: "0", width: "100%", height: "35vh" }} />
 
@@ -19,3 +19,4 @@ export default function User() {
     </>
   );
 }
+export default UserPage;

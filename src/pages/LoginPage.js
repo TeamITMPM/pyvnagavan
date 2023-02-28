@@ -4,7 +4,7 @@ import UserLogin from "../components/UserLogin";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const Login = () => {
+const LoginPage = () => {
   return (
     <>
       <Header />
@@ -19,4 +19,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
