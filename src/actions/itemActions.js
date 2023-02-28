@@ -18,9 +18,9 @@ import {
   PRODUCT_CREATE_REVIEW_REQUEST,
   PRODUCT_CREATE_REVIEW_SUCCESS,
   PRODUCT_CREATE_REVIEW_FAIL,
-  PRODUCT_TOP_REQUEST,
-  PRODUCT_TOP_SUCCESS,
-  PRODUCT_TOP_FAIL,
+  PRODUCT_REQUEST,
+  PRODUCT_SUCCESS,
+  PRODUCT_FAIL,
 } from "../constants/itemConstants";
 // const URL = process.env.REACT_APP_API_URL + `api/item`;
 
@@ -36,6 +36,25 @@ export const listItems = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_LIST_FAIL,
+      payload: error,
+    });
+  }
+};
+
+export const getItem = (itemId) => async (dispatch) => {
+  // console.log(itemId);
+  try {
+    dispatch({ type: PRODUCT_REQUEST });
+    URL = process.env.REACT_APP_API_URL + `api/item/${itemId}`;
+    const { data } = await axios.get(URL);
+
+    dispatch({
+      type: PRODUCT_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_FAIL,
       payload: error,
     });
   }

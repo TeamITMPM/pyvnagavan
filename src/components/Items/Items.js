@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
 
+import { NavLink } from "react-router-dom";
+
 import { listItems } from "../../actions/itemActions";
 import { addToBasket } from "../../actions/basketActions";
 
@@ -10,10 +12,12 @@ import { ToastContainer, toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 
+import PlaceholderItems from "./Placeholders";
+
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Items.module.css";
 
-const Items = () => {
+export default function Items() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.itemState);
   const { products, loading } = productList;
@@ -36,7 +40,9 @@ const Items = () => {
       theme="light"
     />
   );
-  const basketIcon = <FontAwesomeIcon icon={faBasketShopping} color="white" />;
+  const basketIcon = (
+    <FontAwesomeIcon icon={faBasketShopping} color="white" size="xl" />
+  );
 
   useEffect(() => {
     dispatch(listItems());
@@ -83,45 +89,22 @@ const Items = () => {
     });
   };
 
-  const changeLiters = (event) => {
-    const { id, value } = event.target;
-
+  const plusLiters = (event) => {
+    event.target.nextSibling.nextSibling.stepUp();
+    const { id, value } = event.target.nextSibling.nextSibling;
     onSetBeer({
       ...setBeer,
       [id]: value,
     });
   };
-
-  const itemPlaceholder = [];
-  for (let i = 0; i < 6; i++) {
-    itemPlaceholder.push(
-      <div className={styles.item}>
-        <Placeholder as="p" animation="glow">
-          <Placeholder xs={12} />
-        </Placeholder>{" "}
-        <div className={styles.itemsIMG}>
-          <Placeholder as="p" animation="glow">
-            <Placeholder xs={600} />
-          </Placeholder>{" "}
-        </div>
-        <hr />
-        <Placeholder as="p" animation="glow">
-          <Placeholder xs={6} />
-        </Placeholder>{" "}
-        <Placeholder as="p" animation="glow">
-          <Placeholder xs={4} />
-        </Placeholder>{" "}
-        <Placeholder as="p" animation="glow">
-          <Placeholder xs={8} />
-        </Placeholder>
-        <button className={styles.button}>
-          <Placeholder as="p" animation="glow">
-            <Placeholder lg={16} bg="info" />
-          </Placeholder>
-        </button>
-      </div>
-    );
-  }
+  const minusLiters = (event) => {
+    event.target.nextSibling.stepDown();
+    const { id, value } = event.target.nextSibling;
+    onSetBeer({
+      ...setBeer,
+      [id]: value,
+    });
+  };
 
   return (
     <>
@@ -149,89 +132,104 @@ const Items = () => {
                       alt={name}
                     />
                   );
+
+                  let beerAmount;
+                  if (setBeer) {
+                    beerAmount = setBeer[id];
+                  }
+
                   return (
                     <div className={styles.card1}>
-                        <h3 className={styles.h3}>{name}</h3>
-
-                        <div className={styles.item} key={id}>
+                      <h3 className={styles.h3}>{name}</h3>
+                      {/* <NavLink to={`/item/${id}`}> */}
+                      <div className={styles.item} key={name}>
+                        <NavLink
+                          to={`/item/${id}`}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
                           {image}
+                        </NavLink>
+                        <div className={styles.buySection}>
+                          <div className={styles.prices}>
+                            <strike>{oldPrice * beerAmount} грн</strike>
+                            <hr />
 
-                          <div className={styles.buySection}>
-                            <div className={styles.prices}>
-                              <strike>{oldPrice}грн за 1 літр</strike>
-                              <br />
-                              <span className={styles.number}>{price}</span>грн
-                              за 1 літр
-                            </div>
+                            <span className={styles.number}>
+                              {price * beerAmount} грн
+                            </span>
+                          </div>
 
-                            <label>
-                              <button>+</button>
-                              <button>-</button>
-                              <input
-                                className={styles.counter}
-                                id={id}
-                                type="number"
-                                min="0.5"
-                                max="20"
-                                step="0.5"
-                                // value={quantity}
-                                onChange={changeLiters}
-                                defaultValue={1}
-                              />
-                            </label>
-
+                          <div>
                             <button
-                              onClick={() => {
-                                onAddToBasket(id);
+                              className={styles.beerIncrement}
+                              onClick={(e) => {
+                                plusLiters(e);
                               }}
-                              type="button"
-                              className={styles.button}
                             >
-                              {isAuth ? basketIcon : "Потрібно увійти"}
+                              +
                             </button>
+                            <button
+                              className={styles.beerDecrement}
+                              onClick={(e) => {
+                                minusLiters(e);
+                              }}
+                            >
+                              -
+                            </button>
+                            <input
+                              className={styles.counter}
+                              id={id}
+                              type="number"
+                              min="0.5"
+                              max="20"
+                              step="0.5"
+                              // value={quantity}
+                              defaultValue={1}
+                            />
                           </div>
-                          <div className={styles.description}>
-                            <p className={styles.p}>
-                              <b>Тип:</b> <i>Lager</i>
-                            </p>
-                            <p className={styles.p}>
-                              <b>Щільність:</b> <i>22.2%</i>
-                            </p>
-                            <p className={styles.p}>
-                              <b>Походження:</b> <i>123</i>
-                            </p>
-                            <p className={styles.p}>
-                              <b>Міцність:</b> <i>4.5°</i>
-                            </p>
-                            <p className={styles.p}>
-                              <b>Гіркота:</b> <i>15.4</i>
-                            </p>
-                            <p className={styles.p}>
-                              <b>Колір:</b> <i>Пивний</i>
-                            </p>
-                          </div>
+
+                          <button
+                            onClick={() => {
+                              onAddToBasket(id);
+                            }}
+                            type="button"
+                            className={styles.button}
+                          >
+                            {isAuth ? basketIcon : "Потрібно увійти"}
+                          </button>
                         </div>
+                        <div className={styles.description}>
+                          <p className={styles.p}>
+                            <b>Тип:</b> <i>Lager</i>
+                          </p>
+                          <p className={styles.p}>
+                            <b>Щільність:</b> <i>22.2%</i>
+                          </p>
+                          <p className={styles.p}>
+                            <b>Походження:</b> <i>123</i>
+                          </p>
+                          <p className={styles.p}>
+                            <b>Міцність:</b> <i>4.5°</i>
+                          </p>
+                          <p className={styles.p}>
+                            <b>Гіркота:</b> <i>15.4</i>
+                          </p>
+                          <p className={styles.p}>
+                            <b>Колір:</b> <i>Пивний</i>
+                          </p>
+                        </div>
+                      </div>
+                      {/* </NavLink> */}
                     </div>
                   );
                 }
               }
             )}
-          {loading && itemPlaceholder}
+          {loading && <PlaceholderItems />}
           {/* {loading && <h1> Завантажується пивко ... </h1>} */}
         </div>
         {toastContainer}
       </div>
     </>
   );
-};
-
-let mapStateToProps = (state) => {
-  return {
-    items: state.itemState.items,
-  };
-};
-let mapDispatchToProps = {
-  listItems,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Items);
+}
