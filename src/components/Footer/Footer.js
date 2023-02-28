@@ -2,7 +2,13 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 
-import {SHOP_PAGE_ROUTE, PROMO_PAGE_ROUTE, ABOUTUS_PAGE_ROUTE,MAP_PAGE_ROUTE, LOCATIONS_PAGE_ROUTE} from "../../utils/consts"
+import {
+  SHOP_PAGE_ROUTE,
+  PROMO_PAGE_ROUTE,
+  ABOUTUS_PAGE_ROUTE,
+  MAP_PAGE_ROUTE,
+  LOCATIONS_PAGE_ROUTE,
+} from "../../utils/consts";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -56,7 +62,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            
 
             <div className="col-xs-6 col-md-3">
               <h6>Навігація</h6>
@@ -65,14 +70,15 @@ export default function Footer() {
                   <NavLink to={SHOP_PAGE_ROUTE}>Головна</NavLink>
                 </li>
                 <li>
-                <NavLink to={PROMO_PAGE_ROUTE}>Акції</NavLink>
+                  <NavLink to={PROMO_PAGE_ROUTE}>Акції</NavLink>
                 </li>
                 <li>
-                  <NavLink to = {ABOUTUS_PAGE_ROUTE}>Про нас</NavLink>
+                  <NavLink to={ABOUTUS_PAGE_ROUTE}>Про нас</NavLink>
                 </li>
                 <li>
                   <NavLink to={MAP_PAGE_ROUTE}>Карта доставки</NavLink>
-                </li><li>
+                </li>
+                <li>
                   <NavLink to={LOCATIONS_PAGE_ROUTE}>Ресторани</NavLink>
                 </li>
               </ul>
@@ -83,8 +89,8 @@ export default function Footer() {
             <div className="row">
               <div className="col-md-8 col-sm-6 col-xs-12">
                 <p className="copyright-text">
-                  Copyright &copy; 2023 All Rights Reserved by
-                  <a href="#"> Pyvnagavan</a>.
+                  Copyright &copy; 2023 All Rights Reserved by {" "}
+                  <a href="#">Pyvnagavan</a>.
                 </p>
               </div>
 
