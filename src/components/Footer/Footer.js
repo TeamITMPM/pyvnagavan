@@ -1,5 +1,9 @@
 import React from "react";
 
+import { NavLink } from "react-router-dom";
+
+import {SHOP_PAGE_ROUTE, PROMO_PAGE_ROUTE, ABOUTUS_PAGE_ROUTE,MAP_PAGE_ROUTE, LOCATIONS_PAGE_ROUTE} from "../../utils/consts"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -58,16 +62,18 @@ export default function Footer() {
               <h6>Навігація</h6>
               <ul className="footer-links">
                 <li>
-                  <a href=" ">Головна</a>
+                  <NavLink to={"/#"}>Головна</NavLink>
                 </li>
                 <li>
-                  <a href=" ">Акції</a>
+                <NavLink to={PROMO_PAGE_ROUTE}>Акції</NavLink>
                 </li>
                 <li>
-                  <a href=" ">Про нас</a>
+                  <NavLink to = {ABOUTUS_PAGE_ROUTE}>Про нас</NavLink>
                 </li>
                 <li>
-                  <a href=" ">Контакти</a>
+                  <NavLink to={MAP_PAGE_ROUTE}>Карта доставки</NavLink>
+                </li><li>
+                  <NavLink to={LOCATIONS_PAGE_ROUTE}>Ресторани</NavLink>
                 </li>
               </ul>
             </div>
