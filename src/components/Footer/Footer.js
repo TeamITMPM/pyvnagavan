@@ -62,7 +62,7 @@ export default function Footer() {
               <h6>Навігація</h6>
               <ul className="footer-links">
                 <li>
-                  <NavLink to={"/#"}>Головна</NavLink>
+                  <NavLink to={SHOP_PAGE_ROUTE}>Головна</NavLink>
                 </li>
                 <li>
                 <NavLink to={PROMO_PAGE_ROUTE}>Акції</NavLink>
