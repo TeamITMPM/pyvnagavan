@@ -43,7 +43,7 @@ body {
   backdrop-filter: blur(7px) brightness(0.9) contrast(70%); */
 }
 .dark{
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(10, 10, 10);
 }
 .light{
   background-color: #efeee9;

@@ -75,10 +75,6 @@ export default function Header() {
     dispatch(logout());
   };
 
-
-
-
-
   return (
     <div className={styles.header}>
       {/* Левая часть хєдера */}
@@ -87,20 +83,9 @@ export default function Header() {
         {sunIcon}
         <label className={styles.themeSelector}>
           {theme === "dark" ? (
-            <input
-              type="checkbox"
-              onInput={() => {
-                toggleTheme();
-              }}
-              checked
-            />
+            <input type="checkbox" onInput={toggleTheme} checked />
           ) : (
-            <input
-              type="checkbox"
-              onInput={() => {
-                toggleTheme();
-              }}
-            />
+            <input type="checkbox" onInput={toggleTheme} />
           )}
           <div></div>
         </label>
