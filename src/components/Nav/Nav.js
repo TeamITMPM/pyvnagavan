@@ -77,17 +77,17 @@ export default function Nav() {
         {loading && navButtonPlaceholder}
         {/* {loading && <p> Завантажується навігація </p>} */}
         {types &&
-          types.map(({ name, id }) => {
+          types.map(({ nameUA, id }) => {
             return (
               <button
                 onClick={() => {
                   navClick(id);
                 }}
                 id={id}
-                key={name}
+                key={nameUA}
                 className={styles.categories}
               >
-                {name}
+                {nameUA}
               </button>
             );
           })}

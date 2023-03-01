@@ -1,11 +1,12 @@
 // import { type } from "@testing-library/user-event/dist/type";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../actions/userAction";
+
+import PhoneInput from "react-phone-number-input";
 import { Link, useHistory } from "react-router-dom";
 
+import { register } from "../../actions/userAction";
 import { SHOP_PAGE_ROUTE } from "../../utils/consts";
-
 
 import styles from "./UserRegistration.module.css";
 
@@ -15,6 +16,8 @@ export default function UserRegistration() {
       history.push(SHOP_PAGE_ROUTE);
     }
   });
+
+  const [phoneValue, setPhoneValue] = useState("+380");
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -36,6 +39,7 @@ export default function UserRegistration() {
     // }
 
     for (let i = 0; i <= 6; i++) {
+      console.log(evt.target[i].value);
       data[evt.target[i].name] = evt.target[i].value;
     }
 
@@ -90,11 +94,18 @@ export default function UserRegistration() {
             </label>
           </div>
           <div className={styles.inputTable}>
+            {/* <PhoneInput
+              placeholder="Телефон"
+              defaultCountry="UA"
+              name="phone"
+              value={phoneValue}
+              onChange={setPhoneValue}
+              style={{width:"80%"}}
+            /> */}
             <input
               className={styles.inputText}
-              id="3"
+              id="4"
               type="tel"
-              pattern="[+]{1}\[3]{1}\[8]{1}\[(]{1}\[0-9]{3}\[)]{1}\[0-9]{3}-[0-9]{2}-[0-9]{2}"
               name="phone"
               required
             />

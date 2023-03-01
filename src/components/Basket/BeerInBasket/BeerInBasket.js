@@ -14,7 +14,6 @@ export default function BeerInBasket() {
   const dispatch = useDispatch();
   const { basketState } = useSelector((state) => state);
   const productList = useSelector((state) => state.itemState);
-  const { products, loading } = productList;
 
   const closeIcon = <FontAwesomeIcon icon={faClose} />;
 
@@ -46,12 +45,12 @@ export default function BeerInBasket() {
         <div className={styles.grid}>
           {items &&
             items.map(({ product, dataValues }) => {
-              const { img, name, price } = product;
+              const { img, nameUA, price } = product;
               const { id, quantity } = dataValues;
               const total = price * quantity;
               return (
                 <div key={id} className={styles.item}>
-                  <h3 className={styles.header}>{name}</h3>
+                  <h3 className={styles.header}>{nameUA}</h3>
                   <img
                     src={
                       img

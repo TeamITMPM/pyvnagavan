@@ -116,7 +116,7 @@ export default function Items() {
           {products &&
             products.map(
               (product) => {
-               const { name, id, price, oldPrice, rating, img, typeId, info }= product
+               const { nameUA, id, price, oldPrice, rating, img, typeId, info }= product
                 if (
                   category === typeId ||
                   category === 9 ||
@@ -130,7 +130,7 @@ export default function Items() {
                           ? require(`../../../../back_pyvnagavan/static/${img}`)
                           : "https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg"
                       }
-                      alt={name}
+                      alt={nameUA}
                     />
                   );
 
@@ -141,9 +141,9 @@ export default function Items() {
 
                   return (
                     <div className={styles.card1}>
-                      <h3 className={styles.h3}>{name}</h3>
+                      <h3 className={styles.h3}>{nameUA}</h3>
                       {/* <NavLink to={`/item/${id}`}> */}
-                      <div className={styles.item} key={name}>
+                      <div className={styles.item} key={nameUA}>
                         <NavLink
                           to={`/item/${id}`}
                           style={{ textDecoration: "none", color: "inherit" }}
