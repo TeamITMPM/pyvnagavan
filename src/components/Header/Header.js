@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,6 +18,26 @@ import styles from "./Header.module.css";
 
 export default function Header() {
   const dispatch = useDispatch();
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const currentTheme = localStorage.getItem("theme");
+    setTheme(currentTheme);
+    document.body.className = currentTheme;
+  }, []);
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
+      document.body.className = "dark";
+    } else {
+      setTheme("light");
+      localStorage.setItem("theme", "light");
+
+      document.body.className = "light";
+    }
+  };
 
   // icons
   const sunIcon = (
@@ -55,6 +75,10 @@ export default function Header() {
     dispatch(logout());
   };
 
+
+
+
+
   return (
     <div className={styles.header}>
       {/* Левая часть хєдера */}
@@ -62,14 +86,30 @@ export default function Header() {
         <div className={styles.space} />
         {sunIcon}
         <label className={styles.themeSelector}>
-          <input type="checkbox" /> <div></div>
+          {theme === "dark" ? (
+            <input
+              type="checkbox"
+              onInput={() => {
+                toggleTheme();
+              }}
+              checked
+            />
+          ) : (
+            <input
+              type="checkbox"
+              onInput={() => {
+                toggleTheme();
+              }}
+            />
+          )}
+          <div></div>
         </label>
         {moonIcon}
-        {uaFlag}
+        {/* {uaFlag}
         <label className={styles.languageSelector}>
           <input type="checkbox" /> <div />
         </label>
-        {ukFlag}
+        {ukFlag} */}
       </div>
 
       {/* Центральная часть хєдера */}
