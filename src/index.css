@@ -31,8 +31,8 @@ body {
   /* background-color: rgb(182, 212, 200); */
   /* background-color: rgb(49, 49, 49); */
 
+  /* background-color: #313131; */
   background-color: #efeee9;
-  background-image: url("./img/AnchorBackground.png");
   /* Dark theme */
   /* background-color: rgb(44, 44, 44); */
 
@@ -40,6 +40,14 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   backdrop-filter: blur(7px) brightness(0.9) contrast(70%); */
+}
+.dark{
+  background-color: rgb(43, 43, 43);
+}
+.light{
+  background-color: #efeee9;
+  background-image: url("./img/AnchorBackground.png");
+
 }
 
 hr {

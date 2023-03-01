@@ -19,7 +19,7 @@ export default function OrderHistory() {
         <div className={styles.table}>
           <h3>Список замовлень</h3>
         </div>
-        {itemInOrder.map(({ items, orderInfo }) => {
+        {itemInOrder.slice(0).reverse().map(({ items, orderInfo }) => {
           const {
             apartment,
             asap,

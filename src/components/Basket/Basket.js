@@ -5,12 +5,14 @@ import CarryOut from "./CarryOut/CarryOut";
 import BeerInBasket from "./BeerInBasket";
 import BuyAlso from "./BuyAlso";
 import Total from "./Total";
+import { addToOrder } from "../../actions/orderActions";
 
-import { Button} from "react-bootstrap";
-import { ButtonGroup } from "react-bootstrap";
+import { RECEIPT_PAGE_ROUTE } from "../../utils/consts";
+
+import { Button, ButtonGroup } from "react-bootstrap";
 
 import styles from "./Basket.module.css";
-import { addToOrder } from "../../actions/orderActions";
+import { NavLink } from "react-router-dom";
 
 export default function Basket() {
   const dispatch = useDispatch();
@@ -68,9 +70,18 @@ export default function Basket() {
           <form onSubmit={handleSubmit}>
             {delivery ? <Delivery /> : <CarryOut />}
             <Total />
-            <Button variant="success" size="lg" value="Submit" type="submit">
-              Перейти до оплати
-            </Button>
+            <div className={styles.submitButton}>
+              <NavLink to={RECEIPT_PAGE_ROUTE}>
+                <Button
+                  variant="success"
+                  size="lg"
+                  value="Submit"
+                  type="submit"
+                >
+                  Перейти до оплати
+                </Button>
+              </NavLink>
+            </div>
           </form>
         </div>
 

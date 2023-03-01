@@ -44,7 +44,7 @@ function UserLogin() {
         <div className={styles.FormRegistration}>
           <div className={styles.labelTable}>
             <label htmlFor="mail">
-              <p className={styles.p2}>Email або номер телефону</p>
+              <p className={styles.p2}>Email/телефон</p>
             </label>
           </div>
           <div className={styles.inputTable}>

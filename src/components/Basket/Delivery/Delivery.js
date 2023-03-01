@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+
+import PhoneInput from "react-phone-number-input";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
 import styles from "./Delivery.module.css";
+import "react-phone-number-input/style.css";
+
+const popover = <Tooltip>у форматі 0951112233</Tooltip>;
 
 export default function Delivery() {
+  const [value, setValue] = useState("+380");
+
   return (
     <div className={styles.container}>
       <div className={styles.block}>
@@ -15,12 +23,21 @@ export default function Delivery() {
             required
             className={styles.input}
           />
-          <input
-            type="tel"
-            name="phone"
+          {/* <OverlayTrigger trigger="click" placement="top" overlay={popover} onHide>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Телефон"
+              required
+              className={styles.input}
+            />
+          </OverlayTrigger> */}
+          <PhoneInput
             placeholder="Телефон"
-            required
-            className={styles.input}
+            defaultCountry="UA"
+            name="phone"
+            value={value}
+            onChange={setValue}
           />
           <input
             type="email"
