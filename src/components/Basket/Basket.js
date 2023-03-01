@@ -71,16 +71,11 @@ export default function Basket() {
             {delivery ? <Delivery /> : <CarryOut />}
             <Total />
             <div className={styles.submitButton}>
-              <NavLink to={RECEIPT_PAGE_ROUTE}>
-                <Button
-                  variant="success"
-                  size="lg"
-                  value="Submit"
-                  type="submit"
-                >
-                  Перейти до оплати
-                </Button>
-              </NavLink>
+              <Button variant="success" size="lg" value="Submit" type="submit">
+                Перейти до оплати
+              </Button>
+
+              <NavLink to={RECEIPT_PAGE_ROUTE}> done</NavLink>
             </div>
           </form>
         </div>
