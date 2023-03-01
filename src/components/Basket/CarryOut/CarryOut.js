@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+
+import PhoneInput from "react-phone-number-input";
 
 import styles from "./CarryOut.module.css";
 
 export default function CarryOut() {
+  const [value, setValue] = useState("+380");
+
   return (
     <div className={styles.container}>
       <div className={styles.block}>
         <label className={styles.label}>
-          Контактні дані:
+          Контактні дані:<br />
           <input
             type="text"
             name="firstName"
@@ -15,12 +19,12 @@ export default function CarryOut() {
             required
             className={styles.input}
           />
-          <input
-            type="tel"
-            name="phone"
+          <PhoneInput
             placeholder="Телефон"
-            required
-            className={styles.input}
+            defaultCountry="UA"
+            name="phone"
+            value={value}
+            onChange={setValue}
           />
           <input
             type="email"

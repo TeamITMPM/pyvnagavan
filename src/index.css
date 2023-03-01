@@ -33,7 +33,6 @@ body {
 
   /* background-color: #313131; */
   background-color: #efeee9;
-  background-image: url("./img/AnchorBackground.png");
   /* Dark theme */
   /* background-color: rgb(44, 44, 44); */
 
@@ -43,10 +42,11 @@ body {
   backdrop-filter: blur(7px) brightness(0.9) contrast(70%); */
 }
 .dark{
-  background-color: rgb(10, 10, 10);
+  background-color: rgb(43, 43, 43);
 }
 .light{
   background-color: #efeee9;
+  background-image: url("./img/AnchorBackground.png");
 
 }
 
