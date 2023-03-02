@@ -13,7 +13,7 @@ import styles from "./BeerInBasket.module.css";
 export default function BeerInBasket() {
   const dispatch = useDispatch();
   const { basketState } = useSelector((state) => state);
-  const productList = useSelector((state) => state.itemState);
+  // const productList = useSelector((state) => state.itemState);
 
   const closeIcon = <FontAwesomeIcon icon={faClose} />;
 

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import { Button, ButtonGroup } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+
 import Delivery from "./Delivery/Delivery";
 import CarryOut from "./CarryOut/CarryOut";
 import BeerInBasket from "./BeerInBasket";
@@ -12,15 +15,13 @@ import { addToOrder } from "../../actions/orderActions";
 
 import { RECEIPT_PAGE_ROUTE } from "../../utils/consts";
 
-import { Button, ButtonGroup } from "react-bootstrap";
-
 import styles from "./Basket.module.css";
 
 export default function Basket() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [delivery, setDelivery] = useState(true);
-
+  const { basketState } = useSelector((state) => state);
 
   const switchToDelivery = () => {
     setDelivery(true);
@@ -31,6 +32,19 @@ export default function Basket() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault(); // prevent default form submission behavior
+    if (basketState.itemInBasket[1] !== 0) {
+      toast.error("Помилка! Кошик пустий.", {
+        position: "bottom-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return
+    }
 
     let data = {};
     const limit = evt.target.length;
@@ -42,7 +56,7 @@ export default function Basket() {
       }
     }
     dispatch(addToOrder(data));
-    history.push(RECEIPT_PAGE_ROUTE)
+    history.push(RECEIPT_PAGE_ROUTE);
   };
 
   return (

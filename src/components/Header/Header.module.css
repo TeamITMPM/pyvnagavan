@@ -209,3 +209,56 @@ a:active {
   height: 15vw;
   max-height: 4vw;
 }
+
+.buttonShop  {
+  /* background-color: #132b37; */
+  /* background-color: #000000; */
+  background-color: #ffffff;
+  color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3vw 0.4vw;
+  margin-left: 1vw;
+  font-size: 0.8vw;
+  appearance: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  outline: none;
+  text-align: center;
+  align-items: center;
+  font-family: "PT Serif", serif;
+
+}
+
+.buttonShop option, .buttonShop optgroup{
+  background-color: white;
+  color:#000000
+}
+
+
+.buttonShop select :focus {
+  outline: none;
+}
+
+/* .buttonShop option {
+  color: #000000;
+  border: none;
+} */
+
+.nameGroup, .name {
+  font-weight: 800;
+  text-align: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #000000;
+}
+.name {
+  font-weight: 600;
+}
+
+.shop{
+  font-family: "PT Serif", serif;
+color:white;
+margin-left:1vw;
+font-size: 1vw;
+}

@@ -10,6 +10,7 @@ import {
   faSun,
   faMoon,
   faRightFromBracket,
+  faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { logout } from "../../actions/userAction";
@@ -41,9 +42,9 @@ export default function Header() {
 
   // icons
   const sunIcon = (
-      <FontAwesomeIcon icon={faSun} color="#efeee9" className={styles.icon} />
-    ),
-    moonIcon = (
+    <FontAwesomeIcon icon={faSun} color="#efeee9" className={styles.icon} />
+  );
+  const moonIcon = (
       <FontAwesomeIcon icon={faMoon} color="#efeee9 " className={styles.icon} />
     ),
     exitIcon = <FontAwesomeIcon icon={faRightFromBracket} />,
@@ -52,6 +53,9 @@ export default function Header() {
       <img className={styles.icon} src={require("./img/united-kingdom.png")} />
     );
 
+  const shopIcon = (
+    <FontAwesomeIcon icon={faHouse} color="#efeee9"  size="xl" style = {{marginLeft:"1vw"}}/>
+  );
   //logo
   const pyvnaGavanLogo = (
     <img
@@ -79,6 +83,18 @@ export default function Header() {
     <div className={styles.header}>
       {/* Левая часть хєдера */}
       <div className={styles.headerLeft}>
+          {/* <span className={styles.shop}>Магазин:</span> */}
+          {shopIcon}
+          <select name="shops" id="shop-select"className={styles.buttonShop}>
+            <optgroup classname={styles.nameGroup} label="Оболонь">
+              <option classname={styles.name} value="тимошенка">
+                вул. Маршала Тимошенка
+              </option>
+              <option classname={styles.name} value="гер.стал">
+                пр. Володимира Івасюка
+              </option>
+            </optgroup>
+          </select>
         <div className={styles.space} />
         {sunIcon}
         <label className={styles.themeSelector}>
