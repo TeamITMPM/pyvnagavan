@@ -87,19 +87,21 @@ export default function OrderHistory() {
                             <li>
                               <b>Email:</b> {email}
                             </li>
-                          )}
-                          {street && (
-                            <li>
-                              <b>Адреса:</b> {street}
-                            </li>
-                          )}
+                          )}{" "}
                           {restaurant ? (
                             <li>
                               <b>Ресторан: </b>
                               {restaurant}
                             </li>
                           ) : (
-                            "Доставка"
+                            <li>
+                              <u><b>Доставка</b></u>
+                            </li>
+                          )}
+                          {street && (
+                            <li>
+                              <b>Адреса:</b> {street}
+                            </li>
                           )}
                           {house && (
                             <li>
@@ -147,12 +149,12 @@ export default function OrderHistory() {
                       <td>
                         <ul>
                           {items.map(({ product, quantity }) => {
-                            const { price, name } = product;
+                            const { price, nameUA } = product;
 
                             return (
                               <li>
                                 {" "}
-                                {name} <i>{quantity}л</i>{" "}
+                                {nameUA} <i>{quantity}л</i>{" "}
                               </li>
                             );
                           })}

@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 // import GooglePayButton from "@google-pay/button-react";
-import styles from "../User/OrderHistory/OrderHistory.module.css";
+import styles from "./Receipt.module.css";
 
 export default function Receipt() {
   const { currentOrderState } = useSelector((state) => state);
@@ -40,8 +40,8 @@ export default function Receipt() {
       <div className={styles.container}>
         <div className={styles.table}>
           <h3>
-            Дякуємо за вибір Пивної гавані. Для підтвердження замовлення , будь
-            ласка , очікуйте дзвінок нашого оператора.
+            Дякуємо за вибір Пивної гавані. Для підтвердження замовлення, будь
+            ласка, очікуйте дзвінка нашого оператора.
           </h3>
         </div>
 
@@ -141,12 +141,12 @@ export default function Receipt() {
                 <td>
                   <ul>
                     {items.map(({ product, quantity }) => {
-                      const { price, name } = product;
+                      const { price, nameUA } = product;
 
                       return (
                         <li>
                           {" "}
-                          {name} <i>{quantity}л</i>{" "}
+                          {nameUA} <i>{quantity}л</i>{" "}
                         </li>
                       );
                     })}
