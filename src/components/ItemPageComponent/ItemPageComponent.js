@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listItems, getItem } from "../../actions/itemActions";
+import { ToastContainer, toast } from "react-toastify";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
@@ -10,11 +10,16 @@ import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 import styles from "./ItemPageComponent.module.css";
+import { listItems, getItem } from "../../actions/itemActions";
+import { addToBasket } from "../../actions/basketActions";
 
 export default function ItemPageComponent() {
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.userInfo);
   const state = useSelector((state) => state.itemPageState);
   const { product, loading } = state;
+  const isAuth = !!userInfo.token;
+  const [setBeer, onSetBeer] = useState(1);
 
   useEffect(() => {
     const url = window.location.href; // получаем текущий URL-адрес
@@ -24,14 +29,62 @@ export default function ItemPageComponent() {
     // console.log(products);
   }, []);
 
+  const onAddToBasket = (id) => {
+    if (!isAuth) {
+      toast.error(
+        "Помилка! Для того щоб користуватися кошиком потрібно увійти",
+        {
+          position: "bottom-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        }
+      );
+      return;
+    }
+
+    dispatch(addToBasket(id, setBeer));
+    toast.success("Товар додано до кошику!", {
+      position: "bottom-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+  function plusLiters(event) {
+    event.target.previousSibling.stepUp();
+    const { id, value } = event.target.previousSibling;
+
+    onSetBeer({
+      ...setBeer,
+      [id]: value,
+    });
+  }
+  const minusLiters = (event) => {
+    event.target.nextSibling.stepDown();
+    const { id, value } = event.target.nextSibling;
+    onSetBeer({
+      ...setBeer,
+      [id]: value,
+    });
+  };
+
   if (product) {
-    const { name, img, oldPrice, price, promoPrice, rating, info } = product;
+    const { id, nameUA, img, oldPrice, price, promoPrice, rating, info } =
+      product;
 
     let beerAmount = 1;
     const basketIcon = (
       <FontAwesomeIcon icon={faBasketShopping} color="white" size="xl" />
     );
-    const isAuth = true;
 
     return (
       <>
@@ -48,63 +101,64 @@ export default function ItemPageComponent() {
                 ? require(`../../../../back_pyvnagavan/static/${img}`)
                 : "https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg"
             }
-            alt={name}
+            alt={nameUA}
           />
           <div className={styles.content}>
-            <h2 className={styles.h2}>{name}</h2>
+            <h2 id={id} className={styles.h2}>
+              {nameUA}
+            </h2>
             <hr />
             <br />
             <div className={styles.longDescription}>
               <p>
-                <strong>Про товар:</strong> {info} asdsad sadsds asd asd asd asd sda asd sd a sdd
-                s dasasd asd sdsds addsa asd sdaasdasd asd sd asd dsa asdasd asd
-                asd sad sad sad asd asd asd ads asd sd sdsdsdsdsdsdasd dsasda
-                sdsdsdsdsd sdsa dsasdasdasdasd sdasd adsasdsd
+                <strong>Про товар:</strong>
+
+                {info &&
+                  info.map(({ titleUA, descriptionUA }) => {
+                    return (
+                      <div>
+                        <p className={styles.p}>
+                          <b>{titleUA}:</b> <i>{descriptionUA}</i>
+                        </p>
+                      </div>
+                    );
+                  })}
               </p>
             </div>
 
             <div className={styles.grid}>
               {/* //////////////////////// */}
 
-              <div className={styles.shortDescription}>
-                {" "}
-                <p className={styles.p}>
-                  <b>Тип:</b> <i>Lager</i>
-                </p>
-                <p className={styles.p}>
-                  <b>Щільність:</b> <i>22.2%</i>
-                </p>
-                <p className={styles.p}>
-                  <b>Походження:</b> <i>123</i>
-                </p>
-                <p className={styles.p}>
-                  <b>Міцність:</b> <i>4.5°</i>
-                </p>
-                <p className={styles.p}>
-                  <b>Гіркота:</b> <i>15.4</i>
-                </p>
-                <p className={styles.p}>
-                  <b>Колір:</b> <i>Пивний</i>
-                </p>
-              </div>
+              <div className={styles.shortDescription}> </div>
 
               {/* ////////////////////////////////////////////// */}
 
               <div className={styles.inputs}>
-                <button className={styles.beerDecrement} onClick={(e) => {}}>
+                <button
+                  className={styles.beerDecrement}
+                  onClick={(e) => {
+                    minusLiters(e);
+                  }}
+                >
                   -
                 </button>
                 <input
+                  id={id}
                   className={styles.counter}
                   type="number"
                   min="0.5"
                   max="20"
                   step="0.5"
                   // value={quantity}
-                  defaultValue={1}
+                  defaultValue="1"
                   disabled
                 />
-                <button className={styles.beerIncrement} onClick={(e) => {}}>
+                <button
+                  className={styles.beerIncrement}
+                  onClick={(e) => {
+                    plusLiters(e);
+                  }}
+                >
                   +
                 </button>
               </div>
@@ -122,7 +176,9 @@ export default function ItemPageComponent() {
               {/* ////////////////////////////////////////////// */}
 
               <button
-                onClick={() => {}}
+                onClick={() => {
+                  onAddToBasket(id);
+                }}
                 type="button"
                 className={styles.button}
               >
