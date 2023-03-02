@@ -32,7 +32,7 @@ export default function Basket() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault(); // prevent default form submission behavior
-    if (basketState.itemInBasket[1] !== 0) {
+    if (basketState.itemInBasket[1] == 0) {
       toast.error("Помилка! Кошик пустий.", {
         position: "bottom-right",
         autoClose: 4000,

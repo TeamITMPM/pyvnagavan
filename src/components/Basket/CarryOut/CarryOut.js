@@ -29,6 +29,14 @@ export default function CarryOut() {
     }
   };
 
+  let today = new Date();
+  let dateDefaultValue = today.toISOString().substring(0, 10);
+  let todayDeliveryMinutes = new Date(
+    today.valueOf() + 30 * 60000
+  ).getMinutes();
+  let todayDeliveryHours = new Date(today.valueOf() + 30 * 60000).getHours();
+  let timeDefaultValue = `${todayDeliveryHours}:${todayDeliveryMinutes}`;
+
   return (
     <div className={styles.container}>
       <div className={styles.block}>
@@ -49,6 +57,7 @@ export default function CarryOut() {
             onChange={setValue}
             className={styles.input}
             rules={{ required: true }}
+            limitMaxLength
           />
           <input
             type="email"
@@ -97,12 +106,15 @@ export default function CarryOut() {
                 name="date"
                 placeholder="День"
                 className={styles.input}
+                defaultValue={dateDefaultValue}
+                min={dateDefaultValue}
               />
               <input
                 type="time"
                 name="time"
                 placeholder="Час"
                 className={styles.input}
+                defaultValue={timeDefaultValue}
               />
             </>
           )}

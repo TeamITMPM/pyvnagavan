@@ -227,7 +227,9 @@ a:active {
   text-align: center;
   align-items: center;
   font-family: "PT Serif", serif;
-
+}
+.buttonShop:hover {
+  cursor:pointer  
 }
 
 .buttonShop option, .buttonShop optgroup{

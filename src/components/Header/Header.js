@@ -54,7 +54,12 @@ export default function Header() {
     );
 
   const shopIcon = (
-    <FontAwesomeIcon icon={faHouse} color="#efeee9"  size="xl" style = {{marginLeft:"1vw"}}/>
+    <FontAwesomeIcon
+      icon={faHouse}
+      color="#efeee9"
+      size="xl"
+      style={{ marginLeft: "1vw" }}
+    />
   );
   //logo
   const pyvnaGavanLogo = (
@@ -83,18 +88,15 @@ export default function Header() {
     <div className={styles.header}>
       {/* Левая часть хєдера */}
       <div className={styles.headerLeft}>
-          {/* <span className={styles.shop}>Магазин:</span> */}
-          {shopIcon}
-          <select name="shops" id="shop-select"className={styles.buttonShop}>
-            <optgroup classname={styles.nameGroup} label="Оболонь">
-              <option classname={styles.name} value="тимошенка">
-                вул. Маршала Тимошенка
-              </option>
-              <option classname={styles.name} value="гер.стал">
-                пр. Володимира Івасюка
-              </option>
-            </optgroup>
-          </select>
+        {/* <span className={styles.shop}>Магазин:</span> */}
+        {shopIcon}
+        <select name="shops" id="shop-select" className={styles.buttonShop}>
+          <optgroup classname={styles.nameGroup} label="Оболонь">
+            <option classname={styles.name} value="Тимошенка">
+              вул. Маршала Тимошенка
+            </option>
+          </optgroup>
+        </select>
         <div className={styles.space} />
         {sunIcon}
         <label className={styles.themeSelector}>

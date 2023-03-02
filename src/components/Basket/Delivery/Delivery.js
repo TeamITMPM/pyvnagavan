@@ -11,11 +11,16 @@ export default function Delivery() {
 
   const asapInput = (e) => {
     if (ASAP) {
+      console.log(ASAP);
       setASAP(false);
       e.target.value = "off";
+      console.log(ASAP);
+      console.log(e.target.value);
     } else {
       setASAP(true);
       e.target.value = "on";
+      console.log(ASAP);
+      console.log(e.target.value);
     }
   };
 
@@ -23,21 +28,21 @@ export default function Delivery() {
     if (noChange) {
       setNoChange(false);
       e.target.value = "off";
+      
     } else {
       setNoChange(true);
-      e.target.value = "on";
+      e.target.value = "on";    
+
     }
   };
 
   let today = new Date();
   let dateDefaultValue = today.toISOString().substring(0, 10);
-
-  let today30minutes = today + 30 * 60000;
-  // let todayHours = today30minutes.getHours();
-  // let todayMinutes = today30minutes.getMinutes();
-  // let timeDefaultValue = `${todayHours}:${todayMinutes}`;
-
-  console.log("today30minutes", today30minutes);
+  let todayDeliveryMinutes = new Date(
+    today.valueOf() + 30 * 60000
+  ).getMinutes();
+  let todayDeliveryHours = new Date(today.valueOf() + 30 * 60000).getHours();
+  let timeDefaultValue = `${todayDeliveryHours}:${todayDeliveryMinutes}`;
 
   return (
     <div className={styles.container}>
@@ -59,6 +64,8 @@ export default function Delivery() {
             value={phoneValue}
             onChange={setPhoneValue}
             className={styles.input}
+            rules={{ required: true }}
+            limitMaxLength
           />
           <input
             type="email"
@@ -145,12 +152,14 @@ export default function Delivery() {
                 placeholder="День"
                 className={styles.input}
                 defaultValue={dateDefaultValue}
+                min={dateDefaultValue}
               />
               <input
                 type="time"
                 name="time"
                 placeholder="Час"
                 className={styles.input}
+                defaultValue={timeDefaultValue}
               />
             </>
           )}
