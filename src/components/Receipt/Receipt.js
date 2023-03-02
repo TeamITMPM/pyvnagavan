@@ -7,36 +7,35 @@ import styles from "../User/OrderHistory/OrderHistory.module.css";
 
 export default function Receipt() {
   const { currentOrderState } = useSelector((state) => state);
-  const { itemInOrder, loading } = currentOrderState;
   // console.log(itemInOrder);
-  const {
-    apartment,
-    asap,
-    basketId,
-    change,
-    code,
-    comments,
-    createdAt,
-    date,
-    email,
-    firstName,
-    floor,
-    house,
-    id,
-    noChange,
-    payment,
-    phone,
-    price,
-    restaurant,
-    status,
-    street,
-    time,
-    updatedAt,
-    voucher,
-  } = itemInOrder.orderInfo;
-  const { items } = itemInOrder;
 
-  if (itemInOrder) {
+  if (currentOrderState.itemInOrder) {
+    const {
+      apartment,
+      asap,
+      basketId,
+      change,
+      code,
+      comments,
+      createdAt,
+      date,
+      email,
+      firstName,
+      floor,
+      house,
+      id,
+      noChange,
+      payment,
+      phone,
+      price,
+      restaurant,
+      status,
+      street,
+      time,
+      updatedAt,
+      voucher,
+    } = currentOrderState.itemInOrder.orderInfo;
+    const { items } = currentOrderState.itemInOrder;
     return (
       <div className={styles.container}>
         <div className={styles.table}>

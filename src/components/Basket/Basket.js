@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 import Delivery from "./Delivery/Delivery";
 import CarryOut from "./CarryOut/CarryOut";
 import BeerInBasket from "./BeerInBasket";
 import BuyAlso from "./BuyAlso";
 import Total from "./Total";
+
 import { addToOrder } from "../../actions/orderActions";
 
 import { RECEIPT_PAGE_ROUTE } from "../../utils/consts";
@@ -12,11 +15,12 @@ import { RECEIPT_PAGE_ROUTE } from "../../utils/consts";
 import { Button, ButtonGroup } from "react-bootstrap";
 
 import styles from "./Basket.module.css";
-import { NavLink } from "react-router-dom";
 
 export default function Basket() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [delivery, setDelivery] = useState(true);
+
 
   const switchToDelivery = () => {
     setDelivery(true);
@@ -37,8 +41,8 @@ export default function Basket() {
         data[element.name] = element.value;
       }
     }
-
     dispatch(addToOrder(data));
+    history.push(RECEIPT_PAGE_ROUTE)
   };
 
   return (
@@ -74,8 +78,6 @@ export default function Basket() {
               <Button variant="success" size="lg" value="Submit" type="submit">
                 Перейти до оплати
               </Button>
-
-              <NavLink to={RECEIPT_PAGE_ROUTE}> done</NavLink>
             </div>
           </form>
         </div>

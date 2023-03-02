@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch} from "react-redux";
+
+import "react-phone-number-input/style.css";
+
 // import { SHOP_ROUTE } from "../utils/consts";
 import {
   BrowserRouter as Router,

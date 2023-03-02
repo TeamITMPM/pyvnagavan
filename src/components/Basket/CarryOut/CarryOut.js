@@ -6,12 +6,34 @@ import styles from "./CarryOut.module.css";
 
 export default function CarryOut() {
   const [value, setValue] = useState("+380");
+  const [ASAP, setASAP] = useState(false);
+  const [noChange, setNoChange] = useState(false);
+
+  const asapInput = (e) => {
+    if (ASAP) {
+      setASAP(false);
+      e.target.value = "off";
+    } else {
+      setASAP(true);
+      e.target.value = "on";
+    }
+  };
+
+  const noChangeInput = (e) => {
+    if (noChange) {
+      setNoChange(false);
+      e.target.value = "off";
+    } else {
+      setNoChange(true);
+      e.target.value = "on";
+    }
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.block}>
         <label className={styles.label}>
-          Контактні дані:<br />
+          Контактні дані:
           <input
             type="text"
             name="firstName"
@@ -25,6 +47,8 @@ export default function CarryOut() {
             name="phone"
             value={value}
             onChange={setValue}
+            className={styles.input}
+            rules={{ required: true }}
           />
           <input
             type="email"
@@ -49,22 +73,49 @@ export default function CarryOut() {
         <label className={styles.label}>
           {" "}
           Час:
-          <input
-            type="date"
-            name="date"
-            placeholder="День"
-            className={styles.input}
-          />
-          <input
-            type="time"
-            name="time"
-            placeholder="Час"
-            className={styles.input}
-          />
+          {ASAP ? (
+            <>
+              <input
+                type="date"
+                name="date"
+                placeholder="День"
+                className={styles.input}
+                disabled
+              />
+              <input
+                type="time"
+                name="time"
+                placeholder="Час"
+                className={styles.input}
+                disabled
+              />
+            </>
+          ) : (
+            <>
+              <input
+                type="date"
+                name="date"
+                placeholder="День"
+                className={styles.input}
+              />
+              <input
+                type="time"
+                name="time"
+                placeholder="Час"
+                className={styles.input}
+              />
+            </>
+          )}
           <label>
             Якнайшвидше
             <div className={styles.checkbox}>
-              <input type="checkbox" name="asap" /> <div></div>
+              <input
+                type="checkbox"
+                name="asap"
+                value="off"
+                onInput={asapInput}
+              />{" "}
+              <div></div>
             </div>
           </label>
         </label>
@@ -79,16 +130,32 @@ export default function CarryOut() {
             placeholder="Купон на знижку"
             className={styles.input}
           />
-          <input
-            type="number"
-            name="change"
-            placeholder="Решта з"
-            className={styles.input}
-          />
+          {noChange ? (
+            <input
+              type="number"
+              name="change"
+              placeholder="Решта з"
+              className={styles.input}
+              disabled
+            />
+          ) : (
+            <input
+              type="number"
+              name="change"
+              placeholder="Решта з"
+              className={styles.input}
+            />
+          )}
           <label className={styles.label}>
             Без решти
             <div className={styles.checkbox}>
-              <input type="checkbox" name="noChange" /> <div></div>
+              <input
+                type="checkbox"
+                name="noChange"
+                value="off"
+                onInput={noChangeInput}
+              />{" "}
+              <div></div>
             </div>
           </label>
           <select name="payment" className={styles.input}>

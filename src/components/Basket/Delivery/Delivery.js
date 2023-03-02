@@ -1,43 +1,64 @@
 import React, { useState } from "react";
 
 import PhoneInput from "react-phone-number-input";
-import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
 import styles from "./Delivery.module.css";
-import "react-phone-number-input/style.css";
-
-const popover = <Tooltip>у форматі 0951112233</Tooltip>;
 
 export default function Delivery() {
-  const [value, setValue] = useState("+380");
+  const [phoneValue, setPhoneValue] = useState("+380");
+  const [ASAP, setASAP] = useState(false);
+  const [noChange, setNoChange] = useState(false);
+
+  const asapInput = (e) => {
+    if (ASAP) {
+      setASAP(false);
+      e.target.value = "off";
+    } else {
+      setASAP(true);
+      e.target.value = "on";
+    }
+  };
+
+  const noChangeInput = (e) => {
+    if (noChange) {
+      setNoChange(false);
+      e.target.value = "off";
+    } else {
+      setNoChange(true);
+      e.target.value = "on";
+    }
+  };
+
+  let today = new Date();
+  let dateDefaultValue = today.toISOString().substring(0, 10);
+
+  let today30minutes = today + 30 * 60000;
+  // let todayHours = today30minutes.getHours();
+  // let todayMinutes = today30minutes.getMinutes();
+  // let timeDefaultValue = `${todayHours}:${todayMinutes}`;
+
+  console.log("today30minutes", today30minutes);
 
   return (
     <div className={styles.container}>
       <div className={styles.block}>
         <label className={styles.label}>
-          Контактні дані:{" "}
+          Контактні дані:
           <input
             type="text"
             name="firstName"
             placeholder="Ім'я"
             required
             className={styles.input}
+            rules={{ required: true, length: 14 }}
           />
-          {/* <OverlayTrigger trigger="click" placement="top" overlay={popover} onHide>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Телефон"
-              required
-              className={styles.input}
-            />
-          </OverlayTrigger> */}
           <PhoneInput
             placeholder="Телефон"
             defaultCountry="UA"
             name="phone"
-            value={value}
-            onChange={setValue}
+            value={phoneValue}
+            onChange={setPhoneValue}
+            className={styles.input}
           />
           <input
             type="email"
@@ -99,22 +120,49 @@ export default function Delivery() {
       <div className={styles.block}>
         <label className={styles.label}>
           Час:{" "}
-          <input
-            type="date"
-            name="date"
-            placeholder="День"
-            className={styles.input}
-          />
-          <input
-            type="time"
-            name="time"
-            placeholder="Час"
-            className={styles.input}
-          />
+          {ASAP ? (
+            <>
+              <input
+                type="date"
+                name="date"
+                placeholder="День"
+                className={styles.input}
+                disabled
+              />
+              <input
+                type="time"
+                name="time"
+                placeholder="Час"
+                className={styles.input}
+                disabled
+              />
+            </>
+          ) : (
+            <>
+              <input
+                type="date"
+                name="date"
+                placeholder="День"
+                className={styles.input}
+                defaultValue={dateDefaultValue}
+              />
+              <input
+                type="time"
+                name="time"
+                placeholder="Час"
+                className={styles.input}
+              />
+            </>
+          )}
           <label className={styles.label}>
             Якнайшвидше{" "}
             <div className={styles.checkbox}>
-              <input type="checkbox" name="asap" />
+              <input
+                type="checkbox"
+                name="asap"
+                value="off"
+                onInput={asapInput}
+              />
               <div></div>
             </div>
           </label>
@@ -130,16 +178,31 @@ export default function Delivery() {
             placeholder="Купон на знижку"
             className={styles.input}
           />
-          <input
-            type="number"
-            name="change"
-            placeholder="Решта з"
-            className={styles.input}
-          />
+          {noChange ? (
+            <input
+              type="number"
+              name="change"
+              placeholder="Решта з"
+              className={styles.input}
+              disabled
+            />
+          ) : (
+            <input
+              type="number"
+              name="change"
+              placeholder="Решта з"
+              className={styles.input}
+            />
+          )}
           <label className={styles.label}>
             Без решти
             <div className={styles.checkbox}>
-              <input type="checkbox" name="noChange" />
+              <input
+                type="checkbox"
+                name="noChange"
+                value="off"
+                onInput={noChangeInput}
+              />
               <div></div>
             </div>
           </label>
