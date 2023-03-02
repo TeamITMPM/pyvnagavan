@@ -25,7 +25,6 @@ import {
 import axios from "axios";
 
 export const addToOrder = (formInfo) => async (dispatch) => {
-  console.log("data", formInfo);
   const { token } = JSON.parse(localStorage.getItem("userInfo"));
   try {
     dispatch({ type: ORDER_CREATE_REQUEST });
