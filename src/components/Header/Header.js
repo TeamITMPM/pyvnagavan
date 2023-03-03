@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Placeholder } from "react-bootstrap";
-// import { cleareBasketState } from "../../actions/basketActions";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhone,
@@ -91,8 +91,8 @@ export default function Header() {
         {/* <span className={styles.shop}>Магазин:</span> */}
         {shopIcon}
         <select name="shops" id="shop-select" className={styles.buttonShop}>
-          <optgroup classname={styles.nameGroup} label="Оболонь">
-            <option classname={styles.name} value="Тимошенка">
+          <optgroup className={styles.nameGroup} label="Оболонь">
+            <option className={styles.name} value="Тимошенка">
               вул. Маршала Тимошенка
             </option>
           </optgroup>

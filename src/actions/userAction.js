@@ -30,8 +30,6 @@ import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import axios from "axios";
 
 export const login = (identifier, password) => async (dispatch) => {
-  // console.log(email, password);
-
   dispatch({ type: USER_LOGIN_REQUEST });
   const config = {
     headers: {

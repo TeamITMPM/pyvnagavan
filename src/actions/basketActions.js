@@ -27,8 +27,6 @@ import {
 import axios from "axios";
 
 export const addToBasket = (itemId, setBeer) => async (dispatch) => {
-  // console.log("itemId", itemId);
-  // console.log("setBeer", setBeer);
   const { token } = JSON.parse(localStorage.getItem("userInfo"));
   try {
     dispatch({ type: BASKET_CREATE_REQUEST });

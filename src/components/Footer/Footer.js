@@ -1,15 +1,5 @@
 import React from "react";
-
 import { NavLink } from "react-router-dom";
-
-import {
-  SHOP_PAGE_ROUTE,
-  PROMO_PAGE_ROUTE,
-  ABOUTUS_PAGE_ROUTE,
-  MAP_PAGE_ROUTE,
-  LOCATIONS_PAGE_ROUTE,
-} from "../../utils/consts";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -19,8 +9,14 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import StickyFooter from "../StickyFooter";
-
 import styles from "./Footer.module.css";
+import {
+  SHOP_PAGE_ROUTE,
+  PROMO_PAGE_ROUTE,
+  ABOUTUS_PAGE_ROUTE,
+  MAP_PAGE_ROUTE,
+  LOCATIONS_PAGE_ROUTE,
+} from "../../utils/consts";
 
 export default function Footer() {
   const telegramIcon = <FontAwesomeIcon icon={faTelegram} />,
@@ -89,7 +85,7 @@ export default function Footer() {
             <div className="row">
               <div className="col-md-8 col-sm-6 col-xs-12">
                 <p className="copyright-text">
-                  Copyright &copy; 2023 All Rights Reserved by {" "}
+                  Copyright &copy; 2023 All Rights Reserved by{" "}
                   <a href="#">Pyvnagavan</a>.
                 </p>
               </div>

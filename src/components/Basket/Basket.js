@@ -1,20 +1,16 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 import { Button, ButtonGroup } from "react-bootstrap";
-import { toast } from "react-toastify";
-
-import BeerInBasket from "./BeerInBasket";
-import CarryOut from "./CarryOut/CarryOut";
-import Delivery from "./Delivery/Delivery";
-import Total from "./Total";
-
-import { addToOrder } from "../../actions/orderActions";
-
-import { RECEIPT_PAGE_ROUTE } from "../../utils/consts";
-
+import { ToastContainer, toast } from "react-toastify";
 import styles from "./Basket.module.css";
+import Total from "./Total";
+import Delivery from "./Delivery/Delivery";
+import CarryOut from "./CarryOut/CarryOut";
+import BuyAlso from "./BuyAlso";
+import BeerInBasket from "./BeerInBasket";
+import { addToOrder } from "../../actions/orderActions";
+import { RECEIPT_PAGE_ROUTE } from "../../utils/consts";
 
 export default function Basket() {
   const dispatch = useDispatch();

@@ -1,7 +1,5 @@
 import React from "react";
-import {  useSelector } from "react-redux";
-
-
+import { useSelector } from "react-redux";
 import styles from "./Total.module.css";
 
 export default function Total() {

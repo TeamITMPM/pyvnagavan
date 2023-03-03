@@ -26,7 +26,6 @@ export const typeList = () => async (dispatch) => {
 };
 
 export const setCategory = (typeId) => async (dispatch) => {
-  // console.log("action ", name);
   try {
     dispatch({
       type: NAV_CATEGORY_SUCCESS,
