@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { Placeholder } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
-import PlaceholderItems from "./Placeholders";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import styles from "./Items.module.css";
-import { listItems } from "../../actions/itemActions";
 import { addToBasket } from "../../actions/basketActions";
+import { listItems } from "../../actions/itemActions";
+import styles from "./Items.module.css";
+import PlaceholderItems from "./Placeholders";
 
 export default function Items() {
   const dispatch = useDispatch();
@@ -196,24 +194,24 @@ export default function Items() {
                         </button>
                       </div>
                       <div className={styles.description}>
-                        <p className={styles.p}>
-                          <b>Тип:</b> <i>Lager</i>
-                        </p>
-                        <p className={styles.p}>
-                          <b>Щільність:</b> <i>22.2%</i>
-                        </p>
-                        <p className={styles.p}>
-                          <b>Походження:</b> <i>123</i>
-                        </p>
-                        <p className={styles.p}>
-                          <b>Міцність:</b> <i>4.5°</i>
-                        </p>
-                        <p className={styles.p}>
-                          <b>Гіркота:</b> <i>15.4</i>
-                        </p>
-                        <p className={styles.p}>
-                          <b>Колір:</b> <i>Пивний</i>
-                        </p>
+                        {info &&
+                          info.map(({ titleUA, descriptionUA }) => {
+                            if (
+                              titleUA == "Міцність" ||
+                              titleUA == "Щільність" ||
+                              titleUA == "Походження" ||
+                              titleUA == "Гіркота" ||
+                              titleUA == "Колір"
+                            ) {
+                              return (
+                                <div>
+                                  <p className={styles.p}>
+                                    <b>{titleUA}:</b> <i>{descriptionUA}</i>
+                                  </p>
+                                </div>
+                              );
+                            }
+                          })}
                       </div>
                     </div>
                     {/* </NavLink> */}
