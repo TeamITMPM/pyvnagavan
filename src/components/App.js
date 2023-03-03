@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import "react-phone-number-input/style.css";
 import AgeConfirmModal from "./AgeConfirmModal/AgeConfirmModal";
@@ -15,13 +15,14 @@ import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
 import { authRoutes, publicRoutes } from "../routes";
 
 export default function App() {
-
   const token = localStorage.userInfo;
-  let isAuth = !!token;
+  // let isAuth = !!token;
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.userInfo);
+  const { isAuth } = userInfo;
 
   useEffect(() => {
-    if (isAuth) {
+    if (token) {
       const data = jwt_decode(token);
       dispatch({
         type: USER_LOGIN_SUCCESS,
@@ -29,7 +30,7 @@ export default function App() {
       });
     }
   }, []);
-  
+
   return (
     <>
       <AgeConfirmModal />
