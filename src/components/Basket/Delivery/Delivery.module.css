@@ -10,6 +10,7 @@
   margin: 1vw;
   width: fit-content;
   display:grid;
+  
 }
 .container{
   display:flow-root;
@@ -36,7 +37,8 @@
 .input:focus {
   background-color: #efeee9;
 }
-::placeholder {
+
+.placeholder {
   font-family: "Montserrat", sans-serif;
 }
 

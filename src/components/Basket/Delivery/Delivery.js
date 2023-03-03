@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import PhoneInput from "react-phone-number-input";
 
@@ -9,30 +9,20 @@ export default function Delivery() {
   const [ASAP, setASAP] = useState(false);
   const [noChange, setNoChange] = useState(false);
 
-  const asapInput = (e) => {
+  const asapInput = () => {
     if (ASAP) {
-      console.log(ASAP);
       setASAP(false);
-      e.target.value = "off";
-      console.log(ASAP);
-      console.log(e.target.value);
+    
     } else {
       setASAP(true);
-      e.target.value = "on";
-      console.log(ASAP);
-      console.log(e.target.value);
-    }
+        }
   };
 
-  const noChangeInput = (e) => {
+  const noChangeInput = () => {
     if (noChange) {
       setNoChange(false);
-      e.target.value = "off";
-      
     } else {
       setNoChange(true);
-      e.target.value = "on";    
-
     }
   };
 
@@ -143,6 +133,19 @@ export default function Delivery() {
                 className={styles.input}
                 disabled
               />
+              <label className={styles.label}>
+                Якнайшвидше{" "}
+                <div className={styles.checkbox}>
+                  <input
+                    type="checkbox"
+                    name="asap"
+                    defaultValue="on"
+                    onChange={asapInput}
+                    checked
+                  />
+                  <div></div>
+                </div>
+              </label>
             </>
           ) : (
             <>
@@ -161,20 +164,20 @@ export default function Delivery() {
                 className={styles.input}
                 defaultValue={timeDefaultValue}
               />
+              <label className={styles.label}>
+                Якнайшвидше{" "}
+                <div className={styles.checkbox}>
+                  <input
+                    type="checkbox"
+                    name="asap"
+                    defaultValue="off"
+                    onChange={asapInput}
+                  />
+                  <div></div>
+                </div>
+              </label>
             </>
           )}
-          <label className={styles.label}>
-            Якнайшвидше{" "}
-            <div className={styles.checkbox}>
-              <input
-                type="checkbox"
-                name="asap"
-                value="off"
-                onInput={asapInput}
-              />
-              <div></div>
-            </div>
-          </label>
         </label>
       </div>
 
@@ -188,33 +191,50 @@ export default function Delivery() {
             className={styles.input}
           />
           {noChange ? (
-            <input
-              type="number"
-              name="change"
-              placeholder="Решта з"
-              className={styles.input}
-              disabled
-            />
-          ) : (
-            <input
-              type="number"
-              name="change"
-              placeholder="Решта з"
-              className={styles.input}
-            />
-          )}
-          <label className={styles.label}>
-            Без решти
-            <div className={styles.checkbox}>
+            <>
               <input
-                type="checkbox"
-                name="noChange"
-                value="off"
-                onInput={noChangeInput}
-              />
-              <div></div>
-            </div>
-          </label>
+                type="number"
+                name="change"
+                placeholder="Решта з"
+                className={styles.input}
+                disabled
+              />{" "}
+              <label className={styles.label}>
+                Без решти
+                <div className={styles.checkbox}>
+                  <input
+                    type="checkbox"
+                    name="noChange"
+                    value="on"
+                    onInput={noChangeInput}
+                    checked
+                  />
+                  <div></div>
+                </div>
+              </label>
+            </>
+          ) : (
+            <>
+              <input
+                type="number"
+                name="change"
+                placeholder="Решта з"
+                className={styles.input}
+              />{" "}
+              <label className={styles.label}>
+                Без решти
+                <div className={styles.checkbox}>
+                  <input
+                    type="checkbox"
+                    name="noChange"
+                    value="off"
+                    onInput={noChangeInput}
+                  />
+                  <div></div>
+                </div>
+              </label>
+            </>
+          )}
           <select name="payment" className={styles.input}>
             <option value="card">Оплата карткою онлайн</option>
           </select>

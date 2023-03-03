@@ -1,14 +1,11 @@
-import React, { useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { listMyBasket, deleteFromBasket } from "../../../actions/basketActions";
-
-import { ToastContainer, toast } from "react-toastify";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-
-import PlaceholderItems from "./Placeholders/PlaceholderItems";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import { deleteFromBasket, listMyBasket } from "../../../actions/basketActions";
 import styles from "./BeerInBasket.module.css";
+import PlaceholderItems from "./Placeholders/PlaceholderItems";
 
 export default function BeerInBasket() {
   const dispatch = useDispatch();
@@ -20,7 +17,6 @@ export default function BeerInBasket() {
   useEffect(() => {
     dispatch(listMyBasket());
   }, []);
-
 
   const removeItem = (id) => {
     dispatch(deleteFromBasket(id));
@@ -35,8 +31,6 @@ export default function BeerInBasket() {
       theme: "dark",
     });
   };
-
-
 
   if (!basketState.loading && basketState.itemInBasket) {
     const items = basketState.itemInBasket[0];
@@ -84,7 +78,7 @@ export default function BeerInBasket() {
       </>
     );
   }
-  
+
   if (basketState.loading || !basketState.itemInBasket) {
     return (
       <div className={styles.grid}>

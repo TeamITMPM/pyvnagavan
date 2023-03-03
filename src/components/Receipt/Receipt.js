@@ -123,9 +123,15 @@ export default function Receipt() {
                     )}
                     {time && (
                       <li>
-                        <b>Доставити о:</b> {asap === "on" ? "якнайшвидше" : ""} ≈ {time}
+                        <b>Доставити о:</b> ≈ {time}
                       </li>
                     )}
+                     {asap === "on" && (
+                      <li>
+                        <b>Доставити якнайшвидше</b>
+                      </li>
+                    )}
+
                     {date && (
                       <li>
                         <b>Дата доставки:</b> {date}
