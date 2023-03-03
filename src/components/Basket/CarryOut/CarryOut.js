@@ -6,7 +6,6 @@ import styles from "./CarryOut.module.css";
 export default function CarryOut() {
   const [value, setValue] = useState("+380");
   const [ASAP, setASAP] = useState(false);
-  const [noChange, setNoChange] = useState(false);
 
   const asapInput = () => {
     if (ASAP) {
@@ -16,13 +15,7 @@ export default function CarryOut() {
     }
   };
 
-  const noChangeInput = () => {
-    if (noChange) {
-      setNoChange(false);
-    } else {
-      setNoChange(true);
-    }
-  };
+
 
   let today = new Date();
   let dateDefaultValue = today.toISOString().substring(0, 10);
@@ -57,8 +50,7 @@ export default function CarryOut() {
           <input
             type="email"
             name="email"
-            placeholder="Email "
-            required
+            placeholder="Email (не обов'язково)"
             className={styles.input}
           />
         </label>
@@ -148,58 +140,14 @@ export default function CarryOut() {
           <input
             type="text"
             name="voucher"
-            placeholder="Купон на знижку"
+            placeholder="Купон на знижку (не обов'язково)"
             className={styles.input}
           />
-           {noChange ? (
-            <>
-              <input
-                type="number"
-                name="change"
-                placeholder="Решта з"
-                className={styles.input}
-                disabled
-              />{" "}
-              <label className={styles.label}>
-                Без решти
-                <div className={styles.checkbox}>
-                  <input
-                    type="checkbox"
-                    name="noChange"
-                    value="on"
-                    onInput={noChangeInput}
-                    checked
-                  />
-                  <div></div>
-                </div>
-              </label>
-            </>
-          ) : (
-            <>
-              <input
-                type="number"
-                name="change"
-                placeholder="Решта з"
-                className={styles.input}
-              />{" "}
-              <label className={styles.label}>
-                Без решти
-                <div className={styles.checkbox}>
-                  <input
-                    type="checkbox"
-                    name="noChange"
-                    value="off"
-                    onInput={noChangeInput}
-                  />
-                  <div></div>
-                </div>
-              </label>
-            </>
-          )}
+          
          
           <select name="payment" className={styles.input}>
-            <option value="card">Оплата карткою онлайн</option>
-            <option value="cash">Оплата готівкою</option>
+            <option value="Готівка">Оплата готівкою</option>
+            <option value="Карткою">Оплата карткою онлайн</option>
           </select>
         </label>
       </div>

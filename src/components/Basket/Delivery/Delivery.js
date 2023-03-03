@@ -60,8 +60,7 @@ export default function Delivery() {
           <input
             type="email"
             name="email"
-            placeholder="Email "
-            required
+            placeholder="Email (не обов'язково)"
             className={styles.input}
           />
         </label>
@@ -95,7 +94,7 @@ export default function Delivery() {
           <input
             type="text"
             name="code"
-            placeholder="Код"
+            placeholder="Код (не обов'язково)"
             className={styles.input}
           />
           <input
@@ -108,7 +107,7 @@ export default function Delivery() {
           <input
             type="text"
             name="comments"
-            placeholder="Коментар"
+            placeholder="Коментар (не обов'язково)"
             className={styles.input}
           />
         </label>
@@ -187,7 +186,7 @@ export default function Delivery() {
           <input
             type="text"
             name="voucher"
-            placeholder="Купон на знижку"
+            placeholder="Купон на знижку (не обов'язково)"
             className={styles.input}
           />
           {noChange ? (
