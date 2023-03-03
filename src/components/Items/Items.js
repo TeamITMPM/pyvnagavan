@@ -8,7 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { addToBasket } from "../../actions/basketActions";
 import { listItems } from "../../actions/itemActions";
 import styles from "./Items.module.css";
-import PlaceholderItems from "./Placeholders";
+import PlaceholderItems from "./Placeholders/PlaceholderItems";
+import PlaceholderDesc from "./Placeholders/PlaceholderDesc";
 
 export default function Items() {
   const dispatch = useDispatch();
@@ -197,11 +198,11 @@ export default function Items() {
                         {info &&
                           info.map(({ titleUA, descriptionUA }) => {
                             if (
-                              titleUA == "Міцність" ||
-                              titleUA == "Щільність" ||
-                              titleUA == "Походження" ||
-                              titleUA == "Гіркота" ||
-                              titleUA == "Колір"
+                              titleUA === "Міцність" ||
+                              titleUA === "Щільність" ||
+                              titleUA === "Походження" ||
+                              titleUA === "Гіркота" ||
+                              titleUA === "Колір"
                             ) {
                               return (
                                 <div>
@@ -212,6 +213,8 @@ export default function Items() {
                               );
                             }
                           })}
+
+                        {info.length === 0 && <PlaceholderDesc />}
                       </div>
                     </div>
                     {/* </NavLink> */}
