@@ -19,14 +19,13 @@ export default function ItemPageComponent() {
   const state = useSelector((state) => state.itemPageState);
   const { product, loading } = state;
   const isAuth = !!userInfo.token;
-  const [setBeer, onSetBeer] = useState(1);
+  const [setBeer, onSetBeer] = useState();
 
   useEffect(() => {
     const url = window.location.href; // получаем текущий URL-адрес
     const id = url.split("/").pop(); // разбиваем URL-адрес на части и получаем последнюю часть
     dispatch(getItem(id));
-
-    // console.log(products);
+    onSetBeer({ [id]: 1 });
   }, []);
 
   const onAddToBasket = (id) => {
@@ -63,18 +62,12 @@ export default function ItemPageComponent() {
     event.target.previousSibling.stepUp();
     const { id, value } = event.target.previousSibling;
 
-    onSetBeer({
-      ...setBeer,
-      [id]: value,
-    });
+    onSetBeer({ [id]: value });
   }
   const minusLiters = (event) => {
     event.target.nextSibling.stepDown();
     const { id, value } = event.target.nextSibling;
-    onSetBeer({
-      ...setBeer,
-      [id]: value,
-    });
+    onSetBeer({ [id]: value });
   };
 
   if (product) {
@@ -85,6 +78,7 @@ export default function ItemPageComponent() {
     if (setBeer) {
       beerAmount = setBeer[id];
     }
+
     const basketIcon = (
       <FontAwesomeIcon icon={faBasketShopping} color="white" size="xl" />
     );
@@ -153,7 +147,7 @@ export default function ItemPageComponent() {
                   max="20"
                   step="0.5"
                   // value={quantity}
-                  defaultValue="1"
+                  defaultValue={1}
                   disabled
                 />
                 <button

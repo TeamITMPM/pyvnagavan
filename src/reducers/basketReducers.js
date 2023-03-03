@@ -47,7 +47,6 @@ export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
       };
 
     case BASKET_DELETE_SUCCESS:
-      console.log("action_payload_DELETE_SUCCES", action.payload);
       return {
         loading: false,
         itemInBasket: action.payload,
