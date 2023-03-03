@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 import { Button, ButtonGroup } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
-
+import styles from "./Basket.module.css";
+import Total from "./Total";
 import Delivery from "./Delivery/Delivery";
 import CarryOut from "./CarryOut/CarryOut";
-import BeerInBasket from "./BeerInBasket";
 import BuyAlso from "./BuyAlso";
-import Total from "./Total";
-
+import BeerInBasket from "./BeerInBasket";
 import { addToOrder } from "../../actions/orderActions";
-
 import { RECEIPT_PAGE_ROUTE } from "../../utils/consts";
-
-import styles from "./Basket.module.css";
 
 export default function Basket() {
   const dispatch = useDispatch();
@@ -43,7 +38,7 @@ export default function Basket() {
         progress: undefined,
         theme: "dark",
       });
-      return
+      return;
     }
 
     let data = {};

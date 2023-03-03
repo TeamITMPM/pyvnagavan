@@ -22,7 +22,6 @@ import {
   PRODUCT_SUCCESS,
   PRODUCT_FAIL,
 } from "../constants/itemConstants";
-// const URL = process.env.REACT_APP_API_URL + `api/item`;
 
 export const listItems = () => async (dispatch) => {
   try {
@@ -42,7 +41,6 @@ export const listItems = () => async (dispatch) => {
 };
 
 export const getItem = (itemId) => async (dispatch) => {
-  // console.log(itemId);
   try {
     dispatch({ type: PRODUCT_REQUEST });
     URL = process.env.REACT_APP_API_URL + `api/item/${itemId}`;

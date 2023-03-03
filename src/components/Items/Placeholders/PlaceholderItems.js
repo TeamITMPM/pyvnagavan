@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Placeholder } from "react-bootstrap";
-
 import styles from "./PlaceholderItems.module.css";
 
 export default function PlaceholderItems() {

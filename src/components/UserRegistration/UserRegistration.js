@@ -34,9 +34,6 @@ export default function UserRegistration() {
         .toJSON()
         .slice(0, 10);
     let data = {};
-    // for (let i = 0; i <= 6; i++) {
-    //   data = [...evt.target[i].value];
-    // }
 
     for (let i = 0; i <= 6; i++) {
       console.log(evt.target[i].value);

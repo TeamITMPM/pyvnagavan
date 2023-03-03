@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
-
 import { NavLink } from "react-router-dom";
-
-import { listItems } from "../../actions/itemActions";
-import { addToBasket } from "../../actions/basketActions";
-
 import { Placeholder } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
-
 import PlaceholderItems from "./Placeholders";
-
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Items.module.css";
+import { listItems } from "../../actions/itemActions";
+import { addToBasket } from "../../actions/basketActions";
 
 export default function Items() {
   const dispatch = useDispatch();

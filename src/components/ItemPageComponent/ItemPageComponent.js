@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
-
 import { NavLink } from "react-router-dom";
-
 import { Button } from "react-bootstrap";
-
 import styles from "./ItemPageComponent.module.css";
 import { listItems, getItem } from "../../actions/itemActions";
 import { addToBasket } from "../../actions/basketActions";
