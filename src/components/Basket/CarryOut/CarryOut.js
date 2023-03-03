@@ -138,18 +138,7 @@ export default function CarryOut() {
               </label>
             </>
           )}
-          <label>
-            Якнайшвидше
-            <div className={styles.checkbox}>
-              <input
-                type="checkbox"
-                name="asap"
-                value="off"
-                onInput={asapInput}
-              />{" "}
-              <div></div>
-            </div>
-          </label>
+          
         </label>
       </div>
 
