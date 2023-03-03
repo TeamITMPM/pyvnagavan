@@ -18,7 +18,6 @@ export default function Items() {
   const [setBeer, onSetBeer] = useState();
   const { category } = useSelector((state) => state.navState);
   const userInfo = useSelector((state) => state.userInfo);
-  const isAuth = !!userInfo.token;
 
   const toastContainer = (
     <ToastContainer
@@ -53,7 +52,7 @@ export default function Items() {
   }, [products]);
 
   const onAddToBasket = (id) => {
-    if (!isAuth) {
+    if (!userInfo.isAuth) {
       toast.error(
         "Помилка! Для того щоб користуватися кошиком потрібно увійти",
         {
@@ -191,7 +190,7 @@ export default function Items() {
                           type="button"
                           className={styles.button}
                         >
-                          {isAuth ? basketIcon : "Потрібно увійти"}
+                          {userInfo.isAuth ? basketIcon : "Потрібно увійти"}
                         </button>
                       </div>
                       <div className={styles.description}>
