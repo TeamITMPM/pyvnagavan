@@ -1,12 +1,11 @@
 // import { type } from "@testing-library/user-event/dist/type";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import PhoneInput from "react-phone-number-input";
 import { Link, useHistory } from "react-router-dom";
 
 import { register } from "../../actions/userAction";
-import { SHOP_PAGE_ROUTE } from "../../utils/consts";
+import { SHOP_PAGE_ROUTE, USER_AGREEMENT_ROUTE, REGISTRATION_ROUTE,  LOGIN_PAGE_ROUTE} from "../../utils/consts";
 
 import styles from "./UserRegistration.module.css";
 
@@ -45,12 +44,12 @@ export default function UserRegistration() {
 
   return (
     <div className={styles.modal}>
-      <Link to="/login">
+      <Link to={LOGIN_PAGE_ROUTE}>
         <button className={styles.button1}>
           <h1 className={styles.h1}>Вхід</h1>
         </button>
       </Link>
-      <Link to="/signup">
+      <Link to={REGISTRATION_ROUTE}>
         <button className={styles.button2} autoFocus>
           <h1 className={styles.h1}>Зареєструватись</h1>
         </button>
@@ -180,6 +179,7 @@ export default function UserRegistration() {
               required
             />
           </div>
+          Реєструючись на сайті ви погоджуєтеся з умовами обробки персональних даних <Link to={USER_AGREEMENT_ROUTE} >Ознайомитися з умовами</Link>
         </div>
         <div>
           {/* <input className={styles.buttonFinish} type="submit" /> */}
@@ -187,6 +187,7 @@ export default function UserRegistration() {
             {" "}
             Відправити
           </button>
+          
           {error && <h1>{error.payload.response.data.message}</h1>}
         </div>
       </form>

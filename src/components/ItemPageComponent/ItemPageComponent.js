@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import styles from "./ItemPageComponent.module.css";
-import { listItems, getItem } from "../../actions/itemActions";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import { addToBasket } from "../../actions/basketActions";
+import { getItem } from "../../actions/itemActions";
+import styles from "./ItemPageComponent.module.css";
 
 export default function ItemPageComponent() {
   const dispatch = useDispatch();
@@ -66,6 +66,22 @@ export default function ItemPageComponent() {
     onSetBeer({ [id]: value });
   };
 
+
+  const toastContainer = (
+    <ToastContainer
+      position="bottom-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+    />
+  );
+
   if (product) {
     const { id, nameUA, img, oldPrice, price, promoPrice, rating, info } =
       product;
@@ -81,6 +97,7 @@ export default function ItemPageComponent() {
 
     return (
       <>
+      {toastContainer}
         <NavLink to="/">
           <Button variant="success" className={styles.backButton}>
             Назад
