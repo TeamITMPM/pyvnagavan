@@ -81,7 +81,10 @@ export default function ItemPageComponent() {
     const { id, nameUA, img, oldPrice, price, promoPrice, rating, info } =
       product;
 
-    let beerAmount = 1;
+    let beerAmount;
+    if (setBeer) {
+      beerAmount = setBeer[id];
+    }
     const basketIcon = (
       <FontAwesomeIcon icon={faBasketShopping} color="white" size="xl" />
     );
