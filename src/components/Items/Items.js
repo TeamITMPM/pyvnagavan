@@ -144,6 +144,27 @@ export default function Items() {
                       >
                         {image}
                       </NavLink>
+                      <div className={styles.description}>
+
+                        {info &&
+                          info.map(({ titleUA, descriptionUA }) => {
+                            if (
+                              titleUA === "Міцність" ||
+                              titleUA === "Щільність" ||
+                              titleUA === "Походження" ||
+                              titleUA === "Гіркота" ||
+                              titleUA === "Колір"
+                            ) {
+                              return (
+                                <div>
+                                  <p className={styles.p}>
+                                    <b>{titleUA}:</b> <i>{descriptionUA}</i>
+                                  </p>
+                                </div>
+                              );
+                            }
+                          })}
+                      </div>
                       <div className={styles.buySection}>
                         <div className={styles.prices}>
                           <strike>{oldPrice * beerAmount} грн</strike>
@@ -192,27 +213,6 @@ export default function Items() {
                         >
                           {userInfo.isAuth ? basketIcon : "Потрібно увійти"}
                         </button>
-                      </div>
-                      <div className={styles.description}>
-                        {info &&
-                          info.map(({ titleUA, descriptionUA }) => {
-                            if (
-                              titleUA === "Міцність" ||
-                              titleUA === "Щільність" ||
-                              titleUA === "Походження" ||
-                              titleUA === "Гіркота" ||
-                              titleUA === "Колір"
-                            ) {
-                              return (
-                                <div>
-                                  <p className={styles.p}>
-                                    <b>{titleUA}:</b> <i>{descriptionUA}</i>
-                                  </p>
-                                </div>
-                              );
-                            }
-                          })}
-
                         {info.length === 0 && <PlaceholderDesc />}
                       </div>
                     </div>

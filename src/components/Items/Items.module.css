@@ -90,7 +90,7 @@
   box-shadow: 2px 4px 4px #0f0802;
 }
 
-.item:hover > .description {
+.item:hover>.buySection {
   animation-name: openBuyMenu;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -102,24 +102,26 @@
     margin-top: -4rem;
     opacity: 0;
   }
+
   to {
     margin-top: 1rem;
     opacity: 1;
   }
 }
 
-.description {
-  background-color: #999999;
+.buySection {
+  background-color: #e4e4e4;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: start;
   font-size: 1rem;
   padding: 0.5rem;
   margin-top: -5rem;
-  opacity: 0;  
+  opacity: 0;
   min-height: 7rem;
-
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px
 }
 
 .h3 {
@@ -130,9 +132,10 @@
   margin: 0px;
 }
 
-.buySection {
+.description {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  font-size: 1rem;
   align-items: center;
   justify-items: center;
   margin: 0px;
@@ -146,7 +149,7 @@
 .button {
   display: inline-block;
   width: 100%;
-  height: 100%;
+ min-height: 70%;
   /* padding: 0.45rem 1.25rem; */
   margin-bottom: 1.563rem;
   margin-top: 0.5rem;
@@ -163,6 +166,7 @@
   overflow: hidden;
   margin: 0px;
 }
+
 .button:hover {
   cursor: pointer;
   animation-name: toGray;
@@ -175,6 +179,7 @@
     background-color: #132b37;
     color: #bd782d;
   }
+
   100% {
     background-color: #0f0802;
     color: #bd782d;
@@ -213,6 +218,7 @@ input.counter::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 input.counter[type="number"] {
   -moz-appearance: textfield;
 }
@@ -226,12 +232,14 @@ input.counter[type="number"] {
   margin: 0px;
   padding: 0px;
 }
+
 .beerDecrement {
   /* border-left: 1px solid #000; */
   border-top-right-radius: 5px;
   /* border-top: 1px solid black;
   border-right: 1px solid black; */
 }
+
 .beerIncrement {
   /* border-left: 1px solid #000; */
   border-top-left-radius: 5px;
@@ -242,6 +250,7 @@ input.counter[type="number"] {
 .beerIncrement:hover {
   background-color: #bd782d;
 }
+
 .beerDecrement:hover {
   background-color: #bd782d;
 }
