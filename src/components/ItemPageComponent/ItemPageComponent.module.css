@@ -10,17 +10,20 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 40% 60%;
+
   align-items: center;
-  margin-right: 10rem;
-  justify-items: flex-end;
+  margin: 0px;
 }
 
 .img {
   border-radius: 3rem;
-  margin: 6rem;
+  /* margin: 6rem; */
   max-width: 35rem;
   max-height: 22.5rem;
+  justify-self:center;
+  margin: 2rem;
 }
 
 .h2 {
@@ -28,9 +31,9 @@
 }
 
 .content {
-  margin: 6rem;
+  margin:6rem 2rem;
+  margin-right: 4rem;
   background-color: #efeee9;
-
   border-radius: 3rem;
   padding: 2rem;
   box-shadow: 0px 0px 10px black;

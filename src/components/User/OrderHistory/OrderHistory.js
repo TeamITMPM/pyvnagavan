@@ -183,5 +183,8 @@ export default function OrderHistory() {
           })}
       </div>
     );
+  } else {
+    return (<div className={styles.table} style={{marginBottom:"19rem"}}> Історія замовлень відсутня</div>
+    )
   }
 }
