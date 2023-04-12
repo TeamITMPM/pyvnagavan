@@ -1,9 +1,10 @@
 import {
   ABOUTUS_PAGE_ROUTE,
   ADMIN_PAGE_ROUTE,
+  ADRESS_PAGE_ROUTE,
   BASKET_PAGE_ROUTE,
+  DELIVERY_PAYMENT_INFO_ROUTE,
   ITEM_ROUTE,
-  LOCATIONS_PAGE_ROUTE,
   LOGIN_PAGE_ROUTE,
   MAP_PAGE_ROUTE,
   PROMO_PAGE_ROUTE,
@@ -14,19 +15,20 @@ import {
   USER_PAGE_ROUTE,
 } from "./utils/consts";
 
-import AboutUs from "./pages/AboutUs";
+import AboutUsPage from "./pages/AboutUsPage";
 import AdminPage from "./pages/AdminPage";
+import AdressPage from "./pages/AdressPage";
 import BasketPage from "./pages/BasketPage";
+import DeliveryPaymentPage from "./pages/DeliveryPaymentPage";
 import ItemPage from "./pages/ItemPage";
-import LocationsPage from "./pages/LocationsPage";
 import LoginPage from "./pages/LoginPage";
 import MapPage from "./pages/MapPage";
 import PromoPage from "./pages/PromoPage";
 import ReceiptPage from "./pages/ReceiptPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import ShopPage from "./pages/ShopPage";
-import UserPage from "./pages/UserPage";
 import UserAgreementPage from "./pages/UserAgreementPage";
+import UserPage from "./pages/UserPage";
 
 export const authRoutes = [
   {
@@ -72,17 +74,23 @@ export const publicRoutes = [
   },
   {
     path: ABOUTUS_PAGE_ROUTE,
-    Component: AboutUs,
+    Component: AboutUsPage,
   },
-  {
-    path: LOCATIONS_PAGE_ROUTE,
-    Component: LocationsPage,
-  },
+
   {
     path: PROMO_PAGE_ROUTE,
     Component: PromoPage,
-  }, {
+  },
+  {
     path: USER_AGREEMENT_ROUTE,
     Component: UserAgreementPage,
+  },
+  {
+    path: DELIVERY_PAYMENT_INFO_ROUTE,
+    Component: DeliveryPaymentPage,
+  },
+  {
+    path: ADRESS_PAGE_ROUTE,
+    Component: AdressPage,
   },
 ];

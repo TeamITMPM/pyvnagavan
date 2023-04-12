@@ -1,10 +1,8 @@
 import {
+  NAV_CATEGORY_SUCCESS,
+  NAV_LIST_FAIL,
   NAV_LIST_REQUEST,
   NAV_LIST_SUCCESS,
-  NAV_LIST_FAIL,
-  NAV_CATEGORY_REQUEST,
-  NAV_CATEGORY_SUCCESS,
-  NAV_CATEGORY_FAIL,
 } from "../constants/navConstants";
 
 export const navListReducer = (state = { types: [], category: {} }, action) => {

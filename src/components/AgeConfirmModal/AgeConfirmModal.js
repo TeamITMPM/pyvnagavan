@@ -8,7 +8,7 @@ export default function AgeConfirmModal() {
     setAgeConfirmed(true);
   }
   return (
-    <Modal isOpen={!ageConfirmed} className={styles.modal}>
+    <Modal isOpen={!ageConfirmed} className={styles.modal} ariaHideApp={false}>
       <div className={styles.content}>
         <p>Чи виповнилося вам 18 років?</p>
         <button onClick={confirmAge}>Так</button>

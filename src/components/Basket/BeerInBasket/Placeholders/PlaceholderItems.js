@@ -8,7 +8,7 @@ export default function PlaceholderItems() {
   const itemPlaceholder = [];
   for (let i = 0; i < 6; i++) {
     itemPlaceholder.push(
-      <div className={styles.item}>
+      <div className={styles.item} key={`beerInBasketPlaceholder${i}`}>
         <Placeholder as="p" animation="glow">
           <Placeholder xs={12} />
         </Placeholder>{" "}

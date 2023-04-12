@@ -1,22 +1,22 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faFacebook,
   faInstagram,
   faTelegram,
-  faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
 
+import {
+  ABOUTUS_PAGE_ROUTE,
+  ADRESS_PAGE_ROUTE,
+  DELIVERY_PAYMENT_INFO_ROUTE,
+  MAP_PAGE_ROUTE,
+  PROMO_PAGE_ROUTE,
+  SHOP_PAGE_ROUTE,
+} from "../../utils/consts";
 import StickyFooter from "../StickyFooter";
 import styles from "./Footer.module.css";
-import {
-  SHOP_PAGE_ROUTE,
-  PROMO_PAGE_ROUTE,
-  ABOUTUS_PAGE_ROUTE,
-  MAP_PAGE_ROUTE,
-  LOCATIONS_PAGE_ROUTE,
-} from "../../utils/consts";
 
 export default function Footer() {
   const telegramIcon = <FontAwesomeIcon icon={faTelegram} />,
@@ -51,7 +51,7 @@ export default function Footer() {
                   <a href="email">info@pyvnagavan.com</a>
                 </li>
                 <li>
-                  <a href="">Адреса</a>
+                  <NavLink to={ADRESS_PAGE_ROUTE}>Адреса</NavLink>
                 </li>
                 <li>
                   <a href="">Залишити відгук</a>
@@ -74,8 +74,11 @@ export default function Footer() {
                 <li>
                   <NavLink to={MAP_PAGE_ROUTE}>Карта доставки</NavLink>
                 </li>
+
                 <li>
-                  <NavLink to={LOCATIONS_PAGE_ROUTE}>Ресторани</NavLink>
+                  <NavLink to={DELIVERY_PAYMENT_INFO_ROUTE}>
+                    Доставка та оплата
+                  </NavLink>
                 </li>
               </ul>
             </div>

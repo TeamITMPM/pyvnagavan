@@ -42,7 +42,7 @@ export default function BeerInBasket() {
               const { id, quantity } = dataValues;
               const total = price * quantity;
               return (
-                <div key={id} className={styles.item}>
+                <div key={`beerInBasket${id}`} className={styles.item}>
                   <h3 className={styles.header}>{nameUA}</h3>
                   <img
                     src={

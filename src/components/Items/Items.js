@@ -8,8 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { addToBasket } from "../../actions/basketActions";
 import { listItems } from "../../actions/itemActions";
 import styles from "./Items.module.css";
-import PlaceholderItems from "./Placeholders/PlaceholderItems";
 import PlaceholderDesc from "./Placeholders/PlaceholderDesc";
+import PlaceholderItems from "./Placeholders/PlaceholderItems";
 
 export default function Items() {
   const dispatch = useDispatch();
@@ -108,7 +108,7 @@ export default function Items() {
       <div className={styles.products}>
         <div className={styles.items}>
           {products &&
-            products.map((product) => {
+            products.map((product, idx) => {
               const { nameUA, id, price, oldPrice, rating, img, typeId, info } =
                 product;
               if (
@@ -127,6 +127,7 @@ export default function Items() {
                     alt={nameUA}
                   />
                 );
+                const imageLink = `../../../../back_pyvnagavan/static/${img}`;
 
                 let beerAmount;
                 if (setBeer) {
@@ -134,16 +135,36 @@ export default function Items() {
                 }
 
                 return (
-                  <div className={styles.card1}>
+                  <div
+                    className={styles.card1}
+                    // style={{backgroundImage: `../../../../back_pyvnagavan/static/${img}`}}
+                    key = {`item${id}`}
+                  >
                     <h3 className={styles.h3}>{nameUA}</h3>
                     {/* <NavLink to={`/item/${id}`}> */}
-                    <div className={styles.item} key={nameUA}>
-                      <NavLink
-                        to={`/item/${id}`}
-                        style={{ textDecoration: "none", color: "inherit" }}
-                      >
-                        {image}
-                      </NavLink>
+                    <div className={styles.item} key={`item${idx}`}>
+                      <NavLink to={`/item/${id}`}>{image}</NavLink>
+                      <div className={styles.description}>
+                        {info &&
+                          info.map(({ titleUA, descriptionUA }, idx) => {
+                            if (
+                              titleUA === "Міцність" ||
+                              titleUA === "Щільність" ||
+                              titleUA === "Походження" ||
+                              titleUA === "Гіркота" ||
+                              titleUA === "Колір"
+                            ) {
+                              return (
+                                <div key = {`description${idx}`}>
+                                  <p className={styles.p}>
+                                    <b>{titleUA}:</b> <i>{descriptionUA}</i>
+                                  </p>
+                                </div>
+                              );
+                            }
+                          })}
+                        {info.length === 0 && <PlaceholderDesc />}
+                      </div>
                       <div className={styles.buySection}>
                         <div className={styles.prices}>
                           <strike>{oldPrice * beerAmount} грн</strike>
@@ -192,28 +213,6 @@ export default function Items() {
                         >
                           {userInfo.isAuth ? basketIcon : "Потрібно увійти"}
                         </button>
-                      </div>
-                      <div className={styles.description}>
-                        {info &&
-                          info.map(({ titleUA, descriptionUA }) => {
-                            if (
-                              titleUA === "Міцність" ||
-                              titleUA === "Щільність" ||
-                              titleUA === "Походження" ||
-                              titleUA === "Гіркота" ||
-                              titleUA === "Колір"
-                            ) {
-                              return (
-                                <div>
-                                  <p className={styles.p}>
-                                    <b>{titleUA}:</b> <i>{descriptionUA}</i>
-                                  </p>
-                                </div>
-                              );
-                            }
-                          })}
-
-                        {info.length === 0 && <PlaceholderDesc />}
                       </div>
                     </div>
                     {/* </NavLink> */}
