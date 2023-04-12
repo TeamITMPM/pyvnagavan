@@ -1,0 +1,10 @@
+.container {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.ul {
+  border: 1px solid #132b37;
+  border-radius: 6px;
+  list-style-type: none;
+}
