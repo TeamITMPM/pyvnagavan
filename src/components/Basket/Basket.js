@@ -97,6 +97,15 @@ export default function Basket() {
         <div className={styles.basket}>
           <p className={styles.text}>Кошик</p>
           <BeerInBasket />
+          {/* <lp-provider lp-data="your_data" lp-signature="your_signature">
+            <lp-qr></lp-qr>
+          </lp-provider>
+          <lp-provider lp-data="your_data" lp-signature="your_signature">
+            <lp-apple-pay mode="black"></lp-apple-pay>
+          </lp-provider>
+          <lp-provider lp-data="your_data" lp-signature="your_signature">
+            <lp-privat24-pay mode="black"></lp-privat24-pay>
+          </lp-provider> */}
         </div>
       </div>
     </>
