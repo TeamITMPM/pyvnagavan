@@ -16,6 +16,7 @@ import {
   ABOUTUS_PAGE_ROUTE,
   MAP_PAGE_ROUTE,
   LOCATIONS_PAGE_ROUTE,
+  DELIVERY_PAYMENT_INFO_ROUTE,
 } from "../../utils/consts";
 
 export default function Footer() {
@@ -76,6 +77,9 @@ export default function Footer() {
                 </li>
                 <li>
                   <NavLink to={LOCATIONS_PAGE_ROUTE}>Ресторани</NavLink>
+                </li>
+                <li>
+                  <NavLink to={DELIVERY_PAYMENT_INFO_ROUTE}>Доставка та оплата</NavLink>
                 </li>
               </ul>
             </div>

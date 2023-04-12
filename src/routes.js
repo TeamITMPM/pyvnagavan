@@ -12,6 +12,7 @@ import {
   SHOP_PAGE_ROUTE,
   USER_AGREEMENT_ROUTE,
   USER_PAGE_ROUTE,
+  DELIVERY_PAYMENT_INFO_ROUTE,
 } from "./utils/consts";
 
 import AboutUs from "./pages/AboutUs";
@@ -27,6 +28,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import ShopPage from "./pages/ShopPage";
 import UserPage from "./pages/UserPage";
 import UserAgreementPage from "./pages/UserAgreementPage";
+import DeliveryPayment from "./pages/DeliveryPayment"
 
 export const authRoutes = [
   {
@@ -81,8 +83,13 @@ export const publicRoutes = [
   {
     path: PROMO_PAGE_ROUTE,
     Component: PromoPage,
-  }, {
+  }, 
+  {
     path: USER_AGREEMENT_ROUTE,
     Component: UserAgreementPage,
-  },
+  }, 
+  {
+    path: DELIVERY_PAYMENT_INFO_ROUTE,
+    Component: DeliveryPayment,
+  }
 ];
