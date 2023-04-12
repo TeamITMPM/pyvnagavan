@@ -61,7 +61,7 @@ export default function Nav() {
   const navButtonPlaceholder = [];
   for (let i = 0; i < 8; i++) {
     navButtonPlaceholder.push(
-      <Placeholder as="p" animation="glow" className={styles.placeholder}>
+      <Placeholder as="p" animation="glow" className={styles.placeholder} key = {`navPlaceholder${i}`}>
         <Placeholder xs={12} />
       </Placeholder>
     );
@@ -80,7 +80,7 @@ export default function Nav() {
                   navClick(id);
                 }}
                 id={id}
-                key={nameUA}
+                key={`nav${id}`}
                 className={styles.categories}
               >
                 {nameUA}

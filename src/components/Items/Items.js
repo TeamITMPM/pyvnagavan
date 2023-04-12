@@ -8,8 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { addToBasket } from "../../actions/basketActions";
 import { listItems } from "../../actions/itemActions";
 import styles from "./Items.module.css";
-import PlaceholderItems from "./Placeholders/PlaceholderItems";
 import PlaceholderDesc from "./Placeholders/PlaceholderDesc";
+import PlaceholderItems from "./Placeholders/PlaceholderItems";
 
 export default function Items() {
   const dispatch = useDispatch();
@@ -127,27 +127,24 @@ export default function Items() {
                     alt={nameUA}
                   />
                 );
-                const imageLink = `../../../../back_pyvnagavan/static/${img}`
+                const imageLink = `../../../../back_pyvnagavan/static/${img}`;
 
-                let beerAmount; 
+                let beerAmount;
                 if (setBeer) {
                   beerAmount = setBeer[id];
                 }
 
                 return (
-                  <div className={styles.card1} 
-                  // style={{backgroundImage: `../../../../back_pyvnagavan/static/${img}`}}
+                  <div
+                    className={styles.card1}
+                    // style={{backgroundImage: `../../../../back_pyvnagavan/static/${img}`}}
+                    key = {`item${id}`}
                   >
                     <h3 className={styles.h3}>{nameUA}</h3>
                     {/* <NavLink to={`/item/${id}`}> */}
                     <div className={styles.item} key={nameUA}>
-                      <NavLink
-                        to={`/item/${id}`}
-                      >
-                        {image}
-                      </NavLink>
+                      <NavLink to={`/item/${id}`}>{image}</NavLink>
                       <div className={styles.description}>
-
                         {info &&
                           info.map(({ titleUA, descriptionUA }) => {
                             if (
@@ -158,7 +155,7 @@ export default function Items() {
                               titleUA === "Колір"
                             ) {
                               return (
-                                <div>
+                                <div key = {`description${titleUA}`}>
                                   <p className={styles.p}>
                                     <b>{titleUA}:</b> <i>{descriptionUA}</i>
                                   </p>
@@ -166,8 +163,7 @@ export default function Items() {
                               );
                             }
                           })}
-                                                  {info.length === 0 && <PlaceholderDesc />}
-
+                        {info.length === 0 && <PlaceholderDesc />}
                       </div>
                       <div className={styles.buySection}>
                         <div className={styles.prices}>
