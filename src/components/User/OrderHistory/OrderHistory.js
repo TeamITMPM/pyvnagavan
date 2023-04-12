@@ -22,7 +22,7 @@ export default function OrderHistory() {
         {itemInOrder
           .slice(0)
           .reverse()
-          .map(({ items, orderInfo }) => {
+          .map(({ items, orderInfo }, idx) => {
             const {
               apartment,
               asap,
@@ -50,7 +50,7 @@ export default function OrderHistory() {
             } = orderInfo;
 
             return (
-              <div className={styles.table}>
+              <div className={styles.table} key={`order${idx}`}>
                 <Table striped bordered hover responsive>
                   <thead>
                     <tr>
@@ -148,11 +148,11 @@ export default function OrderHistory() {
                       </td>
                       <td>
                         <ul>
-                          {items.map(({ product, quantity }) => {
+                          {items.map(({ product, quantity }, idx) => {
                             const { price, nameUA } = product;
 
                             return (
-                              <li>
+                              <li key={`orderProduct${idx}`}>
                                 {" "}
                                 {nameUA} <i>{quantity}л</i>{" "}
                               </li>

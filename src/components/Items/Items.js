@@ -108,7 +108,7 @@ export default function Items() {
       <div className={styles.products}>
         <div className={styles.items}>
           {products &&
-            products.map((product) => {
+            products.map((product, idx) => {
               const { nameUA, id, price, oldPrice, rating, img, typeId, info } =
                 product;
               if (
@@ -142,11 +142,11 @@ export default function Items() {
                   >
                     <h3 className={styles.h3}>{nameUA}</h3>
                     {/* <NavLink to={`/item/${id}`}> */}
-                    <div className={styles.item} key={nameUA}>
+                    <div className={styles.item} key={`item${idx}`}>
                       <NavLink to={`/item/${id}`}>{image}</NavLink>
                       <div className={styles.description}>
                         {info &&
-                          info.map(({ titleUA, descriptionUA }) => {
+                          info.map(({ titleUA, descriptionUA }, idx) => {
                             if (
                               titleUA === "Міцність" ||
                               titleUA === "Щільність" ||
@@ -155,7 +155,7 @@ export default function Items() {
                               titleUA === "Колір"
                             ) {
                               return (
-                                <div key = {`description${titleUA}`}>
+                                <div key = {`description${idx}`}>
                                   <p className={styles.p}>
                                     <b>{titleUA}:</b> <i>{descriptionUA}</i>
                                   </p>
