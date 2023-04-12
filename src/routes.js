@@ -15,11 +15,11 @@ import {
   USER_PAGE_ROUTE,
 } from "./utils/consts";
 
-import AboutUs from "./pages/AboutUs";
+import AboutUsPage from "./pages/AboutUsPage";
 import AdminPage from "./pages/AdminPage";
 import AdressPage from "./pages/AdressPage";
 import BasketPage from "./pages/BasketPage";
-import DeliveryPayment from "./pages/DeliveryPayment";
+import DeliveryPaymentPage from "./pages/DeliveryPaymentPage";
 import ItemPage from "./pages/ItemPage";
 import LoginPage from "./pages/LoginPage";
 import MapPage from "./pages/MapPage";
@@ -74,7 +74,7 @@ export const publicRoutes = [
   },
   {
     path: ABOUTUS_PAGE_ROUTE,
-    Component: AboutUs,
+    Component: AboutUsPage,
   },
 
   {
@@ -87,7 +87,7 @@ export const publicRoutes = [
   },
   {
     path: DELIVERY_PAYMENT_INFO_ROUTE,
-    Component: DeliveryPayment,
+    Component: DeliveryPaymentPage,
   },
   {
     path: ADRESS_PAGE_ROUTE,

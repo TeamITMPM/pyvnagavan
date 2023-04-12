@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import AboutUsComponent from "../components/AboutUs";
 import Footer from "../components/Footer";
 
-export default function AboutUs() {
+const AboutUsPage = () => {
   return (
     <>
       <Header />
@@ -13,3 +13,4 @@ export default function AboutUs() {
     </>
   );
 }
+export default AboutUsPage;

@@ -1,8 +1,8 @@
-import styles from "./DeliveryPaymentComponent.module.css";
+import styles from "./DeliveryPayment.module.css";
 import { faShippingFast, faBagShopping} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function DeliveryPaymentComponent() {
+export default function DeliveryPayment() {
 
     const deliveryIcon = (
         <FontAwesomeIcon icon={faShippingFast} color="black" size="xl" />

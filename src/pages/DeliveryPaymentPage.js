@@ -1,15 +1,15 @@
 import React from 'react'
 import Header from "../components/Header"
-import DeliveryPaymentComponent from '../components/DeliveryPaymentComponent'
+import DeliveryPayment from '../components/DeliveryPayment'
 import Footer from "../components/Footer"
 
-const DeliveryPayment = () => {
+const  DeliveryPaymentPage = () => {
   return (
     <div>
     <Header />
-    <DeliveryPaymentComponent />
+    <DeliveryPayment />
     <Footer />
     </div>
   )
 }
-export default DeliveryPayment
+export default DeliveryPaymentPage
