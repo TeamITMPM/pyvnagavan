@@ -1,11 +1,12 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { itemListReducer, itemPageState } from "./reducers/itemReducers";
-import { userLoginReducer } from "./reducers/userReducers";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { navListReducer } from "./reducers/navReducers";
+import thunk from "redux-thunk";
+import { adressReducer } from "./reducers/adressReducers";
 import { basketListMyReducer } from "./reducers/basketReducers";
+import { itemListReducer, itemPageState } from "./reducers/itemReducers";
+import { navListReducer } from "./reducers/navReducers";
 import { currentOrderReducer, orderReducer } from "./reducers/orderReducers";
+import { userLoginReducer } from "./reducers/userReducers";
 
 let rootReducer = combineReducers({
   itemState: itemListReducer,
@@ -15,6 +16,7 @@ let rootReducer = combineReducers({
   basketState: basketListMyReducer,
   currentOrderState: currentOrderReducer,
   orderState: orderReducer,
+  adressState: adressReducer,
 });
 
 const initialState = {
@@ -25,6 +27,7 @@ const initialState = {
   basketState: {},
   currentOrderState: {},
   orderState: {},
+  adressState: {},
 };
 
 const middleware = [thunk];

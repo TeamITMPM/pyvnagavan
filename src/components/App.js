@@ -46,7 +46,6 @@ export default function App() {
               <Route key={path} path={path} component={Component} exact />
             ))}
           <Route component={NotFound} />
-          //123
         </Switch>
       </Router>
     </>
