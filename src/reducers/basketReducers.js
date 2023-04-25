@@ -1,26 +1,13 @@
 import {
-  BASKET_CREATE_REQUEST,
-  BASKET_CREATE_SUCCESS,
-  BASKET_CREATE_FAIL,
+  BASKET_DELETE_FAIL,
   BASKET_DELETE_REQUEST,
   BASKET_DELETE_SUCCESS,
-  BASKET_DELETE_FAIL,
-  BASKET_DETAILS_REQUEST,
-  BASKET_DETAILS_SUCCESS,
-  BASKET_DETAILS_FAIL,
-  BASKET_PAY_REQUEST,
-  BASKET_PAY_SUCCESS,
-  BASKET_PAY_FAIL,
-  BASKET_LIST_MY_REQUEST,
   BASKET_LIST_MY_FAIL,
+  BASKET_LIST_MY_REQUEST,
   BASKET_LIST_MY_SUCCESS,
-  BASKET_LIST_MY_RESET,
-  BASKET_LIST_ALL_REQUEST,
-  BASKET_LIST_ALL_SUCCESS,
-  BASKET_LIST_ALL_FAIL,
-  BASKET_DELIVER_REQUEST,
-  BASKET_DELIVER_SUCCESS,
-  BASKET_DELIVER_FAIL,
+  UNKNOWN_USER_BASKET_CREATE_FAIL,
+  UNKNOWN_USER_BASKET_CREATE_REQUEST,
+  UNKNOWN_USER_BASKET_CREATE_SUCCESS,
 } from "../constants/basketConstants";
 
 export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
@@ -36,6 +23,22 @@ export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
       };
 
     case BASKET_LIST_MY_FAIL:
+      return {
+        loading: false,
+        error: action.paylod,
+      };
+    case UNKNOWN_USER_BASKET_CREATE_REQUEST:
+      return {
+        loading: true,
+      };
+    case UNKNOWN_USER_BASKET_CREATE_SUCCESS:
+      return {
+        loading: false,
+        // itemInBasket: [...state.itemInBasket, action.payload],
+        itemInBasket: action.payload,
+      };
+
+    case UNKNOWN_USER_BASKET_CREATE_FAIL:
       return {
         loading: false,
         error: action.paylod,
