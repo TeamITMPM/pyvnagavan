@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  addToBasket,
-  addToBasketUnknownUser,
-} from "../../actions/basketActions";
+import { addToBasket } from "../../actions/basketActions";
 import { listItems } from "../../actions/itemActions";
 import styles from "./Items.module.css";
 import PlaceholderDesc from "./Placeholders/PlaceholderDesc";
@@ -47,7 +44,7 @@ export default function Items() {
   useEffect(() => {
     if (products) {
       let data = {};
-      products.forEach(({ id }) => {
+      products.map(({ id }) => {
         data[id] = "1";
       });
       onSetBeer(data);
@@ -55,25 +52,20 @@ export default function Items() {
   }, [products]);
 
   const onAddToBasket = (id) => {
-    // if (!userInfo.isAuth) {
-    //   toast.error(
-    //     "Помилка! Для того щоб користуватися кошиком потрібно увійти",
-    //     {
-    //       position: "bottom-right",
-    //       autoClose: 4000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true,
-    //       progress: undefined,
-    //       theme: "dark",
-    //     }
-    //   );
-    //   return;
-    // }
     if (!userInfo.isAuth) {
-      dispatch(addToBasketUnknownUser(id, setBeer));
-
+      toast.error(
+        "Помилка! Для того щоб користуватися кошиком потрібно увійти",
+        {
+          position: "bottom-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        }
+      );
       return;
     }
 
@@ -146,7 +138,7 @@ export default function Items() {
                   <div
                     className={styles.card1}
                     // style={{backgroundImage: `../../../../back_pyvnagavan/static/${img}`}}
-                    key={`item${id}`}
+                    key = {`item${id}`}
                   >
                     <h3 className={styles.h3}>{nameUA}</h3>
                     {/* <NavLink to={`/item/${id}`}> */}
@@ -163,7 +155,7 @@ export default function Items() {
                               titleUA === "Колір"
                             ) {
                               return (
-                                <div key={`description${idx}`}>
+                                <div key = {`description${idx}`}>
                                   <p className={styles.p}>
                                     <b>{titleUA}:</b> <i>{descriptionUA}</i>
                                   </p>
@@ -219,8 +211,7 @@ export default function Items() {
                           type="button"
                           className={styles.button}
                         >
-                          {/* {userInfo.isAuth ? basketIcon : "Потрібно увійти"} */}
-                          {basketIcon}
+                          {userInfo.isAuth ? basketIcon : "Потрібно увійти"}
                         </button>
                       </div>
                     </div>

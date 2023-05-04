@@ -1,12 +1,13 @@
-import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect } from "react";
-import { Placeholder } from "react-bootstrap";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import { setCategory, typeList } from "../../actions/navActions";
+import { Placeholder } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Nav.module.css";
+import { typeList } from "../../actions/navActions";
+import { setCategory } from "../../actions/navActions";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -60,12 +61,7 @@ export default function Nav() {
   const navButtonPlaceholder = [];
   for (let i = 0; i < 8; i++) {
     navButtonPlaceholder.push(
-      <Placeholder
-        as="p"
-        animation="glow"
-        className={styles.placeholder}
-        key={`navPlaceholder${i}`}
-      >
+      <Placeholder as="p" animation="glow" className={styles.placeholder} key = {`navPlaceholder${i}`}>
         <Placeholder xs={12} />
       </Placeholder>
     );
@@ -92,14 +88,13 @@ export default function Nav() {
             );
           })}
 
-        {/* {userInfo.token ? ( */}
-        <Link to="/basket" style={{ textDecoration: "none" }}>
-          <button key="basketButtonKeyTrue" className={styles.basket}>
-            Кошик {basketIcon}
-          </button>
-        </Link>
-
-        {/*  ) : (
+        {userInfo.token ? (
+          <Link to="/basket" style={{ textDecoration: "none" }}>
+            <button key="basketButtonKeyTrue" className={styles.basket}>
+              Кошик {basketIcon}
+            </button>
+          </Link>
+        ) : (
           <button
             key="basketButtonKeyFalse"
             className={styles.basket}
@@ -107,7 +102,7 @@ export default function Nav() {
           >
             Кошик {basketIcon}
           </button>
-        )}*/}
+        )}
       </div>{" "}
       {toastContainer}
     </>

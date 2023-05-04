@@ -5,9 +5,6 @@ import {
   BASKET_LIST_MY_FAIL,
   BASKET_LIST_MY_REQUEST,
   BASKET_LIST_MY_SUCCESS,
-  UNKNOWN_USER_BASKET_CREATE_FAIL,
-  UNKNOWN_USER_BASKET_CREATE_REQUEST,
-  UNKNOWN_USER_BASKET_CREATE_SUCCESS,
 } from "../constants/basketConstants";
 
 export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
@@ -23,22 +20,6 @@ export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
       };
 
     case BASKET_LIST_MY_FAIL:
-      return {
-        loading: false,
-        error: action.paylod,
-      };
-    case UNKNOWN_USER_BASKET_CREATE_REQUEST:
-      return {
-        loading: true,
-      };
-    case UNKNOWN_USER_BASKET_CREATE_SUCCESS:
-      return {
-        loading: false,
-        // itemInBasket: [...state.itemInBasket, action.payload],
-        itemInBasket: action.payload,
-      };
-
-    case UNKNOWN_USER_BASKET_CREATE_FAIL:
       return {
         loading: false,
         error: action.paylod,
