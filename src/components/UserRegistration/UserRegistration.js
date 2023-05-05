@@ -5,13 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 import { register } from "../../actions/userAction";
-import { SHOP_PAGE_ROUTE, USER_AGREEMENT_ROUTE, REGISTRATION_ROUTE,  LOGIN_PAGE_ROUTE} from "../../utils/consts";
+import {
+  LOGIN_PAGE_ROUTE,
+  REGISTRATION_ROUTE,
+  SHOP_PAGE_ROUTE,
+  USER_AGREEMENT_ROUTE,
+} from "../../utils/consts";
 
 import styles from "./UserRegistration.module.css";
 
 export default function UserRegistration() {
+  const userInfo = useSelector((state) => state.userInfo);
+  const { isAuth } = userInfo;
   useEffect(() => {
-    if (token) {
+    if (isAuth) {
       history.push(SHOP_PAGE_ROUTE);
     }
   });
@@ -179,7 +186,8 @@ export default function UserRegistration() {
               required
             />
           </div>
-          Реєструючись на сайті ви погоджуєтеся з умовами обробки персональних даних <Link to={USER_AGREEMENT_ROUTE} >Ознайомитися з умовами</Link>
+          Реєструючись на сайті ви погоджуєтеся з умовами обробки персональних
+          даних <Link to={USER_AGREEMENT_ROUTE}>Ознайомитися з умовами</Link>
         </div>
         <div>
           {/* <input className={styles.buttonFinish} type="submit" /> */}
@@ -187,7 +195,7 @@ export default function UserRegistration() {
             {" "}
             Відправити
           </button>
-          
+
           {error && <h1>{error.payload.response.data.message}</h1>}
         </div>
       </form>

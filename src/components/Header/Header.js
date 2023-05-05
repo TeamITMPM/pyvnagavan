@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { logout } from "../../actions/userAction";
+import { loginGuest, logout } from "../../actions/userAction";
 
 import styles from "./Header.module.css";
 
@@ -81,6 +81,7 @@ export default function Header() {
 
   const dispatchLogout = () => {
     dispatch(logout());
+    dispatch(loginGuest());
   };
 
   return (

@@ -1,15 +1,16 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../../actions/userAction";
-import { connect } from "react-redux";
-import styles from "./UserLogin.module.css";
 import { SHOP_PAGE_ROUTE } from "../../utils/consts";
+import styles from "./UserLogin.module.css";
 
 function UserLogin() {
+  const userInfo = useSelector((state) => state.userInfo);
+  const { isAuth } = userInfo;
   useEffect(() => {
-    if (token) {
+    if (isAuth) {
       history.push(SHOP_PAGE_ROUTE);
     }
   });
