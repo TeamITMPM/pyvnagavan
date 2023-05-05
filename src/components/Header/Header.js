@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { Placeholder } from "react-bootstrap";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPhone,
-  faSun,
+  faHouse,
   faMoon,
   faRightFromBracket,
-  faHouse,
+  faSun,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { logout } from "../../actions/userAction";
 
@@ -124,12 +123,14 @@ export default function Header() {
       <div className={styles.headerRight}>
         {/* Вход и ЛК */}
         {token && <span className={styles.email}>{token.payload.email}</span>}
-        <Link to={token ? `/user` : "/login"}>
+        <Link to={token && token.payload.email !== "" ? `/user` : "/login"}>
           <button type="button" className={`${styles.button} ${styles.space}`}>
-            {token ? "Кабінет" : "Вхід | Реєстрація"}
+            {token && token.payload.email !== ""
+              ? "Кабінет"
+              : "Вхід | Реєстрація"}
           </button>
         </Link>
-        {token && (
+        {token && token.payload.email !== "" ? (
           <Link to="/">
             <button
               type="button"
@@ -141,6 +142,8 @@ export default function Header() {
               {exitIcon}
             </button>
           </Link>
+        ) : (
+          ""
         )}
         <div className={styles.space} />
       </div>

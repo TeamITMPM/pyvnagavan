@@ -52,22 +52,22 @@ export default function Items() {
   }, [products]);
 
   const onAddToBasket = (id) => {
-    if (!userInfo.isAuth) {
-      toast.error(
-        "Помилка! Для того щоб користуватися кошиком потрібно увійти",
-        {
-          position: "bottom-right",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        }
-      );
-      return;
-    }
+    // if (!userInfo.isAuth) {
+    //   toast.error(
+    //     "Помилка! Для того щоб користуватися кошиком потрібно увійти",
+    //     {
+    //       position: "bottom-right",
+    //       autoClose: 4000,
+    //       hideProgressBar: false,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       draggable: true,
+    //       progress: undefined,
+    //       theme: "dark",
+    //     }
+    //   );
+    //   return;
+    // }
 
     dispatch(addToBasket(id, setBeer));
     toast.success("Товар додано до кошику!", {
@@ -138,7 +138,7 @@ export default function Items() {
                   <div
                     className={styles.card1}
                     // style={{backgroundImage: `../../../../back_pyvnagavan/static/${img}`}}
-                    key = {`item${id}`}
+                    key={`item${id}`}
                   >
                     <h3 className={styles.h3}>{nameUA}</h3>
                     {/* <NavLink to={`/item/${id}`}> */}
@@ -155,7 +155,7 @@ export default function Items() {
                               titleUA === "Колір"
                             ) {
                               return (
-                                <div key = {`description${idx}`}>
+                                <div key={`description${idx}`}>
                                   <p className={styles.p}>
                                     <b>{titleUA}:</b> <i>{descriptionUA}</i>
                                   </p>
@@ -211,7 +211,7 @@ export default function Items() {
                           type="button"
                           className={styles.button}
                         >
-                          {userInfo.isAuth ? basketIcon : "Потрібно увійти"}
+                          {basketIcon}
                         </button>
                       </div>
                     </div>

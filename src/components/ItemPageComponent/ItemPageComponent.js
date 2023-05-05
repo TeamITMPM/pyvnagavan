@@ -25,22 +25,22 @@ export default function ItemPageComponent() {
   }, []);
 
   const onAddToBasket = (id) => {
-    if (!isAuth) {
-      toast.error(
-        "Помилка! Для того щоб користуватися кошиком потрібно увійти",
-        {
-          position: "bottom-right",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        }
-      );
-      return;
-    }
+    // if (!isAuth) {
+    //   toast.error(
+    //     "Помилка! Для того щоб користуватися кошиком потрібно увійти",
+    //     {
+    //       position: "bottom-right",
+    //       autoClose: 4000,
+    //       hideProgressBar: false,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       draggable: true,
+    //       progress: undefined,
+    //       theme: "dark",
+    //     }
+    //   );
+    //   return;
+    // }
 
     dispatch(addToBasket(id, setBeer));
     toast.success("Товар додано до кошику!", {
@@ -65,7 +65,6 @@ export default function ItemPageComponent() {
     const { id, value } = event.target.nextSibling;
     onSetBeer({ [id]: value });
   };
-
 
   const toastContainer = (
     <ToastContainer
@@ -97,7 +96,7 @@ export default function ItemPageComponent() {
 
     return (
       <>
-      {toastContainer}
+        {toastContainer}
         <NavLink to="/">
           <Button variant="success" className={styles.backButton}>
             Назад
@@ -192,7 +191,7 @@ export default function ItemPageComponent() {
                 type="button"
                 className={styles.button}
               >
-                {isAuth ? basketIcon : "Потрібно увійти"}
+                {basketIcon}
               </button>
             </div>
           </div>
