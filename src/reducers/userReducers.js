@@ -1,5 +1,8 @@
 import {
   USER_LOGIN_FAIL,
+  USER_LOGIN_GUEST_FAIL,
+  USER_LOGIN_GUEST_REQUEST,
+  USER_LOGIN_GUEST_SUCCESS,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
@@ -32,6 +35,13 @@ export const userLoginReducer = (state = {}, action) => {
     case USER_UPDATE_SUCCESS:
       return { loading: false, isAuth: true, token: action };
     case USER_UPDATE_FAIL:
+      return { loading: false, error: action };
+
+    case USER_LOGIN_GUEST_REQUEST:
+      return { loading: true };
+    case USER_LOGIN_GUEST_SUCCESS:
+      return { loading: false, isAuth: true, token: action };
+    case USER_LOGIN_GUEST_FAIL:
       return { loading: false, error: action };
 
     case USER_LOGOUT:

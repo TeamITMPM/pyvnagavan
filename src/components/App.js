@@ -11,6 +11,7 @@ import jwt_decode from "jwt-decode";
 
 import NotFound from "../pages/NotFoundPage";
 
+import { loginGuest } from "../actions/userAction";
 import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
 import { authRoutes, publicRoutes } from "../routes";
 
@@ -29,6 +30,11 @@ export default function App() {
         payload: data,
       });
     }
+  }, []);
+
+  useEffect(() => {
+    console.log("Сделать временную корзину");
+    dispatch(loginGuest());
   }, []);
 
   return (
