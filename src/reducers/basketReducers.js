@@ -24,6 +24,7 @@ import {
 } from "../constants/basketConstants";
 
 export const basketListMyReducer = (state = { itemInBasket: [] }, action) => {
+  console.log(state);
   switch (action.type) {
     case BASKET_LIST_MY_REQUEST:
       return {
