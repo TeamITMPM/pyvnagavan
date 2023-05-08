@@ -35,10 +35,6 @@ export const authRoutes = [
     path: ADMIN_PAGE_ROUTE,
     Component: AdminPage,
   },
-  {
-    path: BASKET_PAGE_ROUTE,
-    Component: BasketPage,
-  },
 
   {
     path: USER_PAGE_ROUTE,
@@ -47,6 +43,10 @@ export const authRoutes = [
 ];
 
 export const publicRoutes = [
+  {
+    path: BASKET_PAGE_ROUTE,
+    Component: BasketPage,
+  },
   {
     path: SHOP_PAGE_ROUTE,
     Component: ShopPage,

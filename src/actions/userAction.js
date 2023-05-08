@@ -1,33 +1,24 @@
 import jwt_decode from "jwt-decode";
 
+import axios from "axios";
+import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import {
+  USER_DETAILS_RESET,
+  USER_LIST_RESET,
   USER_LOGIN_FAIL,
+  USER_LOGIN_GUEST_FAIL,
+  USER_LOGIN_GUEST_REQUEST,
+  USER_LOGIN_GUEST_SUCCESS,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
-  USER_REGISTER_REQUEST,
   USER_REGISTER_FAIL,
+  USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
-  USER_DETAILS_REQUEST,
-  USER_DETAILS_SUCCESS,
-  USER_DETAILS_FAIL,
-  USER_DETAILS_RESET,
+  USER_UPDATE_FAIL,
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
-  USER_UPDATE_FAIL,
-  USER_LIST_SUCCESS,
-  USER_LIST_REQUEST,
-  USER_LIST_FAIL,
-  USER_LIST_RESET,
-  USER_DELETE_REQUEST,
-  USER_DELETE_SUCCESS,
-  USER_DELETE_FAIL,
-  USER_EDIT_REQUEST,
-  USER_EDIT_SUCCESS,
-  USER_EDIT_FAIL,
 } from "../constants/userConstants";
-import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
-import axios from "axios";
 
 export const login = (identifier, password) => async (dispatch) => {
   dispatch({ type: USER_LOGIN_REQUEST });
@@ -94,10 +85,9 @@ export const register = (userData) => async (dispatch) => {
 };
 
 export const updateUserInfo = (userData) => async (dispatch, getState) => {
-  // console.log(userData);
   const { token } = JSON.parse(localStorage.getItem("userInfo"));
   const { id: userId } = jwt_decode(token);
-  // console.log(userId);
+
   URL = process.env.REACT_APP_API_URL + `api/user/edit/${userId}`;
   try {
     dispatch({ type: USER_UPDATE_REQUEST });
@@ -119,6 +109,30 @@ export const updateUserInfo = (userData) => async (dispatch, getState) => {
     dispatch({
       type: USER_UPDATE_FAIL,
       payload: error,
+    });
+  }
+};
+
+export const loginGuest = () => async (dispatch) => {
+  dispatch({ type: USER_LOGIN_GUEST_REQUEST });
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    URL = process.env.REACT_APP_API_URL + `api/basket/createTempBasket`;
+    const { data } = await axios.get(URL, config);
+
+    dispatch({
+      type: USER_LOGIN_GUEST_SUCCESS,
+      payload: jwt_decode(data.token),
+    });
+    localStorage.setItem("userInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: USER_LOGIN_GUEST_FAIL,
+      payload: { ...error },
     });
   }
 };
