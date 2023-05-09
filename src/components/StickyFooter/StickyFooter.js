@@ -51,27 +51,27 @@ export default function StickyFooter() {
   };
   return (
     <footer className={styles.topfooter}>
-      <button
-        className={styles.buttonLeft}
-        onClick={() => {
-          scrollToFooter();
-        }}
-      >
-        {arrowDownIcon}
-      </button>
+        {/* <button
+          className={styles.buttonLeft}
+          onClick={() => {
+            scrollToFooter();
+          }}
+        >
+          {arrowDownIcon}
+        </button> */}
       <div>
         <a href="" className={styles.number}>
-          +380639356317
+          +380<span className={styles.space}/>63<span className={styles.space}/>935<span className={styles.space}/>6317
         </a>
       </div>
-      <button
+      {/* <button
         className={styles.buttonRight}
         onClick={() => {
           scrollToHeader();
         }}
       >
         {arrowUpIcon}
-      </button>
+      </button> */}
     </footer>
   );
 }

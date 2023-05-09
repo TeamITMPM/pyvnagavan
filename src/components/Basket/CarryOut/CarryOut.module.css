@@ -1,14 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 .block {
-  background-color: #efeee9
-  ;
-  box-shadow: 2px 2px 4px #000000;
+  background-color: #efeee93d  ;
+  /* box-shadow: 2px 2px 4px #000000; */
 
   border-radius: 15px;
   padding: 1vw;
   margin: 1vw;
   width: fit-content;
+  display:grid;
+  color:#ffffffd7;
+  font-weight: 700;
+
+
 }
 .container{
   display:flow-root;
